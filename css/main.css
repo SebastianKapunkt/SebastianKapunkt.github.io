@@ -112,7 +112,7 @@ a:focus {
 	border-bottom: 1px solid rgba(0,0,0,1);
 }
 
-@media(min-width:767px) {
+@media(min-width:760px) {
     .navbar {
 		opacity: 0;
         padding: 0px 0;
@@ -121,7 +121,7 @@ a:focus {
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
         -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
         transition: background .5s ease-in-out, padding .5s ease-in-out, opacity 1s ease-in-out;
-		right: 25%;
+		right: 5%;
 	}
 	.top-nav-collapse{
 		opacity: 1;
@@ -131,7 +131,7 @@ a:focus {
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
         -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
         transition: background .5s ease-in-out,padding .5s ease-in-out, opacity 1s ease-in-out;
-		right: 25%;
+		right: 5%;
 	}
 	img{
 		margin-top: 0px;
@@ -174,7 +174,7 @@ a:focus {
 	padding-bottom: 50px;
 	padding-top: 65px;
 	background: rgba(0,0,0,0.3);
-	
+
 }
 
 .intro-body{
@@ -264,7 +264,7 @@ img{
   margin: 0 0 0 0;
   padding: 0;
   list-style: none;
-  
+
 }
 .project-blog > li {
   position: relative;
