@@ -1,9 +1,11 @@
-/*! 
+/*!
  *   AdminLTE v1.0
  *   Author: AlmsaeedStudio.com
  *   License: Open source - MIT
  *  Please visit http://opensource.org/licenses/MIT for more information
 !*/
+
+
 /*
 
 /*====================================
@@ -34,8 +36,7 @@
   margin-right: 10px;
   margin-bottom: 15px;
 }
-.timeline > li:before,
-.timeline > li:after {
+.timeline > li:before, .timeline > li:after {
   display: table;
   content: " ";
 }
@@ -69,8 +70,7 @@
 .timeline > li > .timeline-item > .timeline-header > a {
   font-weight: 600;
 }
-.timeline > li > .timeline-item > .timeline-body,
-.timeline > li > .timeline-item > .timeline-footer {
+.timeline > li > .timeline-item > .timeline-body, .timeline > li > .timeline-item > .timeline-footer {
   padding: 10px;
 }
 .timeline > li.time-label > span {
@@ -83,9 +83,7 @@
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-.timeline > li > .fa,
-.timeline > li > .glyphicon,
-.timeline > li > .ion {
+.timeline > li > .fa, .timeline > li > .glyphicon, .timeline > li > .ion {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   width: 30px;
   height: 30px;
@@ -100,26 +98,11 @@
   top: 0;
 }
 
-
 /*====================================
   --- BACKGROUND COLORS OPTIONS ----
 ======================================*/
 
-.bg-red,
-.bg-yellow,
-.bg-aqua,
-.bg-blue,
-.bg-light-blue,
-.bg-green,
-.bg-navy,
-.bg-teal,
-.bg-olive,
-.bg-lime,
-.bg-orange,
-.bg-fuchsia,
-.bg-purple,
-.bg-maroon,
-.bg-black {
+.bg-red, .bg-yellow, .bg-aqua, .bg-blue, .bg-light-blue, .bg-green, .bg-navy, .bg-teal, .bg-olive, .bg-lime, .bg-orange, .bg-fuchsia, .bg-purple, .bg-maroon, .bg-black {
   color: #f9f9f9 !important;
 }
 .bg-gray {
