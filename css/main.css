@@ -110,6 +110,11 @@ a:hover, a:focus {
     margin-top: 0px;
   }
 }
+@Media(max-width:760px) {
+  .intro .container{
+    padding: 0px;
+  }
+}
 .welcome-text {
   margin-top: 0.5em;
   font-size: 6em;
@@ -145,7 +150,6 @@ a:hover, a:focus {
 .intro-body {
   text-align: left;
   font-size: 20px;
-  padding: 15px;
   max-width: 450px;
   border: thin solid rgba(255, 255, 255, 0.2);
   background-color: rgba(0, 0, 0, 0.2);
