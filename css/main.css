@@ -58,6 +58,7 @@ ul {
 #background_wrap {
     background: #000 url("../img/dog.jpg") no-repeat 50% 0;
     position: fixed;
+    background-size: cover;
     top: 0;
     left: 0;
     right: 0;
