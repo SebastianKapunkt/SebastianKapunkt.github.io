@@ -85,10 +85,6 @@ ul {
     text-transform: uppercase;
 }
 
-.intro{
-    height: 100%;
-}
-
 .intro {
     display: table;
     width: 100%;
@@ -289,8 +285,9 @@ ul {
     }
 
     .intro{
-        margin-top: 150px;
+        padding-top: 150px;
         margin-bottom: 150px;
+        height: 100%;
     }
 }
 
