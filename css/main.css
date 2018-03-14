@@ -61,12 +61,6 @@ ul {
     z-index: -1;
 }
 
-#about,
-#project,
-#contact {
-    min-height: 100%;
-}
-
 .about-blog {
     margin-top: 15px;
     padding: 30px 0 0 15px;
@@ -80,7 +74,6 @@ ul {
 }
 
 .content-section {
-    padding-top: 100px;
     width: 100%;
 }
 
@@ -95,9 +88,22 @@ ul {
 .intro {
     display: table;
     width: 100%;
-    height: 100%;
     text-align: center;
     color: #fff;
+}
+
+#contact > div, .intro > div {
+    max-width: 1300px;
+}
+
+#contact > .row{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contact > .row > div{
+    margin-left: 0;
+    width: 100%;
 }
 
 .intro .intro-body {
@@ -108,6 +114,7 @@ ul {
 .intro-header {
     padding-bottom: 50px;
     padding-top: 65px;
+    width: 100%;
     background: rgba(0, 0, 0, 0.3);
 }
 
@@ -191,7 +198,7 @@ ul {
 .navbar-custom .nav li a {
     color: #000;
     background-color: rgba(255, 255, 255, 0.8);
-    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    
 }
 
 .textCenter {
@@ -276,6 +283,11 @@ ul {
     img {
         margin-top: 0px;
     }
+
+    .intro{
+        margin-top: 150px;
+        margin-bottom: 150px;
+    }
 }
 
 @Media (max-width: 768px) {
@@ -284,7 +296,6 @@ ul {
         margin: 0;
         left: 0;
         right: 0;
-
     }
 
     .welcome-text {
@@ -296,6 +307,7 @@ ul {
     }
 
     .navbar{
-        width: 80%;
+        width: 100%;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     }
 }
