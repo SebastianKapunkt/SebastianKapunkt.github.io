@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sebastian Kindt</title>
+
+    <!-- Load React -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bookshelf.css"/>
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="navigation-wrapper">
+        <div class="navigation">
+            <div>
+                Sebastian Kindt
+            </div>
+            <div>
+                Projekte
+            </div>
+            <div>
+                Lesen
+            </div>
+            <div>
+                Kontakt
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="section">
+        <div id="bookshelf"></div>
+    </div>
+    <div class="welcome-section">
+        <div class="welcome-window">
+            <div class="my-name">
+                HI, ICH BIN SEBASTIAN
+            </div>
+            <div class="yellow-divider">
+
+            </div>
+            <div class="my-description">
+                OPTIMIERER SEIT 1994
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="project-section">
+            <h1 class="section-heading">Projekte</h1>
+            <div class="project-item">
+                <div class="project-heading">
+                    <div><h2>Kibifub</h2> - Farbspiel KI</div> <a href="">GitHub</a>
+                </div>
+                <div class="project-content kibifub">
+                    <img src="https://raw.githubusercontent.com/SebastianKapunkt/kibifub/master/assets/out2.gif" alt="KI in Aktion">
+                    <img src="https://raw.githubusercontent.com/SebastianKapunkt/kibifub/master/assets/out3.gif" alt="Was die Ki sieht">
+                </div>
+                <div class="project-tags">
+                   <div class="project-tag">Java</div>
+                   <div class="project-tag">Java</div> 
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-heading">
+                    <div><h2>Pymorr</h2> - Bilder sortieren</div><a href="">GitHub</a>
+                </div>
+                <div class="project-content kibifub">
+                    <img src="img/pymorr.png" alt="Was die Ki sieht">
+                    <div>
+                        <ul>
+                        <li>Bilder in einem Ordner sortieren nach:
+                            <ul>
+                                <li>Behalten</li>
+                                <li>Vielleicht</li>
+                                <li>Löschen</li>
+                            </ul>
+                        <li>Bilder mit anderen Vergleichen</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-content">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- Load our React component. -->
+<script src="js/utils.js"></script>
+<script src="js/current_books.js"></script>
+<script src="react-build/bookshelf.js"></script>
+</html>

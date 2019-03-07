@@ -1,0 +1,192 @@
+:root {
+    --main-text-color: white;
+    --black-transparent: #000000aa;
+    --yellow: #f2c94c;
+    --navigation-main: black;
+    --navigation-secondary: #f2c94c;
+    --content-max-width: 800px;
+    --book-cover: 120px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background-image: url("../img/dog.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    overscroll-behavior: none;
+    color: var(--main-text-color);
+}
+
+div {
+    z-index: 2;
+}
+
+h1, h2 {
+    color: var(--yellow);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    display: inline;
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+a {
+    font-weight: bold;
+    color: var(--yellow); 
+    border: thin solid transparent;
+    border-bottom: 3px solid var(--yellow);
+    text-decoration: unset;
+    padding: 2px 4px;
+}
+
+a::before {
+    content: "> ";
+}
+
+a:hover {
+    color: var(--yellow);
+    border-color: var(--yellow)
+}
+
+.navigation-wrapper {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    z-index: 3;
+    justify-content: center;
+}
+
+.navigation {
+    max-width: var(--content-max-width);
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+}
+
+.navigation div {
+    padding: 12px;
+    color: var(--navigation-secondary);
+    background-color: var(--navigation-main);
+}
+
+.navigation div:hover{
+    background-color: var(--navigation-secondary);
+    color: var(--navigation-main);
+    cursor: pointer;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    background-color: var(--black-transparent);
+}
+
+.section > div {
+    max-width: var(--content-max-width);
+    width: 100%;
+}
+
+.section-heading {
+    align-self: center;
+    padding: 32px 0;
+}
+
+.welcome-section {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-window {
+    box-sizing: border-box;
+    padding: 128px 64px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--black-transparent);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.my-name {
+    font-size: 1.5em;
+    letter-spacing: .2em;
+}
+
+.my-description {
+    font-size: 0.8em;
+    letter-spacing: .1em;
+}
+
+.yellow-divider {
+    content: " ";
+    background-color: var(--yellow);
+    height: 10px;
+    width: 100%;
+    margin: 12px;
+}
+
+.project-section {
+    display: flex;
+    flex-flow: column;
+}
+
+.project-item {
+    border-left: 10px solid var(--yellow);
+    margin: 12px 0;
+    padding: 24px;
+}
+
+.project-heading {
+    padding: 24px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.project-tags {
+    display: flex;
+    flex-flow: row;
+    padding: 24px;
+}
+
+.project-tag {
+    font-size: 0.8em;
+    color: var(--yellow);
+    background-color: var(--black-transparent);
+    border: thin solid var(--yellow);
+    padding: 4px 6px;
+    margin-right: 6px;
+}
+
+.project-content {
+    padding: 24px;
+}
+
+.kibifub {
+    display: flex;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+}
+
+.kibifub img {
+    max-width: 100%;
+    padding: 12px 12px 12px 0;
+    width: 400px;
+}
