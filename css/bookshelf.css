@@ -12,6 +12,7 @@
     background-repeat: no-repeat;
     background-position: center;
     border: 4px solid var(--yellow);
+    flex-shrink: 0;
 }
 
 .book_content {
@@ -21,6 +22,7 @@
     align-items: center;
     height: calc(var(--book-cover)/4);
     padding: 0 8px;
+    font-size: small;
 }
 
 .book_title {
@@ -30,32 +32,38 @@
     padding: 0 8px;
     height: calc(var(--book-cover)/4);
     font-weight: bold;
+    font-size: large;
 }
 
 .book_descriptor {
-    width: 140px;
+    width: 120px;
 }
 
-.year_column {
+.year-column-item {
     border-left: 2px solid white;
-    margin: 0 16px;
+    margin-left: 16px;
     padding-top: 20px;
     height: 70px;
+}
+
+.year-column {
+    flex-shrink: 0;
+    border-right: 8px solid var(--yellow);
+    padding-top: 32px;
 }
 
 .year {
     color: var(--yellow);
     font-size: 30px;
     margin-top: -28px;
+    padding-right: 8px;
+    margin-bottom: 8px;
 }
 
-.year:hover {
+.year:hover, .year:hover::before, .year_active::before, .year_active {
     cursor: pointer;
-    background-color: var(--yellow);
+    background-color: var(--yellow) !important;
     color: black;
-}
-.year:hover:before, .year_active::before {
-    background-color: var(--yellow);
 }
 
 .year::before{
@@ -68,6 +76,7 @@
     margin-left: calc(var(--circle-size) / 2 * -1 - 3px);
     content: '';
     border: 2px solid white;
+    background-color: #333;
 }
 
 .year_content {

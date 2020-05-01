@@ -43,8 +43,8 @@ var Bookshelf = function (_React$Component) {
         { className: "bookshelf-wrapper" },
         React.createElement(
           "h1",
-          null,
-          "Was ich momentan lese."
+          { className: "section-heading" },
+          "Was ich momentan lese"
         ),
         React.createElement(
           "div",
@@ -55,11 +55,11 @@ var Bookshelf = function (_React$Component) {
         ),
         React.createElement(
           "h1",
-          null,
-          "Was ich bisher gelesen habe."
+          { className: "section-heading" },
+          "Was ich bisher gelesen habe"
         ),
         React.createElement(
-          "div",
+          "h3",
           null,
           this.state.books.length,
           " B\xFCcher | ",
@@ -71,8 +71,10 @@ var Bookshelf = function (_React$Component) {
           { className: "bookshelf" },
           React.createElement(
             "div",
-            null,
-            Object.keys(this.state.grouped_books).map(function (key) {
+            { className: "year-column" },
+            Object.keys(this.state.grouped_books).sort(function (a, b) {
+              return a < b ? 1 : -1;
+            }).map(function (key) {
               return React.createElement(ReadingYear, { year: key, filter: _this2.state.filter, books: _this2.state.grouped_books[key], onClick: _this2.handleYearClick });
             })
           ),
@@ -116,7 +118,7 @@ var ReadingYear = function (_React$Component2) {
 
       return React.createElement(
         "div",
-        { className: "year_column" },
+        { className: "year-column-item" },
         React.createElement(
           "div",
           {
