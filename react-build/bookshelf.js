@@ -81,7 +81,9 @@ var Bookshelf = function (_React$Component) {
           React.createElement(
             "div",
             null,
-            filtered_books.map(function (book) {
+            filtered_books.sort(function (a, b) {
+              return a.order < b.order ? 1 : -1;
+            }).map(function (book) {
               return React.createElement(Book, { book: book });
             })
           )
