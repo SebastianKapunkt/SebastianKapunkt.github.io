@@ -28,6 +28,9 @@ class Bookshelf extends React.Component {
         </div>
         <h1 className="section-heading">Was ich bisher gelesen habe</h1>
         <h3>{this.state.books.length} Bücher | {this.state.pages} Seiten</h3>
+        <h3>
+          {Number((this.state.books.length/6).toFixed(1))} Bücher pro Jahr 
+          | {Number((this.state.pages/6).toFixed(1))} Seiten pro Jahr</h3>
         <div className="bookshelf">
           <div className="year-column">
             {Object.keys(this.state.grouped_books).sort((a,b) => a < b ? 1 : -1

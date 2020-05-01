@@ -67,6 +67,14 @@ var Bookshelf = function (_React$Component) {
           " Seiten"
         ),
         React.createElement(
+          "h3",
+          null,
+          Number((this.state.books.length / 6).toFixed(1)),
+          " B\xFCcher pro Jahr | ",
+          Number((this.state.pages / 6).toFixed(1)),
+          " Seiten pro Jahr"
+        ),
+        React.createElement(
           "div",
           { className: "bookshelf" },
           React.createElement(
