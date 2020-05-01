@@ -20,19 +20,18 @@ class Bookshelf extends React.Component {
     let filtered_books = this.state.books.filter(book => book.year_read === this.state.filter)
     return (
       <div className="bookshelf-wrapper">
-        <h1>Was ich momentan lese.</h1>
+        <h1 className="section-heading">Was ich momentan lese</h1>
         <div className="years">
           {books_reading.map(book => 
             <Book book={book}/>
           )}
         </div>
-        <h1>Was ich bisher gelesen habe.</h1>
-        <div>
-          {this.state.books.length} Bücher | {this.state.pages} Seiten
-        </div>
+        <h1 className="section-heading">Was ich bisher gelesen habe</h1>
+        <h3>{this.state.books.length} Bücher | {this.state.pages} Seiten</h3>
         <div className="bookshelf">
-          <div>
-            {Object.keys(this.state.grouped_books).map((key) =>
+          <div className="year-column">
+            {Object.keys(this.state.grouped_books).sort((a,b) => a < b ? 1 : -1
+            ).map((key) =>
                 <ReadingYear year={key} filter={this.state.filter} books={this.state.grouped_books[key]} onClick={this.handleYearClick}/>
             )}
           </div>
@@ -58,7 +57,7 @@ class ReadingYear extends React.Component {
 
   render() {
     return (
-      <div className="year_column">
+      <div className="year-column-item">
         <div 
           className={this.year_class(this.props.filter, this.props.year)}
           onClick={_ => this.props.onClick(this.props.year)}
