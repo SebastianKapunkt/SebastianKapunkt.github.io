@@ -36,7 +36,7 @@ class Bookshelf extends React.Component {
             )}
           </div>
           <div>
-            {filtered_books.map(book => 
+            {filtered_books.sort((a,b) => a.order < b.order ? 1 : -1).map(book => 
               <Book book={book}/>
             )}
           </div>
