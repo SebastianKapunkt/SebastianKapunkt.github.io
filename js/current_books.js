@@ -599,6 +599,8 @@ const books_reading = [{
         "title": "Das gew\u00fcnschteste Wunschkind aller Zeiten treibt mich in den Wahnsinn: Der entspannte Weg durch Trotzphasen",
         "authors": [{
             "name": "Danielle Graf"
+        },{
+            "name": "Katja Seide"
         }],
         "published": "2018",
         "cover": "https://m.media-amazon.com/images/I/51EnhgNYLVL._SY346_.jpg",
