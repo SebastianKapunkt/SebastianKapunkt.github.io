@@ -527,7 +527,7 @@ const books_read = [{
         "order": 0
     },
     {
-        "title": "Das M\u00e4dchen, das zu denken wagte 2",
+        "title": "Das M\u00e4dchen, das aufzustehen wagte",
         "authors": [{
             "name": "Bella Forrest"
         }],
