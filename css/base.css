@@ -57,7 +57,7 @@ a:not(.nav-item) {
     padding: 2px 4px;
 }
 
-a::before:not(.nav-item) {
+a:not(.nav-item)::before {
     content: "> ";
 }
 
@@ -242,4 +242,8 @@ a:hover:not(.nav-item) {
     grid-template-rows: var(--contact-box-height) var(--contact-box-height) var(--contact-box-height);
     column-gap: var(--contact-gap);
     row-gap: var(--contact-gap);
+}
+
+.contact-grid h2 {
+    color: white;
 }
