@@ -31,21 +31,13 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
+<body id="sebastian">
     <div class="navigation-wrapper">
-        <div class="navigation">
-            <div>
-                Sebastian Kindt
-            </div>
-            <div>
-                Projekte
-            </div>
-            <div>
-                Lesen
-            </div>
-            <div>
-                Kontakt
-            </div>
+        <div id="navigation">
+            <a class="nav-item nav-active" href="#sebastian">Sebastian Kindt</a>
+            <a class="nav-item" href="#project">Projekte</a>
+            <a class="nav-item" href="#reading">Lesen</a>
+            <a class="nav-item" href="#contact">Kontakt</a>
         </div>
     </div>
     <div class="welcome-section">
@@ -63,6 +55,8 @@
     </div>
     <div class="section">
         <div class="project-section">
+            <div id="project" class="anchor"></div>
+            <div class="section-devider"></div>
             <h1 class="section-heading">Projekte</h1>
             <div class="project-item">
                 <div class="project-heading">
@@ -102,7 +96,50 @@
         </div>
     </div>
     <div class="section">
+        <div id="reading" class="anchor"></div>
+        <div class="section-devider"></div>
         <div id="bookshelf"></div>
+    </div>
+    <div class="section">
+        <div id="contact" class="anchor"></div>
+        <div class="section-devider"></div>
+        <div class="section-heading">
+            <h1>Kontakt</h1>
+        </div>
+        <div class="contact-grid">
+            <div>
+                <h2>Webpräsenz</h2>
+                <a href="http://www.Sebastian-Kindt.com">
+                   www.Sebastian-Kindt.com
+                </a>
+            </div>
+            <div>
+                <h2>Privat</h2>
+                <a href="mailto:Kindt.Sebastian@outlook.com">
+                    Kindt.Sebastian@outlook.com
+                </a>
+            </div>
+            <div>
+                <a href="http://stackoverflow.com/users/2908799/visores?tab=profile" target="_blank">
+                    <h2>Stackoverflow</h2>
+                </a>
+            </div>
+            <div>
+                <a href="https://github.com/SebastianKapunkt" target="_blank">
+                    <h2>github</h2>
+                </a>
+            </div>
+            <div>
+                <a href="https://www.xing.com/profile/Sebastian_Kindt3" target="_blank">
+                    <h2>Xing</h2>
+                </a>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/in/sebastian-kindt-26b38a127" target="_blank">
+                    <h2>LinkedIn</h2>
+                </a>
+            </div>
+        </div>
     </div>
 </body>
 <!-- Load our React component. -->
