@@ -12,20 +12,6 @@
 
     <title>Sebastian Kindt</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    <link href="css/main.css" rel="stylesheet"/>
-
-    <!-- Timeline -->
-    <link href="css/timeline.css" rel="stylesheet"/>
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
-
     <!-- Load React -->
     <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
@@ -36,517 +22,138 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bookshelf.css"/>
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar">
-<!-- Navigation -->
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-                <i class="fa fa-bars"></i> Sebastian Kindt
-            </button>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div id="main-navbar" class="collapse navbar-collapse navbar-right navbar-main-collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a class="page-scroll" href="#page-top">
-                        Sebastian Kindt
-                    </a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#about">
-                        <span class="glyphicon glyphicon-user"></span>
-                        About
-                    </a>
-                </li>
-                <!--
-                <li>
-                  <a class="page-scroll" href="#project">
-                    <span class="glyphicon glyphicon-hdd"></span> My Project</a>
-                </li>
-                -->
-                <li>
-                    <a class="page-scroll" href="#contact">
-                        <span class="glyphicon glyphicon-envelope"></span>
-                        Contact
-                    </a>
-                </li>
-            </ul>
+<body id="sebastian">
+    <div class="navigation-wrapper">
+        <div id="navigation">
+            <a class="nav-item nav-active" href="#sebastian">Sebastian Kindt</a>
+            <a class="nav-item" href="#project">Projekte</a>
+            <a class="nav-item" href="#reading">Lesen</a>
+            <a class="nav-item" href="#contact">Kontakt</a>
         </div>
     </div>
-    <!-- /.navbar-collapse -->
-    <!-- /.container -->
-</nav>
+    <div class="welcome-section">
+        <div class="welcome-window">
+            <div class="my-name">
+                HI, ICH BIN SEBASTIAN
+            </div>
+            <div class="yellow-divider">
 
-<!-- Intro Header -->
-<div class="intro">
-    <div class="content-section container">
-        <div id="background_wrap" class="col-lg-12"></div>
-        <div class="col-lg-8 col-lg-2 intro-header">
-            <p class="welcome-text">Hi, I'm Sebastian.</p>
-            <p class="welcome-secound-text"> I study Computer Science and build Java & Python apps.</p>
+            </div>
+            <div class="my-description">
+                OPTIMIERER SEIT 1994
+            </div>
         </div>
-        <div class="col-lg-8 col-lg-2 intro-header">
-            <div class="row">
-                <a href="#about" class="page-scroll">
-                    <div class="intro-link col-sm-12 col-md-6 col-lg-6">
-                        <span class="glyphicon glyphicon-user"></span><br>
-                        About me
+    </div>
+    <div class="section">
+        <div class="project-section">
+            <div id="project" class="anchor"></div>
+            <div class="section-devider"></div>
+            <h1 class="section-heading">Projekte</h1>
+            <div class="project-item">
+                <div class="project-heading">
+                    <div>
+                        <h2>Kibifub</h2> - Farbspiel KI
                     </div>
+                    <a href="https://github.com/SebastianKapunkt/kibifub" target="_blank">GitHub</a>
+                </div>
+                <div class="project-content kibifub">
+                    <img src="https://raw.githubusercontent.com/SebastianKapunkt/kibifub/master/assets/out2.gif" alt="KI in Aktion">
+                    <img src="https://raw.githubusercontent.com/SebastianKapunkt/kibifub/master/assets/out3.gif" alt="Was die Ki sieht">
+                </div>
+                <div class="project-tags">
+                   <div class="project-tag">Java</div>
+                   <div class="project-tag">RxJava</div> 
+                </div>
+            </div>
+            <div class="project-item">
+                <div class="project-heading">
+                    <div>
+                        <h2>Pymorr</h2> - Bilder sortieren
+                    </div>
+                    <a href="https://github.com/SebastianKapunkt/pymorr" target="_blank">GitHub</a>
+                </div>
+                <div class="project-content kibifub">
+                    <img src="img/pymorr.png" alt="Was die Ki sieht">
+                    <div>
+                        <ul>
+                        <li>Bilder in einem Ordner sortieren nach:
+                            <ul>
+                                <li>Behalten</li>
+                                <li>Vielleicht</li>
+                                <li>Löschen</li>
+                            </ul>
+                        <li>Bilder mit anderen Vergleichen</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="project-tags">
+                   <div class="project-tag">Python</div>
+                   <div class="project-tag">PyQt5</div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div id="reading" class="anchor"></div>
+        <div class="section-devider"></div>
+        <div id="bookshelf"></div>
+    </div>
+    <div class="section">
+        <div id="contact" class="anchor"></div>
+        <div class="section-devider"></div>
+        <div class="section-heading">
+            <h1>Kontakt</h1>
+        </div>
+        <div class="contact-grid">
+            <div>
+                <h2>Webpräsenz</h2>
+                <a href="http://www.Sebastian-Kindt.com">
+                   www.Sebastian-Kindt.com
                 </a>
-                <!--
-                <a class="page-scroll" href="#project">
-                  <div class="intro-link col-sm-4 col-lg-4">
-                    <span class="glyphicon glyphicon-hdd"></span>
-                    <p>My Project</p>
-                  </div>
-                </a>
-                -->
-                <a href="#contact" class="page-scroll">
-                    <div class="intro-link col-sm-12 col-md-6 col-lg-6">
-                        <span class="glyphicon glyphicon-envelope"></span><br>
-                        Contact Me
-                    </div>
+            </div>
+            <div>
+                <h2>Privat</h2>
+                <a href="mailto:Kindt.Sebastian@outlook.com">
+                    Kindt.Sebastian@outlook.com
                 </a>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- About Section -->
-<div id="about" class="container content-section light">
-    <div class="container">
-        <h1 class="content-header">
-            <span class="glyphicon glyphicon-user"></span><br>
-            About me
-        </h1>
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12 top-margin">
-                <div>
-                    <ul class="timeline">
-                        <li class="time-label">
-                            <span class="bg-black"> 1994 </span>
-                        </li>
-
-                        <li>
-                            <i class="fa fa-heart bg-white"></i>
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">
-                                    Geburt
-                                </h3>
-                                <div class="timeline-body">
-
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="time-label">
-                            <span class="bg-black"> 1997 - 2007 </span>
-                        </li>
-
-                        <li>
-                            <i class="fa bg-white"></i>
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">
-                                    Turnverein
-                                </h3>
-                                <div class="timeline-body">
-                                    Mitglied in Turngemeinde
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="time-label">
-                            <span class="bg-black"> 2000 - 2005 </span>
-                        </li>
-                        <li>
-                            <i class="fa fa-book bg-white"></i>
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">
-                                    Grundschule
-                                </h3>
-                                <div class="timeline-body">
-
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="time-label">
-                            <span class="bg-black"> 2005 - 2008</span>
-                        </li>
-
-                        <li>
-                            <i class="fa bg-white"></i>
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">
-                                    Schützenverein
-                                </h3>
-                                <div class="timeline-body">
-                                    Mitglied im Schützenverein
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="time-label">
-                            <span class="bg-black"> 2005 - 2012</span>
-                        </li>
-                        <li>
-                            <i class="fa fa-book bg-white"></i>
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">
-                                    Gymnasium
-                                </h3>
-                                <div class="timeline-body">
-                                    Allgemeine Hochschulreife
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="time-label">
-                            <span class="bg-black"> 09/2012 - 03/2016 </span>
-                        </li>
-
-                        <li>
-                            <i class="fa fa-book bg-white"></i>
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">Studium - Fachhochschule</h3>
-                                <div class="timeline-body">
-                                    Informatik - Bachelor of Science
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="time-label">
-                            <span class="bg-black"> 03/2015 - 05/2015 </span>
-                        </li>
-
-                        <li>
-                            <i class="fa fa-book bg-white"></i>
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">Praktikum Software Engineer</h3>
-                                <div class="timeline-body">
-                                    Praktikum bei <a href="http://www.dmc.de" target="_blank">dmc030</a> GmbH
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="time-label">
-                            <span class="bg-black"> 04/2016 - 04/2017 </span>
-                        </li>
-
-                        <li>
-                            <i class="fa fa-book bg-white"></i>
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">Studium HTW Berlin</h3>
-                                <div class="timeline-body">
-                                    Angewandte Informatik - Master of Science
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="time-label">
-                            <span class="bg-black"> 04/2016 - 09/2018 </span>
-                        </li>
-
-                        <li>
-                            <i class="fa fa-book bg-white"></i>
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">Werkstudent</h3>
-                                <div class="timeline-body">
-                                    Werkstudent bei <a href="http://www.thermondo.de" target="_blank">Thermondo</a> -
-                                    Android / Django Entwicklung
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="time-label">
-                            <span class="bg-black"> 04/2017 - Heute </span>
-                        </li>
-
-                        <li>
-                            <i class="fa fa-book bg-white"></i>
-                            <div class="timeline-item">
-                                <h3 class="timeline-header">Studium HTW Berlin</h3>
-                                <div class="timeline-body">
-                                    Internationale Medien Informatik - Master of Science
-                                </div>
-                            </div>
-                        </li>
-
-
-                        <li class="time-label">
-                            <i class="glyphicon glyphicon-chevron-down icon-white"></i>
-                        </li>
-                    </ul>
-                </div>
+            <div>
+                <a href="http://stackoverflow.com/users/2908799/visores?tab=profile" target="_blank">
+                    <h2>Stackoverflow</h2>
+                </a>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 top-margin">
-                <div>
-                    <ul class="project-blog">
-                        <li>
-                            <div class="project-item">
-                                <h3 class="project-header">
-                                    Das finde ich gut
-                                </h3>
-                                <div class="project-body">
-                                    <ul class="linkListe">
-                                        <li>
-                                            <a href="http://romanticallyapocalyptic.com/info" target="_blank">Romantically
-                                                Apocalyptic</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.flickr.com/photos/67836552@N06/" target="_blank">Eric
-                                                Elric</a> - Thanks for the picture!
-                                        </li>
-                                        <li>
-                                            <a href="https://css-tricks.com/" target="_blank">css-tricks</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.raywenderlich.com/141980/rxandroid-tutorial" target="_blank">RxAndroid</a>
-                                        </li>
-                                        <li>
-                                            <a href="http://www.hellointernet.fm/" target="_blank">Hello Internet</a>
-                                        </li>
-                                        <li>
-                                            <a href="http://www.qwertee.com/" target="_blank">Qwertee</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.youtube.com/user/shiffman" target="_blank">Daniel Shiffman</a>
-                                            <br>
-                                        </li>
-                                        <li>
-                                            <a href="http://steamcompanion.com/" target="_blank">SteamCompanion</a>
-                                            <br>
-                                        </li>
-                                        <li>
-                                            <a href="http://www.deviantart.com/browse/all/" target="_blank">Deviant Art</a>
-                                            <br>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <div>
+                <a href="https://github.com/SebastianKapunkt" target="_blank">
+                    <h2>github</h2>
+                </a>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 top-margin">
-                <div>
-                    <ul class="project-blog">
-                        <li>
-                            <div class="project-item">
-                                <h3 class="project-header">
-                                    Book - reading list
-                                </h3>
-                                <div class="project-body">
-                                    <p style="margin-bottom: 0.5pt;">current books: </p>
-                                    <ul>
-                                        <li>Das gewünschteste Wunschkind aller Zeiten treibt mich in den Wahnsinn: Der entspannte Weg durch Trotzphasen</li>
-                                        <li>Die Tyrannei des Schmetterlings</li>
-                                    </ul>
-                                    2020
-                                    <ul>
-                                        <li>Artgerecht</li>
-                                    </ul>
-                                    2019
-                                    <ul>
-                                        <li>The New Odyssee</li>
-                                        <li>Das Mädchen, das aufzustehen wagte</li>
-                                        <li>Das Mädchen das zu Denken wagte</li>
-                                    </ul>
-                                    2018
-                                    <ul>
-                                        <li>Orcslayer (Gotrek & Felix Book 8)</li>
-                                        <li>Giantslayer (Gotrek & Felix Book 7)</li>
-                                        <li>Vampireslayer (Gotrek & Felix Book 6)</li>
-                                        <li>Beastslayer (Gotrek & Felix Book 5)</li>
-                                        <li>Dragenslayer (Gotrek & Felix Book 4)</li>
-                                        <li>Ready Player One</li>
-                                        <li>Fahrenheit 451</li>
-                                        <li>Daemonslayer (Gotrek & Felix Book 3)</li>
-                                        <li>Skavenslayer (Gotrek & Felix Book 2)</li>
-                                    </ul>
-                                    2017
-                                    <ul>
-                                        <li>Trollslayer (Gotrek & Felix Book 1)</li>
-                                        <li>Die Granulare Gesellschaft</li>
-                                        <li>Die Zwerge</li>
-                                    </ul>
-                                    2016
-                                    <ul>
-                                        <li>The Circle</li>
-                                        <li>Die Himmelsgöttin</li>
-                                        <li>Die Bibel nach Biff</li>
-                                        <li>Flammender Zorn (Die Tribute von Panem, Band 3)</li>
-                                        <li>Gef&auml;hrliche Liebe (Die Tribute von Panem, Band 2)</li>
-                                        <li>T&ouml;dliche Spiele (Die Tribute von Panem, Band 1)</li>
-                                        <li>Das Parf&uuml;m</li>
-                                        <li>1984</li>
-                                        <li>Geralt 7 - Die Dame vom See</li>
-                                        <li>Geralt 6 - Der Schwalbenturm</li>
-                                        <li>Geralt 5 - Die Feuertaufe</li>
-                                    </ul>
-                                    2015
-                                    <ul>
-                                        <li>Geralt 4 - Die Zeit der Verachtung</li>
-                                        <li>Geralt 3 - Das Erbe der Elfen</li>
-                                        <li>Geralt 2 - Das Schwer der Vorsehung</li>
-                                        <li>Geralt 1 - Der letzte Wunsch</li>
-                                        <li>5 Tage Liebe</li>
-                                        <li>New Orleans Gentelmen</li>
-                                        <li>Fast ein Date und Fast ein Baby</li>
-                                        <li>Colors of Life 3 - Lavendelmond</li>
-                                        <li>Colors of Life 2 - Sternenmond</li>
-                                        <li>Colors of Life 1 - Himbeermond</li>
-                                        <li>Harry Potter und die Heiligtümer des Todes</li>
-                                        <li>Harry Potter und der Halbblutprinz</li>
-                                        <li>Harry Potter und der Orden des Phönix</li>
-                                        <li>Harry Potter und der Feuerkelch</li>
-                                        <li>Harry Potter und der Gefangene von Askaban</li>
-                                        <li>Harry Potter und die Kammer des Schreckens</li>
-                                        <li>Harry Potter und der Stein der Weisen</li>
-                                        <li>The Hobbit</li>
-                                    </ul>
-                                    davor
-                                    <ul>
-                                        <li>Per Anhalter durch die Galaxis</li>
-                                        <li>Die Wolke</li>
-                                        <li>Die Welle</li>
-                                        <li>Die Zwerge</li>
-                                        <li>Der Zauberer von Oz</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <div>
+                <a href="https://www.xing.com/profile/Sebastian_Kindt3" target="_blank">
+                    <h2>Xing</h2>
+                </a>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/in/sebastian-kindt-26b38a127" target="_blank">
+                    <h2>LinkedIn</h2>
+                </a>
             </div>
         </div>
     </div>
-</div>
-
-
-<!-- Project Section -->
-<!--<section id="project" class="container content-section text-center">
-
-</section>-->
-<!-- Contact Section -->
-<div id="contact" class="container content-section text-center light">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-12 col-sm-12">
-            <h1 class="content-header">
-                <span class="glyphicon glyphicon-envelope"></span>
-                <p>Contact Me</p>
-            </h1>
-            <div class="row" style="padding-bottom: 50px">
-                <div class="col-lg-12">
-                    <div class="about-blog">
-                        <a href="https://www.linkedin.com/in/sebastian-kindt-26b38a127" target="_blank">
-                            <h4>
-                                <img src="img/Logo-2C-128px-TM.png" width="220" alt="stackoverflow"/>
-                            </h4>
-                            <h6>
-                                www.linkedin.com/in/sebastian-kindt-26b38a127
-
-                            </h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-blog">
-                        <h4>Privat</h4>
-                        <h6>
-                            <br><br>
-                            Kindt.Sebastian[*at*]outlook.com
-                        </h6>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-blog">
-                        <a href="http://stackoverflow.com/users/2908799/visores?tab=profile" target="_blank">
-                            <h4>
-                                <img src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.svg"
-                                     width="220" alt="stackoverflow"/>
-                            </h4>
-                            <h6>
-                                http://stackoverflow.com/users/2908799
-                            </h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-blog">
-                        <a href="https://www.xing.com/profile/Sebastian_Kindt3" target="_blank">
-                            <h4>
-                                <img src="https://x1.xingassets.com/assets/xws/dev/logo_rules/XNG_Sharebutton_v01-7d06f36109c803c7a79f5a5c597f1fb8c8ff4d310d74ee8f6b31a56b6d6c3eea.png"
-                                     width="40" alt="xing"/>
-                                Xing
-                            </h4>
-                            <h6>
-                                https://www.xing.com/profile/Sebastian_Kindt3
-                            </h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-blog">
-                        <a href="https://github.com/SebastianKapunkt" target="_blank">
-                            <h4>
-                                <img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
-                                     width="50"
-                                     alt=""/>
-                                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png"
-                                     width="100" alt=""/>
-                            </h4>
-                            <h6>
-                                https://github.com/SebastianKapunkt
-                            </h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-blog">
-                        <h4>Google+</h4>
-                        <h6>
-                            <a href="https://plus.google.com/116895182767321869323/posts" target="_blank">
-                                https://plus.google.com/116895182767321869323/posts
-                            </a>
-                        </h6>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-blog">
-                        <h4>Webpräsenz</h4>
-                        <h6>
-                            <a href="http://www.Sebastian-Kindt.com">
-                                www.Sebastian-Kindt.com
-                            </a>
-                        </h6>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="footer">
+        Copyright &copy; Sebastian Kindt 2018 |
+         <a href="impressum.html" style="color: white;" target="_blank">Impressum</a>
     </div>
-</div>
-
-<!-- Footer -->
-<footer>
-    <div class="text-center">
-        <h6>Copyright &copy; Sebastian Kindt 2018 | <a href="impressum.html" style="color: white;" target="_blank">Impressum</a>
-        </h6>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="js/jquery-min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<!-- Scrolling Nav JavaScript -->
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/scrolling-nav.js"></script>
-
 </body>
+<!-- Load our React component. -->
+<script src="js/utils.js"></script>
+<script src="js/current_books.js"></script>
+<script src="react-build/bookshelf.js"></script>
 </html>

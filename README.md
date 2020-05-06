@@ -1,7 +1,5 @@
 # SebastianKapunkt.github.io
 
-## Development of React.js
-
 ### setup enviroment:
 
     https://reactjs.org/docs/add-react-to-a-website.html
