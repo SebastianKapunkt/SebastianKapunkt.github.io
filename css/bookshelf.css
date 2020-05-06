@@ -30,7 +30,6 @@
     justify-content: start;
     align-items: center;
     padding: 0 8px;
-    height: calc(var(--book-cover)/4);
     font-weight: bold;
     font-size: large;
 }
@@ -43,7 +42,7 @@
     border-left: 2px solid white;
     margin-left: 16px;
     padding-top: 20px;
-    height: 70px;
+    height: 90px;
 }
 
 .year-column {
@@ -60,13 +59,16 @@
     margin-bottom: 8px;
 }
 
-.year:hover, .year:hover::before, .year_active::before, .year_active {
+.year:hover,
+.year:hover::before,
+.year_active::before,
+.year_active {
     cursor: pointer;
     background-color: var(--yellow) !important;
     color: black;
 }
 
-.year::before{
+.year::before {
     --circle-size: 20px;
     display: inline-block;
     width: var(--circle-size);
@@ -95,4 +97,33 @@
     justify-content: center;
     flex-flow: column;
     align-items: center;
+}
+
+.book_content_wrapper {
+    width: 100%;
+}
+
+@media screen and (max-width: 450px) {
+    .book {
+        flex-flow: column;
+        margin-left: 4px;
+        align-items: center;
+    }
+
+    .book_content {
+        padding: 0;
+    }
+    .book_title {
+        padding: 8px 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .year-column {
+        width: 130px;
+    }
+
+    .year {
+        padding-right: 4px;
+    }
 }

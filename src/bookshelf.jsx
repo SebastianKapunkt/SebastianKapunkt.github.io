@@ -38,7 +38,7 @@ class Bookshelf extends React.Component {
                 <ReadingYear year={key} filter={this.state.filter} books={this.state.grouped_books[key]} onClick={this.handleYearClick}/>
             )}
           </div>
-          <div>
+          <div className="book_content_wrapper">
             {filtered_books.sort((a,b) => a.order < b.order ? 1 : -1).map(book => 
               <Book book={book}/>
             )}
@@ -84,7 +84,7 @@ class Book extends React.Component {
       return ( 
         <div className="book">
           <div className="book_cover" style={{backgroundImage: "url(" + book.cover + ")"}}></div>
-          <div>
+          <div className="book_content_wrapper">
             <div className="book_title">
               {book.title}
             </div>

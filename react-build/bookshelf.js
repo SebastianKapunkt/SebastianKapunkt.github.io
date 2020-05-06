@@ -88,7 +88,7 @@ var Bookshelf = function (_React$Component) {
           ),
           React.createElement(
             "div",
-            null,
+            { className: "book_content_wrapper" },
             filtered_books.sort(function (a, b) {
               return a.order < b.order ? 1 : -1;
             }).map(function (book) {
@@ -178,7 +178,7 @@ var Book = function (_React$Component3) {
         React.createElement("div", { className: "book_cover", style: { backgroundImage: "url(" + book.cover + ")" } }),
         React.createElement(
           "div",
-          null,
+          { className: "book_content_wrapper" },
           React.createElement(
             "div",
             { className: "book_title" },

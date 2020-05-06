@@ -89,9 +89,12 @@ a:hover:not(.nav-item) {
     color: var(--navigation-secondary);
     background-color: var(--navigation-main);
     transition: all 0.1s ease-in;
+    display: flex;
+    align-items: center;
 }
 
-.nav-item:hover, .nav-active {
+.nav-item:hover,
+.nav-active {
     background-color: var(--navigation-secondary);
     color: var(--navigation-main);
     cursor: pointer;
@@ -120,6 +123,7 @@ a:hover:not(.nav-item) {
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .section-devider {
@@ -185,6 +189,7 @@ a:hover:not(.nav-item) {
     border-left: 10px solid var(--yellow);
     margin: 12px 0;
     padding-left: 24px;
+    height: auto;
 }
 
 .project-heading {
@@ -192,6 +197,11 @@ a:hover:not(.nav-item) {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
+    align-items: start;
+}
+
+.project-heading a {
+    flex-shrink: 0;
 }
 
 .project-tags {
@@ -210,15 +220,13 @@ a:hover:not(.nav-item) {
 
 .project-content {
     padding: 12px 0;
-}
-
-.kibifub {
     display: flex;
     flex-flow: row wrap;
     box-sizing: border-box;
+    justify-content: center;
 }
 
-.kibifub img {
+.project-item img {
     max-width: 100%;
     padding: 8px 8px 8px 0;
     width: 250px;
@@ -246,4 +254,27 @@ a:hover:not(.nav-item) {
 
 .contact-grid h2 {
     color: white;
+}
+
+@media screen and (max-width: 550px) {
+    .contact-grid {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(6, var(--contact-box-height));
+    }
+
+    h3 {
+        font-size: 0.6em;
+    }
+
+    .welcome-window {
+        padding: 64px;
+    }
+
+    .section {
+        padding-bottom: 48px;
+    }
+
+    .project-item {
+        padding-left: 8px;
+    }
 }
