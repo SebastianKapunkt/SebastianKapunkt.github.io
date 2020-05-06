@@ -13,9 +13,7 @@ const sumPages = (books) => {
     return books.reduce((total, book) => total + book.pages, 0)
 }
 
-const hightlightNav = () => {
-    let navItems = document.getElementById("navigation").querySelectorAll('.nav-item')
-    
+const hightlightNav = (navItems) => {
     let anchorPositions = []
     for (let i = 0; i < navItems.length; i++) {
         navItems[i].classList.remove('nav-active')
@@ -30,11 +28,11 @@ const hightlightNav = () => {
         if(
             (
                 i === anchorPositions.length - 1
-                && document.documentElement.scrollTop >= anchorPositions[i][1]
+                && document.documentElement.scrollTop + 1 >= anchorPositions[i][1]
             )
             || (
                 document.documentElement.scrollTop >= anchorPositions[i][1]
-                && document.documentElement.scrollTop < anchorPositions[i+1][1]
+                && document.documentElement.scrollTop + 1 < anchorPositions[i+1][1]
             )
         ){
             anchorPositions[i][0].classList.add("nav-active")
@@ -43,4 +41,5 @@ const hightlightNav = () => {
     }
 }
 
-window.addEventListener('scroll', hightlightNav, false);
+let navItems = document.getElementById("navigation").querySelectorAll('.nav-item')
+window.addEventListener('scroll', () => hightlightNav(navItems), false);
