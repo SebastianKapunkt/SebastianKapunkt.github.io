@@ -114,7 +114,9 @@
         padding: 0;
     }
     .book_title {
+        display: block;
         padding: 8px 0;
+        text-align: center;
     }
 }
 
