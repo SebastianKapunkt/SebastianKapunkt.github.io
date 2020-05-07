@@ -265,6 +265,10 @@ a:hover:not(.nav-item) {
     align-items: center;
 }   
 
+.footer a {
+    flex-shrink: 0;
+}
+
 @media screen and (max-width: 550px) {
     .contact-grid {
         grid-template-columns: 100%;
