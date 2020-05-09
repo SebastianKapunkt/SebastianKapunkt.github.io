@@ -224,12 +224,13 @@ a:hover:not(.nav-item) {
     flex-flow: row wrap;
     box-sizing: border-box;
     justify-content: center;
+    align-items: flex-start
 }
 
 .project-item img {
     max-width: 100%;
     padding: 8px 8px 8px 0;
-    width: 250px;
+    width: 250px;;
 }
 
 .contact-grid>div {
