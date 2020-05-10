@@ -3,7 +3,7 @@
     --black-transparent: #000000aa;
     --yellow: #f2c94c;
     --navigation-main: black;
-    --navigation-secondary: #f2c94c;
+    --navigation-secondary: var(--yellow);
     --content-max-width: 800px;
     --book-cover: 120px;
 }
@@ -86,7 +86,7 @@ a:hover:not(.nav-item) {
 .nav-item {
     text-decoration: none;
     padding: 12px;
-    color: var(--navigation-secondary);
+    color: var(--yellow);
     background-color: var(--navigation-main);
     transition: all 0.1s ease-in;
     display: flex;
@@ -95,7 +95,7 @@ a:hover:not(.nav-item) {
 
 .nav-item:hover,
 .nav-active {
-    background-color: var(--navigation-secondary);
+    background-color: var(--yellow);
     color: var(--navigation-main);
     cursor: pointer;
 }
@@ -254,7 +254,7 @@ a:hover:not(.nav-item) {
 }
 
 .contact-grid h2 {
-    color: white;
+    color: var(--main-text-color);
 }
 
 .footer {
