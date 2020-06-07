@@ -5,12 +5,24 @@ import re
 from shadow_useragent import ShadowUserAgent
 import clipboard as cp
 import json
+import pprint
+import csv
+
+pp = pprint.PrettyPrinter(indent=4)
+
 
 class BookScraper:
-    def __init__(self, url):
-        self.assets_folder = 'assets'
-        self.teaser_file = 'book.json'
+    """Scrapes books from url or csv list (Goodreads).
+
+        expected format (item separator: ',' | line separator: new line):
+        Title, Year Read, Goodreads Url
+        Die kleine Hexe,1997,https://www.goodreads.com/book/show/1148052.Die_kleine_Hexe
+    """
+
+    def __init__(self, url, year_read=""):
         self.url = url
+        self.year_read = year_read
+        self.book_list_path = "current_books.json"
 
     def beautify(self, url):
         shadow_useragent = ShadowUserAgent()
@@ -33,73 +45,97 @@ class BookScraper:
     def scrape(self):
         soup = self.beautify(self.url)
         page_count = self.scrape_page_count(soup)
-        print(page_count)
         published = self.scrape_publish_year(soup)
-        print(published)
-        author = self.scrape_author_name(soup)
-        print(author)
+        authors = self.scrape_author_name(soup)
         cover = self.scrape_cover(soup)
-        print(cover)
         title = self.scrape_title(soup)
-        print(title)
-        
+        isbn = self.scrape_isbn(soup)
+
         book_dict = {
             "title": title,
-            "authors": [{
-                "name": author,
-            }],
+            "authors": authors,
             "published": published,
             "cover": cover,
             "pages": int(page_count),
-            "year_read": "",
-            "order": 0
+            "isbn": isbn,
+            "year_read": f"{self.year_read}",
+            "order": 0,
+            "link": self.url,
         }
-        print(book_dict)
-        cp.copy(json.dumps(book_dict))
+        self.add_entry(book_dict)
+        print(f"{title} - {self.year_read}")
 
     def scrape_page_count(self, soup):
         try:
-            text = soup.find(text="Seitenzahl der Print-Ausgabe:").parent.parent.get_text()
+            text = soup.find("span", itemprop="numberOfPages").get_text()
         except AttributeError:
-            try:
-                text = soup.find(text="Taschenbuch:").parent.parent.get_text()
-            except AttributeError:
-                return "1000000"
+            return "1000000"
         return re.findall(r'\d+', text)[0]
 
     def scrape_publish_year(self, soup):
         try:
-            text = soup.find(text="Verlag:").parent.parent.get_text()
+            text = soup.find(
+                "div", {"id": "details"}
+                ).findAll(
+                    "nobr", {"class": "greyText"}
+                )[0].get_text()
             return re.findall(r'(\d{4})', text)[0]
-        except AttributeError:
+        except (AttributeError, IndexError):
             return "unknown year"
 
     def scrape_author_name(self, soup):
+        authors = []
+        for author in soup.findAll("a", {"class": "authorName"}):
+            authors.append({"name": author.get_text()})
         try:
-            text = soup.find("a", {"class":"authorNameLink"}).get_text()
-            return re.compile(r'[\n\r\t]').sub(" ", text).strip()
+            return authors
         except AttributeError:
             return "unknown author"
 
     def scrape_cover(self, soup):
         try:
-            return soup.find("div", {"id":"ebooks-img-canvas"}).find("img")["src"]
+            return soup.find("img", {"id": "coverImage"})['src']
         except AttributeError:
-            try:
-                return soup.find("div", {"id":"img-canvas"}).find("img")["src"]
-            except AttributeError:
-                return "wrong cover"
+            return "wrong cover"
 
     def scrape_title(self, soup):
         try:
-            text = soup.find("span", {"id":"productTitle"}).get_text()
+            text = soup.find("h1", {"id": "bookTitle"}).get_text()
             return re.compile(r'[\n\r\t]').sub(" ", text).strip()
         except AttributeError:
             return "unknown title"
 
+    def scrape_isbn(self, soup):
+        try:
+            return soup.find("span", itemprop="isbn").get_text()
+        except AttributeError:
+            return "no isbn found"
+
+    def add_entry(self, entry):
+        if not self.year_read:
+            cp.copy(json.dumps(entry))            
+        else:
+            with open(self.book_list_path) as json_file:
+                json_file_content = json.load(json_file)
+            json_file_content.append(entry)
+            with open(self.book_list_path, mode='w') as json_file:
+                json_file.write(json.dumps(json_file_content, indent=2))
+
+
 def run():
     scraper = BookScraper(sys.argv[1])
-    scraper.scrape()
-   
+    if ".csv" in sys.argv[1]:
+        with open(sys.argv[1], newline='') as csvfile:
+            reader = csv.reader(csvfile, delimiter=',')
+            for row in reader:
+                if "www.goodreads.com" in row[2]:
+                    scraper.url = row[2]
+                    scraper.year_read = row[1]
+                    scraper.scrape()
+    else:
+        scraper = BookScraper(sys.argv[1])
+        scraper.scrape()
+
+
 if __name__ == '__main__':
     run()
