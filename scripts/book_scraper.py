@@ -5,11 +5,13 @@ import re
 from shadow_useragent import ShadowUserAgent
 import clipboard as cp
 import json
+import pprint
+
+pp = pprint.PrettyPrinter(indent=4)
+
 
 class BookScraper:
     def __init__(self, url):
-        self.assets_folder = 'assets'
-        self.teaser_file = 'book.json'
         self.url = url
 
     def beautify(self, url):
@@ -33,73 +35,77 @@ class BookScraper:
     def scrape(self):
         soup = self.beautify(self.url)
         page_count = self.scrape_page_count(soup)
-        print(page_count)
         published = self.scrape_publish_year(soup)
-        print(published)
-        author = self.scrape_author_name(soup)
-        print(author)
+        authors = self.scrape_author_name(soup)
         cover = self.scrape_cover(soup)
-        print(cover)
         title = self.scrape_title(soup)
-        print(title)
-        
+        isbn = self.scrape_isbn(soup)
+
         book_dict = {
             "title": title,
-            "authors": [{
-                "name": author,
-            }],
+            "authors": authors,
             "published": published,
             "cover": cover,
             "pages": int(page_count),
+            "isbn": isbn,
             "year_read": "",
-            "order": 0
+            "order": 0,
+            "link": self.url
         }
-        print(book_dict)
+        pp.pprint(book_dict)
         cp.copy(json.dumps(book_dict))
 
     def scrape_page_count(self, soup):
         try:
-            text = soup.find(text="Seitenzahl der Print-Ausgabe:").parent.parent.get_text()
+            text = soup.find("span", itemprop="numberOfPages").get_text()
         except AttributeError:
-            try:
-                text = soup.find(text="Taschenbuch:").parent.parent.get_text()
-            except AttributeError:
-                return "1000000"
+            return "1000000"
         return re.findall(r'\d+', text)[0]
 
     def scrape_publish_year(self, soup):
         try:
-            text = soup.find(text="Verlag:").parent.parent.get_text()
+            text = soup.find("div", {"id": "details"}).findAll(
+                "nobr", {"class": "greyText"})[0].get_text()
             return re.findall(r'(\d{4})', text)[0]
         except AttributeError:
             return "unknown year"
 
     def scrape_author_name(self, soup):
+        authors = []
+        for author in soup.findAll("a", {"class": "authorName"}):
+            authors.append({"name": author.get_text()})
         try:
-            text = soup.find("a", {"class":"authorNameLink"}).get_text()
-            return re.compile(r'[\n\r\t]').sub(" ", text).strip()
+            return authors
         except AttributeError:
             return "unknown author"
 
     def scrape_cover(self, soup):
         try:
-            return soup.find("div", {"id":"ebooks-img-canvas"}).find("img")["src"]
+            return soup.find("img", {"id": "coverImage"})['src']
         except AttributeError:
-            try:
-                return soup.find("div", {"id":"img-canvas"}).find("img")["src"]
-            except AttributeError:
-                return "wrong cover"
+            return "wrong cover"
 
     def scrape_title(self, soup):
         try:
-            text = soup.find("span", {"id":"productTitle"}).get_text()
+            text = soup.find("h1", {"id": "bookTitle"}).get_text()
             return re.compile(r'[\n\r\t]').sub(" ", text).strip()
         except AttributeError:
             return "unknown title"
 
+    def scrape_isbn(self, soup):
+        try:
+            return soup.find("div", itemprop="isbn").get_text()
+        except AttributeError:
+            return "no isbn found"
+
+
 def run():
-    scraper = BookScraper(sys.argv[1])
-    scraper.scrape()
-   
+    if ".csv" in sys.argv[1]:
+        print("YEEEES")
+    else:
+        scraper = BookScraper(sys.argv[1])
+        scraper.scrape()
+
+
 if __name__ == '__main__':
     run()
