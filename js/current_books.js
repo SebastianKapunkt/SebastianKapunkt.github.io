@@ -522,7 +522,7 @@ const books_read = [{
         }],
         "published": "2017",
         "cover": "https://m.media-amazon.com/images/I/51xTILnnxqL._SY346_.jpg",
-        "pages": 404,
+        "pages": 406,
         "year_read": "2019",
         "order": 0
     },
@@ -533,7 +533,7 @@ const books_read = [{
         }],
         "published": "2018",
         "cover": "https://m.media-amazon.com/images/I/51NSTbpPbkL._SY346_.jpg",
-        "pages": 404,
+        "pages": 402,
         "year_read": "2019",
         "order": 1
     },
