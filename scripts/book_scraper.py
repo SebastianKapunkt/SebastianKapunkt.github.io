@@ -6,13 +6,16 @@ from shadow_useragent import ShadowUserAgent
 import clipboard as cp
 import json
 import pprint
+import csv
 
 pp = pprint.PrettyPrinter(indent=4)
 
 
 class BookScraper:
-    def __init__(self, url):
+    def __init__(self, url, year_read=""):
         self.url = url
+        self.year_read = year_read
+        self.book_list_path = "current_books.json"
 
     def beautify(self, url):
         shadow_useragent = ShadowUserAgent()
@@ -48,12 +51,12 @@ class BookScraper:
             "cover": cover,
             "pages": int(page_count),
             "isbn": isbn,
-            "year_read": "",
+            "year_read": f"{self.year_read}",
             "order": 0,
-            "link": self.url
+            "link": self.url,
         }
-        pp.pprint(book_dict)
-        cp.copy(json.dumps(book_dict))
+        self.add_entry(book_dict)
+        print(f"{title} - {self.year_read}")
 
     def scrape_page_count(self, soup):
         try:
@@ -64,10 +67,13 @@ class BookScraper:
 
     def scrape_publish_year(self, soup):
         try:
-            text = soup.find("div", {"id": "details"}).findAll(
-                "nobr", {"class": "greyText"})[0].get_text()
+            text = soup.find(
+                "div", {"id": "details"}
+                ).findAll(
+                    "nobr", {"class": "greyText"}
+                )[0].get_text()
             return re.findall(r'(\d{4})', text)[0]
-        except AttributeError:
+        except (AttributeError, IndexError):
             return "unknown year"
 
     def scrape_author_name(self, soup):
@@ -94,14 +100,28 @@ class BookScraper:
 
     def scrape_isbn(self, soup):
         try:
-            return soup.find("div", itemprop="isbn").get_text()
+            return soup.find("span", itemprop="isbn").get_text()
         except AttributeError:
             return "no isbn found"
 
+    def add_entry(self, entry):
+        with open(self.book_list_path) as json_file:
+            json_file_content = json.load(json_file)
+        json_file_content.append(entry)
+        with open(self.book_list_path, mode='w') as json_file:
+            json_file.write(json.dumps(json_file_content, indent=2))
+
 
 def run():
+    scraper = BookScraper(sys.argv[1])
     if ".csv" in sys.argv[1]:
-        print("YEEEES")
+        with open(sys.argv[1], newline='') as csvfile:
+            reader = csv.reader(csvfile, delimiter=',')
+            for row in reader:
+                if "www.goodreads.com" in row[2]:
+                    scraper.url = row[2]
+                    scraper.year_read = row[1]
+                    scraper.scrape()
     else:
         scraper = BookScraper(sys.argv[1])
         scraper.scrape()
