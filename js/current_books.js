@@ -582,6 +582,32 @@ const books_read = [{
         "year_read": "2020",
         "order": 1
     },
+    {
+        "title": "The Toynbee Convector",
+        "authors": [{
+            "name": "Ray Bradbury"
+        }],
+        "published": "1988",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1430695497l/25476093.jpg",
+        "pages": 275,
+        "isbn": "9780553279573",
+        "year_read": "2020",
+        "order": 2,
+        "link": "https://www.goodreads.com/book/show/25476093-the-toynbee-convector"
+    },
+    {
+        "title": "Elfenslayer (Gotrek & Felix Book 10)",
+        "authors": [{
+            "name": "Nathan Long"
+        }],
+        "published": "2008",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1330383684l/6653455.jpg",
+        "pages": 491,
+        "isbn": "9783492291958",
+        "year_read": "2020",
+        "order": 3,
+        "link": "https://www.goodreads.com/book/show/6653455-elfenslayer"
+    }
 ]
 
 const books_reading = [{
