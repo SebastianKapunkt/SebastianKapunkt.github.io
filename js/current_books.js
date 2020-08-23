@@ -607,29 +607,45 @@ const books_read = [{
         "year_read": "2020",
         "order": 3,
         "link": "https://www.goodreads.com/book/show/6653455-elfenslayer"
+    },
+    {
+        "title": "Shamanslayer (Gotrek & Felix Book 11)",
+        "authors": [{
+            "name": "Nathan Long"
+        }],
+        "published": "2009",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348732072l/6433652.jpg",
+        "pages": 416,
+        "isbn": "9781844167739",
+        "year_read": "2020",
+        "order": 4,
+        "link": "https://www.goodreads.com/book/show/6433652-shamanslayer"
+    },
+    {
+        "title": "Das gew\u00fcnschteste Wunschkind aller Zeiten treibt mich in den Wahnsinn",
+        "authors": [{
+            "name": "Danielle Graf"
+        }, {
+            "name": "Katja Seide"
+        }],
+        "published": "unknown year",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1478512524l/32889241.jpg",
+        "pages": 288,
+        "isbn": "9783407864222",
+        "year_read": "2020",
+        "order": 5,
+        "link": "https://www.goodreads.com/book/show/32889241-das-gew-nschteste-wunschkind-aller-zeiten-treibt-mich-in-den-wahnsinn?from_search=true&from_srp=true&qid=neflYWVJKL&rank=1"
     }
 ]
 
 const books_reading = [{
-        "title": "Ghost In The Wires: My Adventures As The World's Most Wanted Hacker",
-        "authors": [{
-            "name": "Kevin Mitnick"
-        }, {
-            "name": "William L. Simon"
-        }],
-        "published": 2011,
-        "cover": "https://images.isbndb.com/covers/77/09/9780316037709.jpg",
-        "pages": 413,
-    },
-    {
-        "title": "Das gew\u00fcnschteste Wunschkind aller Zeiten treibt mich in den Wahnsinn: Der entspannte Weg durch Trotzphasen",
-        "authors": [{
-            "name": "Danielle Graf"
-        },{
-            "name": "Katja Seide"
-        }],
-        "published": "2018",
-        "cover": "https://m.media-amazon.com/images/I/51EnhgNYLVL._SY346_.jpg",
-        "pages": 292,
-    }
-]
+    "title": "Ghost In The Wires: My Adventures As The World's Most Wanted Hacker",
+    "authors": [{
+        "name": "Kevin Mitnick"
+    }, {
+        "name": "William L. Simon"
+    }],
+    "published": 2011,
+    "cover": "https://images.isbndb.com/covers/77/09/9780316037709.jpg",
+    "pages": 413,
+}]
