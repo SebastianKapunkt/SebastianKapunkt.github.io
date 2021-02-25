@@ -648,4 +648,16 @@ const books_reading = [{
     "published": 2011,
     "cover": "https://images.isbndb.com/covers/77/09/9780316037709.jpg",
     "pages": 413,
-}]
+},
+{
+    "title": "Neuromancer",
+    "authors": [{
+        "name": "William Gibson"
+    }],
+    "published": "1984",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1511700869l/29349974.jpg",
+    "pages": 292,
+    "isbn/asin": "B01BKS2X0Kd",
+    "link": "http://goodreads.com/book/show/29349974-neuromancer"
+}
+]

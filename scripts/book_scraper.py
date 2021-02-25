@@ -25,21 +25,22 @@ class BookScraper:
         self.book_list_path = "current_books.json"
 
     def beautify(self, url):
-        shadow_useragent = ShadowUserAgent()
-        headers = {
-            'authority': 'www.amazon.de',
-            'pragma': 'no-cache',
-            'cache-control': 'no-cache',
-            'dnt': '1',
-            'upgrade-insecure-requests': '1',
-            'user-agent': shadow_useragent.random_nomobile,
-            'accept': 'text/html',
-            'sec-fetch-site': 'none',
-            'sec-fetch-mode': 'navigate',
-            'sec-fetch-dest': 'document',
-            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-        }
-        request = requests.get(url, headers=headers)
+        # shadow_useragent = ShadowUserAgent()
+        # headers = {
+        #     'authority': 'www.amazon.de',
+        #     'pragma': 'no-cache',
+        #     'cache-control': 'no-cache',
+        #     'dnt': '1',
+        #     'upgrade-insecure-requests': '1',
+        #     'user-agent': shadow_useragent.chrome ,
+        #     'accept': 'text/html',
+        #     'sec-fetch-site': 'none',
+        #     'sec-fetch-mode': 'navigate',
+        #     'sec-fetch-dest': 'document',
+        #     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+        # }
+        # request = requests.get(url, headers=headers)
+        request = requests.get(url)
         return BeautifulSoup(request.text, "html.parser")
 
     def scrape(self):
