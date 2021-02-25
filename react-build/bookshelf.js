@@ -17,7 +17,7 @@ var Bookshelf = function (_React$Component) {
     _this.state = {
       grouped_books: groupBooksByAttribute(books_read, "year_read"),
       books: books_read,
-      filter: new Date().getFullYear() + "",
+      filter: "2020",
       pages: sumPages(books_read)
     };
 
