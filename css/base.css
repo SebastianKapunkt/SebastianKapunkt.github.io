@@ -107,6 +107,7 @@ a:hover:not(.nav-item) {
     align-items: center;
     background-color: var(--black-transparent);
     padding-bottom: 128px;
+    min-height: 100vh;
 }
 
 .section>div {
