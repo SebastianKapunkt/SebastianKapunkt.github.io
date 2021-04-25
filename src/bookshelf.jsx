@@ -5,7 +5,7 @@ class Bookshelf extends React.Component {
     this.state = {
        grouped_books: groupBooksByAttribute(books_read, "year_read"),
        books: books_read,
-       filter: "2020",
+       filter: "2021",
        pages: sumPages(books_read)
     };
 

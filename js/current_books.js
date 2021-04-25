@@ -635,6 +635,19 @@ const books_read = [{
         "year_read": "2020",
         "order": 5,
         "link": "https://www.goodreads.com/book/show/32889241-das-gew-nschteste-wunschkind-aller-zeiten-treibt-mich-in-den-wahnsinn?from_search=true&from_srp=true&qid=neflYWVJKL&rank=1"
+    },
+    {
+        "title": "Neuromancer",
+        "authors": [{
+            "name": "William Gibson"
+        }],
+        "published": "1984",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1511700869l/29349974.jpg",
+        "pages": 292,
+        "isbn/asin": "B01BKS2X0Kd",
+        "link": "http://goodreads.com/book/show/29349974-neuromancer",
+        "year_read": "2021",
+        "order": 0
     }
 ]
 
@@ -648,16 +661,4 @@ const books_reading = [{
     "published": 2011,
     "cover": "https://images.isbndb.com/covers/77/09/9780316037709.jpg",
     "pages": 413,
-},
-{
-    "title": "Neuromancer",
-    "authors": [{
-        "name": "William Gibson"
-    }],
-    "published": "1984",
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1511700869l/29349974.jpg",
-    "pages": 292,
-    "isbn/asin": "B01BKS2X0Kd",
-    "link": "http://goodreads.com/book/show/29349974-neuromancer"
-}
-]
+}]
