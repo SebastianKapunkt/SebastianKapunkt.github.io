@@ -107,7 +107,6 @@ a:hover:not(.nav-item) {
     align-items: center;
     background-color: var(--black-transparent);
     padding-bottom: 128px;
-    min-height: 100vh;
 }
 
 .section>div {
@@ -232,6 +231,10 @@ a:hover:not(.nav-item) {
     max-width: 100%;
     padding: 8px 8px 8px 0;
     width: 250px;;
+}
+
+.contact-section {
+    min-height: 110vh;
 }
 
 .contact-grid>div {
