@@ -648,6 +648,19 @@ const books_read = [{
         "link": "http://goodreads.com/book/show/29349974-neuromancer",
         "year_read": "2021",
         "order": 0
+    },
+    {
+        "title": "Zombieslayer (Gotrek and Felix Book 12)",
+        "authors": [{
+            "name": "Nathan Long"
+        }],
+        "published": "2009",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1273784736l/7841525.jpg",
+        "pages": 416,
+        "isbn": "9781844168811",
+        "year_read": "2021",
+        "order": 1,
+        "link": "https://www.goodreads.com/book/show/7841525-zombieslayer"
     }
 ]
 
