@@ -1,6 +1,6 @@
 :root {
     --main-text-color: white;
-    --black-transparent: #000000aa;
+    --black-transparent: #090909aa;
     --yellow: #f2c94c;
     --navigation-main: black;
     --navigation-secondary: var(--yellow);
@@ -16,12 +16,6 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Lato', sans-serif;
-    background-image: url("../img/dog.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    overscroll-behavior: none;
     color: var(--main-text-color);
 }
 

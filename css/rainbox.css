@@ -1,0 +1,78 @@
+:root {
+  --drop-bottom: 5px;
+  --drop-width: 2px;
+  --drop-height: calc(80px - var(--drop-bottom));
+  --drop-offset: -40px;
+  --drop-duration: 20s;
+  --box-padding: 5px;
+}
+
+#rainbox-config {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+}
+
+#rainbox-config div {
+  margin: 0 12px;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+#rainbox {
+  background: black;
+  position: fixed;
+  box-sizing: content-box;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: calc(100vw - 2 * var(--box-padding));
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  padding: 0 5px;
+  z-index: -1;
+}
+
+.drop {
+  position: relative;
+  top: var(--drop-offset);
+  height: var(--drop-height);
+  overflow: hidden;
+  pointer-events: none;
+  animation: drop var(--drop-duration) linear infinite;
+  padding-bottom: var(--drop-bottom);
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(calc(100vh - var(--drop-height) - var(--drop-offset) - var(--drop-bottom)));
+  }
+}
+
+.stem {
+  position: relative;
+  width: var(--drop-width);
+  height: 100%;
+  animation: fade var(--drop-duration) linear infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
