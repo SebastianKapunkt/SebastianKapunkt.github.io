@@ -27,8 +27,9 @@
   position: fixed;
   box-sizing: content-box;
   top: 0;
+  bottom: 0;
   left: 0;
-  height: 100vh;
+  right: 0;
   width: calc(100vw - 2 * var(--box-padding));
   display: flex;
   flex-flow: row;
