@@ -15,7 +15,7 @@ html {
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: "Trebuchet MS", monospace;
     color: var(--main-text-color);
 }
 
@@ -27,7 +27,7 @@ h1,
 h2,
 h3 {
     color: var(--yellow);
-    letter-spacing: .2em;
+    letter-spacing: 0.4rem;
     text-transform: uppercase;
     display: inline;
     font-size: 1.7em;
