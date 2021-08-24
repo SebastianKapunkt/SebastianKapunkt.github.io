@@ -49,6 +49,7 @@ a:not(.nav-item) {
     border-bottom: 3px solid var(--yellow);
     text-decoration: unset;
     padding: 2px 4px;
+    background: var(--navigation-main);
 }
 
 a:not(.nav-item)::before {
