@@ -17,6 +17,7 @@ body {
     margin: 0;
     font-family: "Trebuchet MS", monospace;
     color: var(--main-text-color);
+    background: black;
 }
 
 div {
@@ -220,6 +221,10 @@ a:hover:not(.nav-item) {
     box-sizing: border-box;
     justify-content: center;
     align-items: flex-start
+}
+
+.project-content img {
+    max-width: 100%;
 }
 
 .contact-section {
