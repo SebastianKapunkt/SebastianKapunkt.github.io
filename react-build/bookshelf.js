@@ -59,16 +59,16 @@ var Bookshelf = function (_React$Component) {
           "Was ich bisher gelesen habe"
         ),
         React.createElement(
-          "h3",
-          null,
+          "div",
+          { className: "book-summary" },
           this.state.books.length,
           " B\xFCcher | ",
           this.state.pages,
           " Seiten"
         ),
         React.createElement(
-          "h3",
-          null,
+          "div",
+          { className: "book-summary" },
           Number((this.state.books.length / 6).toFixed(1)),
           " B\xFCcher pro Jahr | ",
           Number((this.state.pages / 6).toFixed(1)),

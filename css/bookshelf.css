@@ -38,6 +38,10 @@
     width: 120px;
 }
 
+.book-summary {
+    font-size: 1em;
+}
+
 .year-column-item {
     border-left: 2px solid white;
     margin-left: 16px;
