@@ -221,11 +221,6 @@ a:hover:not(.nav-item) {
     align-items: flex-start
 }
 
-.project-item img {
-    max-width: 100%;
-    padding: 8px 8px 8px 0;
-}
-
 .contact-section {
     min-height: 110vh;
 }
