@@ -661,17 +661,34 @@ const books_read = [{
         "year_read": "2021",
         "order": 1,
         "link": "https://www.goodreads.com/book/show/7841525-zombieslayer"
+    },
+    {
+        "title": "Ghost In The Wires: My Adventures As The World's Most Wanted Hacker",
+        "authors": [{
+            "name": "Kevin Mitnick"
+        }, {
+            "name": "William L. Simon"
+        }],
+        "published": 2011,
+        "cover": "https://images.isbndb.com/covers/77/09/9780316037709.jpg",
+        "pages": 413,
+        "isbn": "9780316037709",
+        "year_read": "2021",
+        "order": 2,
+        "link": "https://www.goodreads.com/book/show/10256723-ghost-in-the-wires"
     }
 ]
 
 const books_reading = [{
-    "title": "Ghost In The Wires: My Adventures As The World's Most Wanted Hacker",
+    "title": "Road of Skulls (Gotrek and Felix Book 13)",
     "authors": [{
-        "name": "Kevin Mitnick"
-    }, {
-        "name": "William L. Simon"
+        "name": "Joshua   Reynolds"
     }],
-    "published": 2011,
-    "cover": "https://images.isbndb.com/covers/77/09/9780316037709.jpg",
-    "pages": 413,
+    "published": "2013",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1345678604l/15803019.jpg",
+    "pages": 416,
+    "isbn": "9781849702928",
+    "year_read": "",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/15803019-road-of-skulls?ref=nav_sb_ss_1_14"
 }]
