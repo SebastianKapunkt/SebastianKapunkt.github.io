@@ -220,7 +220,8 @@ a:hover:not(.nav-item) {
     flex-flow: row wrap;
     box-sizing: border-box;
     justify-content: center;
-    align-items: flex-start
+    align-items: flex-start;
+    gap: 12px;
 }
 
 .project-content img {

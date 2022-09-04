@@ -42,4 +42,12 @@ const hightlightNav = (navItems) => {
 }
 
 let navItems = document.getElementById("navigation").querySelectorAll('.nav-item')
-window.addEventListener('scroll', () => hightlightNav(navItems), false);
+var timer = null;
+window.addEventListener('scroll', function() {
+    if(timer !== null) {
+        clearTimeout(timer);        
+    }
+    timer = setTimeout(function() {
+        hightlightNav(navItems)
+    }, 100);
+}, false);
