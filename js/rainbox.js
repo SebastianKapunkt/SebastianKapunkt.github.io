@@ -13,10 +13,15 @@ const configuration = {
         "dropCount": window.innerWidth / 1,
         "dropSpeedMin": 800,
         "dropSpeedMax": 400
+    },
+    "off": {
+        "dropCount": window.innerWidth / 10,
+        "dropSpeedMin": 0,
+        "dropSüeedMax": 0
     }
 }
 
-let selectedConfiguration = configuration["rain"]
+let selectedConfiguration = configuration["off"]
 const dropRow = document.getElementById("rainbox")
 const configRow = document.getElementById("rainbox-config")
 
@@ -38,17 +43,26 @@ function rainbox() {
             selectedConfiguration["dropSpeedMax"],
             selectedConfiguration["dropSpeedMin"]
             )}ms`
-        const randomDelay = `${getRandomInt(1000,10000)}ms`
-      
+        const randomOffest = `${getRandomInt(-200, window.innerHeight)}px`
+
         var drop = document.createElement("div")
         drop.classList.add("drop")
-        drop.style.animationDelay = randomDelay
-        drop.style.animationDuration = randomSpeed
+        drop.style.top = randomOffest
+        if(!randomSpeed.includes("NaN")) {
+            drop.style.animationDelay = 0
+            drop.style.animationDuration = randomSpeed
+        } else {
+            drop.style.animation = "none"
+        }
         
         var stem = document.createElement("div")
         stem.classList.add("stem")
-        stem.style.animationDelay = randomDelay
-        stem.style.animationDuration = randomSpeed
+        if(!randomSpeed.includes("NaN")) {
+            stem.style.animationDelay = 0
+            stem.style.animationDuration = randomSpeed
+        } else {
+            stem.style.animation = "none"
+        }
         stem.style.backgroundColor = `hsl(${
             (360 * i / selectedConfiguration["dropCount"] * 2)
           },80%,50%)`
