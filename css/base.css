@@ -79,6 +79,13 @@ a:hover:not(.nav-item) {
     justify-content: flex-end;
 }
 
+@media screen and (max-width: 425px) {
+    #navigation {
+        background-color: black;
+        font-size: 80%;
+    }
+}
+
 .nav-item {
     text-decoration: none;
     padding: 12px;
@@ -87,6 +94,13 @@ a:hover:not(.nav-item) {
     transition: all 0.1s ease-in;
     display: flex;
     align-items: center;
+}
+
+@media screen and (max-width: 425px) {
+    .nav-item {
+        flex-grow: 1;
+        justify-content: center;
+    }
 }
 
 .nav-item:hover,
@@ -158,6 +172,12 @@ a:hover:not(.nav-item) {
     flex-flow: column;
 }
 
+@media screen and (max-width: 425px) {
+    .welcome-window {
+        padding: 64px 32px;
+    }
+}
+
 .my-name {
     font-size: 1.5em;
     letter-spacing: .2em;
@@ -186,6 +206,12 @@ a:hover:not(.nav-item) {
     margin: 12px 0;
     padding-left: 24px;
     height: auto;
+}
+
+@media screen and (max-width: 425px) {
+    .project-item {
+        padding: 0 8px;
+    }
 }
 
 .project-heading {
@@ -217,11 +243,24 @@ a:hover:not(.nav-item) {
 .project-content {
     padding: 12px 0;
     display: flex;
-    flex-flow: row wrap;
     box-sizing: border-box;
     justify-content: center;
     align-items: flex-start;
     gap: 12px;
+}
+
+@media screen and (max-width: 425px) {
+    .project-content {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    .project-headline {
+        display: flex;
+        flex-flow: column;
+        gap: 8px;
+    }
 }
 
 .project-content img {
@@ -263,7 +302,17 @@ a:hover:not(.nav-item) {
     height: 70px;
     justify-content: center;
     align-items: center;
-}   
+}
+
+@media screen and (max-width: 425px) {
+    .footer {
+        flex-flow: column;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+}
 
 .footer a {
     flex-shrink: 0;
@@ -273,21 +322,14 @@ a:hover:not(.nav-item) {
     .contact-grid {
         grid-template-columns: 100%;
         grid-template-rows: repeat(6, var(--contact-box-height));
+        padding: 8px;
     }
 
     h3 {
         font-size: 0.6em;
     }
 
-    .welcome-window {
-        padding: 64px;
-    }
-
     .section {
         padding-bottom: 48px;
-    }
-
-    .project-item {
-        padding-left: 8px;
     }
 }

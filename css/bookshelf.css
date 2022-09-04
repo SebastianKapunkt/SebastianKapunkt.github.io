@@ -35,7 +35,7 @@
 }
 
 .book_descriptor {
-    width: 120px;
+    min-width: 9em;
 }
 
 .book-summary {
@@ -45,8 +45,8 @@
 .year-column-item {
     border-left: 2px solid white;
     margin-left: 16px;
-    padding-top: 20px;
-    height: 90px;
+    padding: 20px 0;
+    min-height: 100px;
 }
 
 .year-column {
