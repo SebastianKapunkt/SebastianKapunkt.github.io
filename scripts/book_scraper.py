@@ -75,12 +75,13 @@ class BookScraper:
 
     def scrape_publish_year(self, soup):
         try:
-            text = soup.find(
+            rows = soup.find(
                 "div", {"id": "details"}
-                ).findAll(
-                    "nobr", {"class": "greyText"}
-                )[0].get_text()
-            return re.findall(r'(\d{4})', text)[0]
+            ).findAll(
+                "div", {"class": "row"}
+            )
+            published = [row.get_text() for row in rows if "Published" in row.get_text()]
+            return re.findall(r'(\d{4})', published[0])[0]
         except (AttributeError, IndexError):
             return "unknown year"
 
@@ -108,7 +109,7 @@ class BookScraper:
 
     def scrape_isbn(self, soup):
         try:
-            return soup.find("span", itemprop="isbn").get_text()
+            return soup.find("div", itemprop="isbn").get_text()
         except AttributeError:
             return "no isbn found"
 

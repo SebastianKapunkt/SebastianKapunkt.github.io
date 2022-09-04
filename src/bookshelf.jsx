@@ -5,7 +5,7 @@ class Bookshelf extends React.Component {
     this.state = {
        grouped_books: groupBooksByAttribute(books_read, "year_read"),
        books: books_read,
-       filter: "2021",
+       filter: "2022",
        pages: sumPages(books_read)
     };
 
@@ -29,8 +29,8 @@ class Bookshelf extends React.Component {
         <h1 className="section-heading">Was ich bisher gelesen habe</h1>
         <div className="book-summary">{this.state.books.length} Bücher | {this.state.pages} Seiten</div>
         <div className="book-summary">
-          {Number((this.state.books.length/6).toFixed(1))} Bücher pro Jahr 
-          | {Number((this.state.pages/6).toFixed(1))} Seiten pro Jahr
+          {Number((this.state.books.length/9).toFixed(1))} Bücher pro Jahr 
+          | {Number((this.state.pages/9).toFixed(1))} Seiten pro Jahr
         </div>
         <div className="bookshelf">
           <div className="year-column">

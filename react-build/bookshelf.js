@@ -17,7 +17,7 @@ var Bookshelf = function (_React$Component) {
     _this.state = {
       grouped_books: groupBooksByAttribute(books_read, "year_read"),
       books: books_read,
-      filter: "2021",
+      filter: "2022",
       pages: sumPages(books_read)
     };
 
@@ -69,9 +69,9 @@ var Bookshelf = function (_React$Component) {
         React.createElement(
           "div",
           { className: "book-summary" },
-          Number((this.state.books.length / 6).toFixed(1)),
+          Number((this.state.books.length / 9).toFixed(1)),
           " B\xFCcher pro Jahr | ",
-          Number((this.state.pages / 6).toFixed(1)),
+          Number((this.state.pages / 9).toFixed(1)),
           " Seiten pro Jahr"
         ),
         React.createElement(

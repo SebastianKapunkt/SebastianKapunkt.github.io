@@ -628,7 +628,7 @@ const books_read = [{
         }, {
             "name": "Katja Seide"
         }],
-        "published": "unknown year",
+        "published": "2018",
         "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1478512524l/32889241.jpg",
         "pages": 288,
         "isbn": "9783407864222",
@@ -676,10 +676,8 @@ const books_read = [{
         "year_read": "2021",
         "order": 2,
         "link": "https://www.goodreads.com/book/show/10256723-ghost-in-the-wires"
-    }
-]
-
-const books_reading = [{
+    },
+    {
         "title": "Road of Skulls (Gotrek and Felix Book 13)",
         "authors": [{
             "name": "Joshua   Reynolds"
@@ -688,21 +686,48 @@ const books_reading = [{
         "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1345678604l/15803019.jpg",
         "pages": 416,
         "isbn": "9781849702928",
-        "year_read": "",
+        "year_read": "2022",
         "order": 0,
         "link": "https://www.goodreads.com/book/show/15803019-road-of-skulls?ref=nav_sb_ss_1_14"
     },
     {
-        "title": "Mr. Parnassus' Heim f\u00fcr magisch Begabte",
+        "title": "The Tilean's Talisman (Gotrek & Felix)",
         "authors": [{
-            "name": "T.J. Klune"
+            "name": "David Guymer"
         }],
-        "published": "2020",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1607905437l/56274450._SY475_.jpg",
-        "pages": 480,
-        "isbn": "9783453321366",
-        "year_read": "",
-        "order": 0,
-        "link": "https://www.goodreads.com/book/show/56274450-mr-parnassus-heim-f-r-magisch-begabte"
+        "published": "2016",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1556009847l/45276429._SY475_.jpg",
+        "pages": 26,
+        "isbn": "B06Y3WN976",
+        "year_read": "2022",
+        "order": 1,
+        "link": "https://www.goodreads.com/book/show/45276429-the-tilean-s-talisman"
+    },
+    {
+        "title": "Charnel Congress",
+        "authors": [{
+            "name": "Joshua   Reynolds"
+        }],
+        "published": "2012",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1332437845l/13556716.jpg",
+        "pages": 93,
+        "isbn": "9780857875877",
+        "year_read": "2022",
+        "order": 2,
+        "link": "https://www.goodreads.com/book/show/13556716-charnel-congress"
     }
 ]
+
+const books_reading = [{
+    "title": "Mr. Parnassus' Heim f\u00fcr magisch Begabte",
+    "authors": [{
+        "name": "T.J. Klune"
+    }],
+    "published": "2020",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1607905437l/56274450._SY475_.jpg",
+    "pages": 480,
+    "isbn": "9783453321366",
+    "year_read": "",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/56274450-mr-parnassus-heim-f-r-magisch-begabte"
+}]
