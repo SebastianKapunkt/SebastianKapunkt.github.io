@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +13,20 @@
 </head>
 <body>
     <canvas id="playground"></canvas>
+    <div class="controls">
+        <div class="control control__up" onclick="pressKey('w')">
+            w / &uarr;
+        </div>
+        <div class="control control__right" onclick="pressKey('d')">
+            d / &rarr;
+        </div>
+        <div class="control control__down" onclick="pressKey('s')">
+            s / &darr;
+        </div>
+        <div class="control control__left" onclick="pressKey('a')">
+            a / &larr;
+        </div>
+    </div>
     <script src="js/gridPath.js"></script>
 </body>
 </html>
