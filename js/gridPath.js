@@ -30,7 +30,7 @@ const circleRadius = 8
 const length = Math.ceil(minSize / columns) * scale
 const unscaledLength = length / scale
 const gridWith = unscaledLength * (columns - 1)
-const gridPadding = (minSize - gridWith - 24) / 2
+const gridPadding = (minSize - gridWith) / 2
 const offset = (minSize - gridWith - gridPadding) * scale
 
 for (let position = 1; position <= rows * columns; position++) {
