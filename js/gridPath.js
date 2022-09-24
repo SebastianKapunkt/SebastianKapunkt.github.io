@@ -27,15 +27,14 @@ ctx.lineWidth = 4;
 const rows = 10
 const columns = 10
 const circleRadius = 8
-const length = Math.floor((minSize - 48) / columns) * scale
-const offset = (minSize - (rows * length / scale)) / 2 * scale
+const length = Math.ceil(minSize / columns) * scale
+const unscaledLength = length / 2
+const gridWith = unscaledLength * (columns - 1)
+const gridPadding = (minSize - gridWith -12) / 2
+const offset = (minSize - gridWith - gridPadding) * scale
 
-for (let row = 0; row < rows; row++) {
-    for (let column = 0; column < columns; column++) {
-        const x = length * column + offset
-        const y = length * row + offset
-        drawCircle(x,y, 'rgba(0,0,0,0.1)')
-    }
+for (let position = 1; position <= rows * columns; position++) {
+    drawCircle(getXCoordinate(position), getYCoordinate(position), 'rgba(0,0,0,0.1)')
 }
 drawCircle(getXCoordinate(1), getYCoordinate(1), strokeActiveColor)
 
