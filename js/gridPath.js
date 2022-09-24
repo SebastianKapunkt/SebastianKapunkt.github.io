@@ -28,13 +28,13 @@ const rows = 10
 const columns = 10
 const circleRadius = 8
 const length = Math.ceil(minSize / columns) * scale
-const unscaledLength = length / 2
+const unscaledLength = length / scale
 const gridWith = unscaledLength * (columns - 1)
-const gridPadding = (minSize - gridWith -12) / 2
+const gridPadding = (minSize - gridWith - 24) / 2
 const offset = (minSize - gridWith - gridPadding) * scale
 
 for (let position = 1; position <= rows * columns; position++) {
-    drawCircle(getXCoordinate(position), getYCoordinate(position), 'rgba(0,0,0,0.1)')
+    drawCircle(getXCoordinate(position), getYCoordinate(position), '#444')
 }
 drawCircle(getXCoordinate(1), getYCoordinate(1), strokeActiveColor)
 
