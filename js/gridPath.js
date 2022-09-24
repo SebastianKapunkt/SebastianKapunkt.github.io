@@ -1,47 +1,76 @@
-var canvas = document.getElementById("playground")
-var ctx = canvas.getContext("2d");
-ctx.strokeStyle = 'black';
-ctx.canvas.width = window.innerWidth - 50;
-ctx.canvas.height = window.innerHeight - 274;
+const playgroundElement = document.getElementById("playground")
+const minSize = Math.min(window.innerWidth, window.innerHeight)
+const controlHeight = 224
+let padding = 48
+if (window.innerHeight + controlHeight < window.innerWidth) {
+    padding = padding + controlHeight
+}
+const scale = 2
 
-const rows = 4
-const columns = 4
-const length = 75
-const offset = 50
+playgroundElement.style.width = `${minSize - padding}px`
+playgroundElement.style.height = `${minSize - padding}px`
+
+const canvas = document.createElement("canvas")
+canvas.style.width = `${minSize - padding}px`
+canvas.style.height = `${minSize - padding}px`
+canvas.width = minSize * scale;
+canvas.height = minSize * scale;
+playgroundElement.appendChild(canvas)
+
+const ctx = canvas.getContext("2d");
+const strokeColor = 'white'
+const strokeActiveColor = '#fcbe24'
+ctx.strokeStyle = strokeColor;
+ctx.lineWidth = 4;
+
+
+const rows = 10
+const columns = 10
+const circleRadius = 8
+const length = Math.floor((minSize - 48) / columns) * scale
+const offset = (minSize - (rows * length / scale)) / 2 * scale
 
 for (let row = 0; row < rows; row++) {
     for (let column = 0; column < columns; column++) {
         const x = length * column + offset
         const y = length * row + offset
-
-        ctx.beginPath();
-        ctx.arc(x, y, 5, 0, Math.PI * 2, true);
-        ctx.closePath();
-        ctx.stroke()
+        drawCircle(x,y, 'rgba(0,0,0,0.1)')
     }
 }
 
 function drawLine(from, to, color) {
     ctx.strokeStyle = color;
+    const startX = (from - 1) % columns * length + offset
+    const startY = Math.floor((from - 1) / columns) * length + offset
+    const endX = (to - 1) % columns * length + offset
+    const endY = Math.floor((to - 1) / columns) * length + offset
     ctx.beginPath()
-    ctx.moveTo(
-        (from - 1) % columns * length + offset,
-        Math.floor((from - 1) / columns) * length + offset,
-    )
-    ctx.lineTo(
-        (to - 1) % columns * length + offset,
-        Math.floor((to - 1) / columns) * length + offset,
-    )
+    ctx.moveTo(startX,startY)
+    ctx.lineTo(endX, endY)
     ctx.stroke()
+    ctx.strokeStyle = strokeColor
+    drawCircle(startX, startY, strokeColor)
+    drawCircle(endX, endY, strokeActiveColor)
+}
+
+function drawCircle(x, y, color) {
+    ctx.strokeStyle = color
+    ctx.fillStyle = color
+    ctx.beginPath();
+    ctx.arc(x, y, circleRadius * scale, 0, Math.PI * 2, true);
+    ctx.closePath();
+    ctx.fill()
+    ctx.stroke()
+    ctx.strokeStyle = strokeColor
+    ctx.strokeStyle = strokeColor
 }
 
 let currentNote = 1
-let lineColor = "black";
 
 function goLeft(note, columns) {
     const nextNote = note - 1
     if (nextNote % columns !== 0) {
-        drawLine(note, note - 1, lineColor)
+        drawLine(note, note - 1, strokeColor)
         currentNote = nextNote
     }
 }
@@ -49,7 +78,7 @@ function goLeft(note, columns) {
 function goRight(note, columns) {
     const nextNote = note + 1
     if (note % columns !== 0) {
-        drawLine(note, nextNote, lineColor)
+        drawLine(note, nextNote, strokeColor)
         currentNote = nextNote
     }
 }
@@ -57,7 +86,7 @@ function goRight(note, columns) {
 function goUp(note, columns) {
     const nextNote = note - columns
     if (nextNote > 0) {
-        drawLine(note, nextNote, lineColor)
+        drawLine(note, nextNote, strokeColor)
         currentNote = nextNote
     }
 }
@@ -65,7 +94,7 @@ function goUp(note, columns) {
 function goDown(note, columns, rows) {
     const nextNote = note + columns
     if (nextNote <= rows * columns) {
-        drawLine(note, nextNote, lineColor)
+        drawLine(note, nextNote, strokeColor)
         currentNote = nextNote
     }
 }
