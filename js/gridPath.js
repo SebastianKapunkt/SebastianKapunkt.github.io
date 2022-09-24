@@ -37,13 +37,14 @@ for (let row = 0; row < rows; row++) {
         drawCircle(x,y, 'rgba(0,0,0,0.1)')
     }
 }
+drawCircle(getXCoordinate(1), getYCoordinate(1), strokeActiveColor)
 
 function drawLine(from, to, color) {
     ctx.strokeStyle = color;
-    const startX = (from - 1) % columns * length + offset
-    const startY = Math.floor((from - 1) / columns) * length + offset
-    const endX = (to - 1) % columns * length + offset
-    const endY = Math.floor((to - 1) / columns) * length + offset
+    const startX = getXCoordinate(from)
+    const startY = getYCoordinate(from)
+    const endX = getXCoordinate(to)
+    const endY = getYCoordinate(to)
     ctx.beginPath()
     ctx.moveTo(startX,startY)
     ctx.lineTo(endX, endY)
@@ -51,6 +52,14 @@ function drawLine(from, to, color) {
     ctx.strokeStyle = strokeColor
     drawCircle(startX, startY, strokeColor)
     drawCircle(endX, endY, strokeActiveColor)
+}
+
+function getXCoordinate(position) {
+    return (position - 1) % columns * length + offset
+}
+
+function getYCoordinate(position) {
+    return Math.floor((position - 1) / columns) * length + offset
 }
 
 function drawCircle(x, y, color) {
