@@ -20,8 +20,8 @@ playgroundElement.appendChild(canvas)
 
 class Config {
     constructor(minSize, scale) {
-        this.rows = 3
-        this.columns = 4
+        this.rows = 10
+        this.columns = 10
         this.circleRadius = 8
         this.scale = scale
         this.length = Math.floor(minSize / this.columns) * this.scale
@@ -107,16 +107,21 @@ class Game {
         for (let point of this.points) {
             if (point.canGoUp()) {
                 point.pointUp = this.points[point.position - this.config.columns - 1]
+                point.up = true
             }
             if (point.canGoRight()) {
                 point.pointRight = this.points[point.position]
+                point.right = true
             }
             if (point.canGoDown()) {
                 point.pointDown = this.points[point.position + this.config.columns - 1]
+                point.down = true
             }
             if (point.canGoLeft()) {
                 point.pointLeft = this.points[point.position - 2]
+                point.left = true
             }
+            console.log(point)
         }
     }
 
@@ -124,45 +129,53 @@ class Game {
         switch (key) {
             case "ArrowLeft":
             case "a":
-                if (this.currentPoint.canGoLeft()) {
+                if (this.currentPoint.canGoLeft() && this.currentPoint.left) {
                     this.board.drawLine(
                         this.currentPoint.position,
                         this.currentPoint.pointLeft.position,
                         this.config.strokeColor
                     )
+                    this.currentPoint.left = false
+                    this.currentPoint.pointLeft.right = false
                     this.currentPoint = this.currentPoint.pointLeft
                 }
                 break;
             case "ArrowRight":
             case "d":
-                if (this.currentPoint.canGoRight()) {
+                if (this.currentPoint.canGoRight() && this.currentPoint.right) {
                     this.board.drawLine(
                         this.currentPoint.position,
                         this.currentPoint.pointRight.position,
                         this.config.strokeColor
                     )
+                    this.currentPoint.right = false
+                    this.currentPoint.pointRight.left = false
                     this.currentPoint = this.currentPoint.pointRight
                 }
                 break;
             case "ArrowUp":
             case "w":
-                if (this.currentPoint.canGoUp()) {
+                if (this.currentPoint.canGoUp() && this.currentPoint.up) {
                     this.board.drawLine(
                         this.currentPoint.position,
                         this.currentPoint.pointUp.position,
                         this.config.strokeColor
                     )
+                    this.currentPoint.up = false
+                    this.currentPoint.pointUp.down = false
                     this.currentPoint = this.currentPoint.pointUp
                 }
                 break;
             case "ArrowDown":
             case "s":
-                if (this.currentPoint.canGoDown()) {
+                if (this.currentPoint.canGoDown() && this.currentPoint.down) {
                     this.board.drawLine(
                         this.currentPoint.position,
                         this.currentPoint.pointDown.position,
                         this.config.strokeColor
                     )
+                    this.currentPoint.down = false
+                    this.currentPoint.pointDown.up = false
                     this.currentPoint = this.currentPoint.pointDown
                 }
                 break;
@@ -178,6 +191,10 @@ class Point {
         this.pointRight = null
         this.pointDown = null
         this.pointLeft = null
+        this.up = false
+        this.right = false
+        this.down = false
+        this.left = false
     }
 
     canGoUp() {
@@ -196,7 +213,7 @@ class Point {
     }
 
     canGoLeft() {
-        return this.position - 1 % this.config.columns !== 0
+        return (this.position - 1) % this.config.columns !== 0
     }
 }
 
