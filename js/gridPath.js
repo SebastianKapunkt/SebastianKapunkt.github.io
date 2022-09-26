@@ -121,7 +121,6 @@ class Game {
                 point.pointLeft = this.points[point.position - 2]
                 point.left = true
             }
-            console.log(point)
         }
     }
 
