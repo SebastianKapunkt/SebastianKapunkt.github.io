@@ -241,13 +241,6 @@ class GridPath {
             solvedPath = this.randomPath(this.createPoints())
             pathFound = solvedPath[0]
         } while (!pathFound)
-        // for (let i = 0; i < solvedPath[1].length - 1; i++) {
-        //     this.board.drawLine(
-        //         solvedPath[1][i].position,
-        //         solvedPath[1][i + 1].position,
-        //         "orange"
-        //     )
-        // }
         return solvedPath[1]
     }
 
