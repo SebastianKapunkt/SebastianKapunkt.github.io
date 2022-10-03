@@ -22,7 +22,7 @@ class Board {
         const playgroundElement = document.getElementById(canvasId)
         let padding = config.padding
 
-        if (window.innerHeight + config.controlHeight < window.innerWidth) {
+        if (window.innerHeight < window.innerWidth + config.controlHeight) {
             padding = config.padding + config.controlHeight
         }
 
