@@ -1,7 +1,7 @@
 class Config {
     constructor() {
-        this.rows = 10
-        this.columns = 10
+        this.rows = 3
+        this.columns = 4
         this.circleRadius = 8
         this.scale = 2
         this.controlHeight = 224
@@ -84,24 +84,77 @@ class Board {
 }
 
 class Game {
-    constructor(board, columns, rows, inactiveColor, strokeColor) {
-        this.points = []
+    constructor(board, columns, rows, inactiveColor, strokeColor, startPoint) {
         this.board = board
         this.columns = columns
         this.rows = rows
         this.strokeColor = strokeColor
         this.inactiveColor = inactiveColor
-        this.currentPoint = null
+        this.currentPoint = startPoint
     }
 
     createBoard() {
         for (let position = 1; position <= this.rows * this.columns; position++) {
-            this.points.push(new Point(position, this.columns, this.rows))
             this.board.drawCircle(
                 this.board.getXCoordinate(position),
                 this.board.getYCoordinate(position),
                 this.inactiveColor
             )
+        }
+    }
+
+    controlToDirection(key) {
+        let direction = ''
+        switch (key) {
+            case "ArrowUp":
+            case "w":
+                direction = 'up'
+                break;
+            case "ArrowRight":
+            case "d":
+                direction = 'right'
+                break;
+            case "ArrowDown":
+            case "s":
+                direction = 'down'
+                break;
+            case "ArrowLeft":
+            case "a":
+                direction = 'left'
+                break;
+        }
+        return direction
+    }
+
+    moveNextPoint(direction) {
+        const nextDirection = this.currentPoint.linkedPoints.find(
+            point => point.direction === direction
+        )
+        if (nextDirection && nextDirection.canGo && nextDirection.inBoundary) {
+            this.board.drawLine(
+                this.currentPoint.position,
+                nextDirection.point.position,
+                this.strokeColor
+            )
+            this.currentPoint.updatePath(nextDirection.point)
+            this.currentPoint = nextDirection.point
+        }
+    }
+}
+
+class SolvePath {
+    constructor(board, columns, rows) {
+        this.points = []
+        this.solvedPath = []
+        this.currentPoint = null
+        this.columns = columns
+        this.rows = rows
+        this.board = board
+    }
+
+    createPoints() {
+        for (let position = 1; position <= this.rows * this.columns; position++) {
+            this.points.push(new Point(position, this.columns, this.rows))
         }
         this.createLinks()
         this.currentPoint = this.points[0]
@@ -109,143 +162,123 @@ class Game {
 
     createLinks() {
         for (let point of this.points) {
-            if (point.canGoUp()) {
-                point.pointUp = this.points[point.position - this.columns - 1]
-                point.up = true
-            }
-            if (point.canGoRight()) {
-                point.pointRight = this.points[point.position]
-                point.right = true
-            }
-            if (point.canGoDown()) {
-                point.pointDown = this.points[point.position + this.columns - 1]
-                point.down = true
-            }
-            if (point.canGoLeft()) {
-                point.pointLeft = this.points[point.position - 2]
-                point.left = true
+            for (let direction of ['up', 'right', 'down', 'left']) {
+                const linkedPoint = point.linkedPoints.find(point => point.direction === direction)
+                if (linkedPoint.inBoundary) {
+                    linkedPoint.point = this.points[this.directionCaculation(direction, point)]
+                    linkedPoint.canGo = true
+                }
             }
         }
     }
 
-    controls(key) {
-        switch (key) {
-            case "ArrowUp":
-            case "w":
-                if (this.currentPoint.canGoUp() && this.currentPoint.up) {
-                    this.board.drawLine(
-                        this.currentPoint.position,
-                        this.currentPoint.pointUp.position,
-                        this.strokeColor
-                    )
-                    this.currentPoint = this.currentPoint.updateUp()
-                }
-                break;
-            case "ArrowRight":
-            case "d":
-                if (this.currentPoint.canGoRight() && this.currentPoint.right) {
-                    this.board.drawLine(
-                        this.currentPoint.position,
-                        this.currentPoint.pointRight.position,
-                        this.strokeColor
-                    )
-                    this.currentPoint = this.currentPoint.updateRight()
-                }
-                break;
-            case "ArrowDown":
-            case "s":
-                if (this.currentPoint.canGoDown() && this.currentPoint.down) {
-                    this.board.drawLine(
-                        this.currentPoint.position,
-                        this.currentPoint.pointDown.position,
-                        this.strokeColor
-                    )
-                    this.currentPoint = this.currentPoint.updateDown()
-                }
-                break;
-            case "ArrowLeft":
-            case "a":
-                if (this.currentPoint.canGoLeft() && this.currentPoint.left) {
-                    this.board.drawLine(
-                        this.currentPoint.position,
-                        this.currentPoint.pointLeft.position,
-                        this.strokeColor
-                    )
-                    this.currentPoint = this.currentPoint.updateLeft()
-                }
-                break;
+    directionCaculation(direction, point) {
+        switch (direction) {
+            case 'up':
+                return point.position - this.columns - 1
+            case 'right':
+                return point.position
+            case 'down':
+                return point.position + this.columns - 1
+            case 'left':
+                return point.position - 2
         }
+    }
+
+    createSolvePath() {
+        let pathFound = false
+        do {
+            this.points = []
+            this.solvedPath = []
+            this.createPoints()
+            pathFound = this.randomPath()
+        } while (!pathFound)
+        for (let i = 0; i < this.solvedPath.length - 1; i++) {
+            this.board.drawLine(
+                this.solvedPath[i].position,
+                this.solvedPath[i + 1].position,
+                "green"
+            )
+        }
+    }
+
+    randomPath() {
+        this.solvedPath.push(this.currentPoint)
+        for (let i = 1; i < this.columns + this.columns; i++) {
+            const nextPoints = this.currentPoint.linkedPoints.filter(
+                point => point.canGo
+            ).map(
+                linkedPoint => linkedPoint.point
+            )
+            if (nextPoints.length === 0) {
+                return false
+            }
+            const randomPoint = nextPoints[Math.floor(Math.random() * nextPoints.length)]
+            this.solvedPath.push(randomPoint)
+            this.currentPoint.updatePath(randomPoint)
+            this.currentPoint = randomPoint
+        }
+        return true
     }
 }
 
 class Point {
     constructor(position, columns, rows) {
         this.position = position
-        this.columns = columns
-        this.rows = rows
-        this.pointUp = null
-        this.pointRight = null
-        this.pointDown = null
-        this.pointLeft = null
-        this.up = false
-        this.right = false
-        this.down = false
-        this.left = false
+        this.linkedPoints = [
+            {
+                direction: 'up',
+                canGo: false,
+                inBoundary: this.position - columns > 0,
+                point: null
+            },
+            {
+                direction: 'right',
+                canGo: false,
+                inBoundary: this.position % columns !== 0,
+                point: null
+            },
+            {
+                direction: 'down',
+                canGo: false,
+                inBoundary: this.position + columns <= rows * columns,
+                point: null
+            },
+            {
+                direction: 'left',
+                canGo: false,
+                inBoundary: (this.position - 1) % columns !== 0,
+                point: null
+            }
+        ]
     }
 
-    canGoUp() {
-        return this.position - this.columns > 0
-    }
-
-    canGoRight() {
-        return this.position % this.columns !== 0
-    }
-
-    canGoDown() {
-        return (
-            this.position + this.columns
-            <= this.rows * this.columns
-        )
-    }
-
-    canGoLeft() {
-        return (this.position - 1) % this.columns !== 0
-    }
-
-    updateUp() {
-        this.up = false
-        this.pointUp.down = false
-        return this.pointUp
-    }
-
-    updateRight() {
-        this.right = false
-        this.pointRight.left = false
-        return this.pointRight
-    }
-
-    updateDown() {
-        this.down = false
-        this.pointDown.up = false
-        return this.pointDown
-    }
-
-    updateLeft() {
-        this.left = false
-        this.pointLeft.right = false
-        return this.pointLeft
+    updatePath(nextPoint) {
+        this.linkedPoints.find(point => point.point === nextPoint).canGo = false
+        nextPoint.linkedPoints.find(point => point.point === this).canGo = false
+        return nextPoint
     }
 }
 
 config = new Config()
 board = new Board(config, "playground")
-game = new Game(board, config.columns, config.rows, config.inactiveColor, config.strokeColor)
+solvePath = new SolvePath(board, config.columns, config.rows)
+solvePath.createPoints()
+solvePath.createLinks()
+game = new Game(
+    board,
+    config.columns,
+    config.rows,
+    config.inactiveColor,
+    config.strokeColor,
+    solvePath.points[0]
+)
 game.createBoard()
 
-function pressKey(key) {
-    game.controls(key)
+function moveDirection(direction) {
+    game.moveNextPoint(direction)
 }
 
 window.addEventListener('keydown', (event) => {
-    game.controls(event.key)
+    this.moveDirection(game.controlToDirection(event.key))
 })
