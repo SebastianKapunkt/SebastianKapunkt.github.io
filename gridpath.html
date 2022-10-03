@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/gridpath.css"/>
 </head>
 <body>
+    <h1>complete the grid</h1>
     <div id="playground">
 
     </div>
@@ -28,6 +29,12 @@
         <div class="control control__left" onclick="moveDirection('left')">
             &larr;
         </div>
+    </div>
+    <div id="winning-screen">
+        <h1>You have done it!</h1>
+        To play again press any key <br>
+        or press the button <br>
+        <button id="restart-button" onclick="startNewGame()">RESTART</button>
     </div>
     <script src="js/gridPath.js"></script>
 </body>

@@ -1,7 +1,7 @@
 class Config {
-    constructor() {
-        this.rows = 3
-        this.columns = 4
+    constructor(rows, columns) {
+        this.rows = rows
+        this.columns = columns
         this.circleRadius = 8
         this.scale = 2
         this.controlHeight = 224
@@ -18,7 +18,7 @@ class Config {
 }
 
 class Board {
-    constructor(config, canvasId) {
+    constructor(config, canvasId, inactiveColor) {
         const playgroundElement = document.getElementById(canvasId)
         let padding = config.padding
 
@@ -37,11 +37,13 @@ class Board {
         playgroundElement.appendChild(canvas)
 
         this.config = config
+        this.canvas = canvas
         this.ctx = canvas.getContext("2d");
         this.ctx.lineWidth = 4;
+        this.inactiveColor = inactiveColor
     }
 
-    drawLine(from, to, color) {
+    drawLine(from, to, color, endColor) {
         this.ctx.strokeStyle = color;
         const startX = this.getXCoordinate(from)
         const startY = this.getYCoordinate(from)
@@ -52,8 +54,8 @@ class Board {
         this.ctx.lineTo(endX, endY)
         this.ctx.stroke()
         this.ctx.strokeStyle = this.config.strokeColor
-        this.drawCircle(startX, startY, this.config.strokeColor)
-        this.drawCircle(endX, endY, this.config.strokeActiveColor)
+        this.drawCircle(startX, startY, color)
+        this.drawCircle(endX, endY, endColor)
     }
 
     drawCircle(x, y, color) {
@@ -81,25 +83,59 @@ class Board {
     getYCoordinate(position) {
         return Math.floor((position - 1) / this.config.columns) * this.config.length + this.config.offset
     }
-}
-
-class Rules {
-    constructor(board, columns, rows, inactiveColor, strokeColor, startPoint) {
-        this.board = board
-        this.columns = columns
-        this.rows = rows
-        this.strokeColor = strokeColor
-        this.inactiveColor = inactiveColor
-        this.currentPoint = startPoint
-    }
 
     createBoard() {
         for (let position = 1; position <= this.rows * this.columns; position++) {
-            this.board.drawCircle(
-                this.board.getXCoordinate(position),
-                this.board.getYCoordinate(position),
+            this.drawCircle(
+                this.getXCoordinate(position),
+                this.getYCoordinate(position),
                 this.inactiveColor
             )
+        }
+        this.drawCircle(
+            this.getXCoordinate(1),
+            this.getYCoordinate(1),
+            this.config.strokeActiveColor
+        )
+    }
+
+    clean() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+class Rules {
+    constructor(board, gridPath) {
+        this.board = board
+        this.gridPath = gridPath
+        this.createNewGame()
+        window.addEventListener(
+            'keydown',
+            (e) => this.keyDownEventFunction(e, this)
+        )
+    }
+
+    restartGame() {
+        this.board.clean()
+        this.moves = 0
+        this.currentPoint = this.gridPath.createNegative(this.solvePath)[0]
+        this.board.createBoard()
+    }
+
+    createNewGame() {
+        document.getElementById("winning-screen").style.display = 'none'
+        this.board.clean()
+        this.board.createBoard()
+        this.solvePath = gridPath.createSolvePath()
+        this.currentPoint = this.gridPath.createNegative(this.solvePath)[0]
+        this.moves = 0
+    }
+
+    keyDownEventFunction(event, self) {
+        if (!self.isSolved()) {
+            self.moveNextPoint(rules.controlToDirection(event.key))
+        } else {
+            this.createNewGame()
         }
     }
 
@@ -130,15 +166,30 @@ class Rules {
         const nextDirection = this.currentPoint.linkedPoints.find(
             point => point.direction === direction
         )
-        if (nextDirection && nextDirection.canGo && nextDirection.inBoundary) {
+        if (!this.isSolved() && nextDirection && nextDirection.canGo && nextDirection.inBoundary) {
             this.board.drawLine(
                 this.currentPoint.position,
                 nextDirection.point.position,
-                this.strokeColor
+                this.board.config.strokeColor,
+                this.board.config.strokeActiveColor
             )
             this.currentPoint.updatePath(nextDirection.point)
             this.currentPoint = nextDirection.point
+            this.moves = this.moves + 1
+        } else if (!this.isSolved() && nextDirection) {
+            this.restartGame()
         }
+
+        if (this.isSolved()) {
+            document.getElementById("winning-screen").style.display = 'flex'
+        }
+    }
+
+    isSolved() {
+        return (
+            this.currentPoint.linkedPoints.filter(point => point.canGo).length === 0
+            && this.solvePath.length - 1 === this.moves
+        )
     }
 }
 
@@ -190,18 +241,46 @@ class GridPath {
             solvedPath = this.randomPath(this.createPoints())
             pathFound = solvedPath[0]
         } while (!pathFound)
-        for (let i = 0; i < solvedPath[1].length - 1; i++) {
-            this.board.drawLine(
-                solvedPath[1][i].position,
-                solvedPath[1][i + 1].position,
-                "green"
-            )
-        }
-        return solvedPath
+        // for (let i = 0; i < solvedPath[1].length - 1; i++) {
+        //     this.board.drawLine(
+        //         solvedPath[1][i].position,
+        //         solvedPath[1][i + 1].position,
+        //         "orange"
+        //     )
+        // }
+        return solvedPath[1]
     }
 
-    createNegative() {
-        const solvePath = this.createSolvePath()
+    createNegative(solvePath) {
+        const points = this.createPoints()
+        for (let i = 1; i <= points.length; i++) {
+            const currentPoint = points.find(point => point.position === i)
+            const solvedPoint = solvePath.find(point => point.position === i)
+            for (let direction of ['up', 'right', 'down', 'left']) {
+                const linkedPoint = currentPoint.linkedPoints.find(point => point.direction === direction)
+                let isfree = false
+                if (linkedPoint.canGo) {
+                    if (!solvedPoint) {
+                        isfree = true
+                    } else {
+                        const linkedSolvedPoint = solvedPoint.linkedPoints.find(point => point.direction === direction)
+                        if (linkedSolvedPoint.canGo) {
+                            isfree = true
+                        }
+                    }
+                }
+                if (isfree) {
+                    this.board.drawLine(
+                        currentPoint.position,
+                        linkedPoint.point.position,
+                        this.board.config.inactiveColor,
+                        this.board.config.inactiveColor
+                    )
+                    currentPoint.updatePath(linkedPoint.point)
+                }
+            }
+        }
+        return points
     }
 
     randomPath(points) {
@@ -264,24 +343,28 @@ class Point {
     }
 }
 
-config = new Config()
-board = new Board(config, "playground")
+let columns = 4
+let rows = 3
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+if (urlParams.get("rows") && urlParams.get("columns")) {
+    columns = parseInt(urlParams.get("columns"))
+    rows = parseInt(urlParams.get("rows"))
+}
+config = new Config(rows, columns)
+board = new Board(config, "playground", config.inactiveColor,)
 gridPath = new GridPath(board, config.columns, config.rows)
-gridPath.createSolvePath()
 rules = new Rules(
     board,
-    config.columns,
-    config.rows,
-    config.inactiveColor,
-    config.strokeColor,
-    gridPath.createPoints()[0]
+    gridPath
 )
-rules.createBoard()
+board.createBoard()
 
 function moveDirection(direction) {
     rules.moveNextPoint(direction)
 }
 
-window.addEventListener('keydown', (event) => {
-    this.moveDirection(rules.controlToDirection(event.key))
-})
+function startNewGame() {
+    rules.createNewGame()
+}
