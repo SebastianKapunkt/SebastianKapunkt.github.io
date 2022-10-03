@@ -83,7 +83,7 @@ class Board {
     }
 }
 
-class Game {
+class Rules {
     constructor(board, columns, rows, inactiveColor, strokeColor, startPoint) {
         this.board = board
         this.columns = columns
@@ -142,30 +142,28 @@ class Game {
     }
 }
 
-class SolvePath {
+class GridPath {
     constructor(board, columns, rows) {
-        this.points = []
-        this.solvedPath = []
-        this.currentPoint = null
         this.columns = columns
         this.rows = rows
         this.board = board
     }
 
     createPoints() {
+        let points = []
         for (let position = 1; position <= this.rows * this.columns; position++) {
-            this.points.push(new Point(position, this.columns, this.rows))
+            points.push(new Point(position, this.columns, this.rows))
         }
-        this.createLinks()
-        this.currentPoint = this.points[0]
+        this.createLinks(points)
+        return points
     }
 
-    createLinks() {
-        for (let point of this.points) {
+    createLinks(points) {
+        for (let point of points) {
             for (let direction of ['up', 'right', 'down', 'left']) {
                 const linkedPoint = point.linkedPoints.find(point => point.direction === direction)
                 if (linkedPoint.inBoundary) {
-                    linkedPoint.point = this.points[this.directionCaculation(direction, point)]
+                    linkedPoint.point = points[this.directionCaculation(direction, point)]
                     linkedPoint.canGo = true
                 }
             }
@@ -187,25 +185,31 @@ class SolvePath {
 
     createSolvePath() {
         let pathFound = false
+        let solvedPath = []
         do {
-            this.points = []
-            this.solvedPath = []
-            this.createPoints()
-            pathFound = this.randomPath()
+            solvedPath = this.randomPath(this.createPoints())
+            pathFound = solvedPath[0]
         } while (!pathFound)
-        for (let i = 0; i < this.solvedPath.length - 1; i++) {
+        for (let i = 0; i < solvedPath[1].length - 1; i++) {
             this.board.drawLine(
-                this.solvedPath[i].position,
-                this.solvedPath[i + 1].position,
+                solvedPath[1][i].position,
+                solvedPath[1][i + 1].position,
                 "green"
             )
         }
+        return solvedPath
     }
 
-    randomPath() {
-        this.solvedPath.push(this.currentPoint)
+    createNegative() {
+        const solvePath = this.createSolvePath()
+    }
+
+    randomPath(points) {
+        const solvedPath = []
+        let currentPoint = points[0]
+        solvedPath.push(currentPoint)
         for (let i = 1; i < this.columns + this.columns; i++) {
-            const nextPoints = this.currentPoint.linkedPoints.filter(
+            const nextPoints = currentPoint.linkedPoints.filter(
                 point => point.canGo
             ).map(
                 linkedPoint => linkedPoint.point
@@ -214,11 +218,11 @@ class SolvePath {
                 return false
             }
             const randomPoint = nextPoints[Math.floor(Math.random() * nextPoints.length)]
-            this.solvedPath.push(randomPoint)
-            this.currentPoint.updatePath(randomPoint)
-            this.currentPoint = randomPoint
+            solvedPath.push(randomPoint)
+            currentPoint.updatePath(randomPoint)
+            currentPoint = randomPoint
         }
-        return true
+        return [true, solvedPath]
     }
 }
 
@@ -262,23 +266,22 @@ class Point {
 
 config = new Config()
 board = new Board(config, "playground")
-solvePath = new SolvePath(board, config.columns, config.rows)
-solvePath.createPoints()
-solvePath.createLinks()
-game = new Game(
+gridPath = new GridPath(board, config.columns, config.rows)
+gridPath.createSolvePath()
+rules = new Rules(
     board,
     config.columns,
     config.rows,
     config.inactiveColor,
     config.strokeColor,
-    solvePath.points[0]
+    gridPath.createPoints()[0]
 )
-game.createBoard()
+rules.createBoard()
 
 function moveDirection(direction) {
-    game.moveNextPoint(direction)
+    rules.moveNextPoint(direction)
 }
 
 window.addEventListener('keydown', (event) => {
-    this.moveDirection(game.controlToDirection(event.key))
+    this.moveDirection(rules.controlToDirection(event.key))
 })
