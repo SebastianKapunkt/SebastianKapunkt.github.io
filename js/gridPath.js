@@ -1,33 +1,16 @@
-const playgroundElement = document.getElementById("playground")
-const minSize = Math.min(window.innerWidth, window.innerHeight)
-const controlHeight = 224
-let padding = 48
-if (window.innerHeight + controlHeight < window.innerWidth) {
-    padding = padding + controlHeight
-}
-const scale = 2
-
-playgroundElement.style.width = `${minSize - padding}px`
-playgroundElement.style.height = `${minSize - padding}px`
-
-const canvas = document.createElement("canvas")
-canvas.style.width = `${minSize - padding}px`
-canvas.style.height = `${minSize - padding}px`
-canvas.width = minSize * scale;
-canvas.height = minSize * scale;
-playgroundElement.appendChild(canvas)
-
-
 class Config {
-    constructor(minSize, scale) {
+    constructor() {
         this.rows = 10
         this.columns = 10
         this.circleRadius = 8
-        this.scale = scale
-        this.length = Math.floor(minSize / this.columns) * this.scale
+        this.scale = 2
+        this.controlHeight = 224
+        this.padding = 48
+        this.minSize = Math.min(window.innerWidth, window.innerHeight)
+        this.length = Math.floor(this.minSize / this.columns) * this.scale
         this.gridWith = this.length / this.scale * (this.columns - 1)
-        this.gridPadding = (minSize - this.gridWith) / 2
-        this.offset = (minSize - this.gridWith - this.gridPadding) * this.scale
+        this.gridPadding = (this.minSize - this.gridWith) / 2
+        this.offset = (this.minSize - this.gridWith - this.gridPadding) * this.scale
         this.inactiveColor = '#444'
         this.strokeColor = 'white'
         this.strokeActiveColor = '#fcbe24'
@@ -35,7 +18,24 @@ class Config {
 }
 
 class Board {
-    constructor(config, canvas) {
+    constructor(config, canvasId) {
+        const playgroundElement = document.getElementById(canvasId)
+        let padding = config.padding
+
+        if (window.innerHeight + config.controlHeight < window.innerWidth) {
+            padding = config.padding + config.controlHeight
+        }
+
+        playgroundElement.style.width = `${config.minSize - padding}px`
+        playgroundElement.style.height = `${config.minSize - padding}px`
+
+        const canvas = document.createElement("canvas")
+        canvas.style.width = `${config.minSize - padding}px`
+        canvas.style.height = `${config.minSize - padding}px`
+        canvas.width = config.minSize * config.scale;
+        canvas.height = config.minSize * config.scale;
+        playgroundElement.appendChild(canvas)
+
         this.config = config
         this.ctx = canvas.getContext("2d");
         this.ctx.lineWidth = 4;
@@ -84,19 +84,23 @@ class Board {
 }
 
 class Game {
-    constructor(config, board) {
-        this.config = config
+    constructor(board, columns, rows, inactiveColor, strokeColor) {
         this.points = []
         this.board = board
+        this.columns = columns
+        this.rows = rows
+        this.strokeColor = strokeColor
+        this.inactiveColor = inactiveColor
+        this.currentPoint = null
     }
 
     createBoard() {
-        for (let position = 1; position <= this.config.rows * this.config.columns; position++) {
-            this.points.push(new Point(position, this.config))
+        for (let position = 1; position <= this.rows * this.columns; position++) {
+            this.points.push(new Point(position, this.columns, this.rows))
             this.board.drawCircle(
                 this.board.getXCoordinate(position),
                 this.board.getYCoordinate(position),
-                this.config.inactiveColor
+                this.inactiveColor
             )
         }
         this.createLinks()
@@ -106,7 +110,7 @@ class Game {
     createLinks() {
         for (let point of this.points) {
             if (point.canGoUp()) {
-                point.pointUp = this.points[point.position - this.config.columns - 1]
+                point.pointUp = this.points[point.position - this.columns - 1]
                 point.up = true
             }
             if (point.canGoRight()) {
@@ -114,7 +118,7 @@ class Game {
                 point.right = true
             }
             if (point.canGoDown()) {
-                point.pointDown = this.points[point.position + this.config.columns - 1]
+                point.pointDown = this.points[point.position + this.columns - 1]
                 point.down = true
             }
             if (point.canGoLeft()) {
@@ -126,17 +130,15 @@ class Game {
 
     controls(key) {
         switch (key) {
-            case "ArrowLeft":
-            case "a":
-                if (this.currentPoint.canGoLeft() && this.currentPoint.left) {
+            case "ArrowUp":
+            case "w":
+                if (this.currentPoint.canGoUp() && this.currentPoint.up) {
                     this.board.drawLine(
                         this.currentPoint.position,
-                        this.currentPoint.pointLeft.position,
-                        this.config.strokeColor
+                        this.currentPoint.pointUp.position,
+                        this.strokeColor
                     )
-                    this.currentPoint.left = false
-                    this.currentPoint.pointLeft.right = false
-                    this.currentPoint = this.currentPoint.pointLeft
+                    this.currentPoint = this.currentPoint.updateUp()
                 }
                 break;
             case "ArrowRight":
@@ -145,24 +147,9 @@ class Game {
                     this.board.drawLine(
                         this.currentPoint.position,
                         this.currentPoint.pointRight.position,
-                        this.config.strokeColor
+                        this.strokeColor
                     )
-                    this.currentPoint.right = false
-                    this.currentPoint.pointRight.left = false
-                    this.currentPoint = this.currentPoint.pointRight
-                }
-                break;
-            case "ArrowUp":
-            case "w":
-                if (this.currentPoint.canGoUp() && this.currentPoint.up) {
-                    this.board.drawLine(
-                        this.currentPoint.position,
-                        this.currentPoint.pointUp.position,
-                        this.config.strokeColor
-                    )
-                    this.currentPoint.up = false
-                    this.currentPoint.pointUp.down = false
-                    this.currentPoint = this.currentPoint.pointUp
+                    this.currentPoint = this.currentPoint.updateRight()
                 }
                 break;
             case "ArrowDown":
@@ -171,11 +158,20 @@ class Game {
                     this.board.drawLine(
                         this.currentPoint.position,
                         this.currentPoint.pointDown.position,
-                        this.config.strokeColor
+                        this.strokeColor
                     )
-                    this.currentPoint.down = false
-                    this.currentPoint.pointDown.up = false
-                    this.currentPoint = this.currentPoint.pointDown
+                    this.currentPoint = this.currentPoint.updateDown()
+                }
+                break;
+            case "ArrowLeft":
+            case "a":
+                if (this.currentPoint.canGoLeft() && this.currentPoint.left) {
+                    this.board.drawLine(
+                        this.currentPoint.position,
+                        this.currentPoint.pointLeft.position,
+                        this.strokeColor
+                    )
+                    this.currentPoint = this.currentPoint.updateLeft()
                 }
                 break;
         }
@@ -183,9 +179,10 @@ class Game {
 }
 
 class Point {
-    constructor(position, config) {
+    constructor(position, columns, rows) {
         this.position = position
-        this.config = config
+        this.columns = columns
+        this.rows = rows
         this.pointUp = null
         this.pointRight = null
         this.pointDown = null
@@ -197,27 +194,52 @@ class Point {
     }
 
     canGoUp() {
-        return this.position - this.config.columns > 0
+        return this.position - this.columns > 0
     }
 
     canGoRight() {
-        return this.position % this.config.columns !== 0
+        return this.position % this.columns !== 0
     }
 
     canGoDown() {
         return (
-            this.position + this.config.columns
-            <= this.config.rows * this.config.columns
+            this.position + this.columns
+            <= this.rows * this.columns
         )
     }
 
     canGoLeft() {
-        return (this.position - 1) % this.config.columns !== 0
+        return (this.position - 1) % this.columns !== 0
+    }
+
+    updateUp() {
+        this.up = false
+        this.pointUp.down = false
+        return this.pointUp
+    }
+
+    updateRight() {
+        this.right = false
+        this.pointRight.left = false
+        return this.pointRight
+    }
+
+    updateDown() {
+        this.down = false
+        this.pointDown.up = false
+        return this.pointDown
+    }
+
+    updateLeft() {
+        this.left = false
+        this.pointLeft.right = false
+        return this.pointLeft
     }
 }
 
-config = new Config(minSize, scale)
-game = new Game(config, new Board(config, canvas))
+config = new Config()
+board = new Board(config, "playground")
+game = new Game(board, config.columns, config.rows, config.inactiveColor, config.strokeColor)
 game.createBoard()
 
 function pressKey(key) {
