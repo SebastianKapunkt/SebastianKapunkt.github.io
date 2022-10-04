@@ -339,12 +339,6 @@ class Point {
 let columns = 4
 let rows = 3
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-if (urlParams.get("rows") && urlParams.get("columns")) {
-    columns = parseInt(urlParams.get("columns"))
-    rows = parseInt(urlParams.get("rows"))
-}
 config = new Config(rows, columns)
 board = new Board(config, "playground", config.inactiveColor,)
 gridPath = new GridPath(board, config.columns, config.rows)
