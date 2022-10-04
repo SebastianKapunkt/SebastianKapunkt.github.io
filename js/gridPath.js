@@ -336,8 +336,8 @@ class Point {
     }
 }
 
-let columns = 4
-let rows = 3
+let columns = 5
+let rows = 4
 
 config = new Config(rows, columns)
 board = new Board(config, "playground", config.inactiveColor,)
