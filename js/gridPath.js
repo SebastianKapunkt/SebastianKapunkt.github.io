@@ -2,7 +2,7 @@ class Config {
     constructor(rows, columns) {
         this.rows = rows
         this.columns = columns
-        this.circleRadius = 8
+        this.circleRadius = 10
         this.scale = 2
         this.controlHeight = 224
         this.padding = 48
@@ -39,7 +39,7 @@ class Board {
         this.config = config
         this.canvas = canvas
         this.ctx = canvas.getContext("2d");
-        this.ctx.lineWidth = 4;
+        this.ctx.lineWidth = 8;
         this.inactiveColor = inactiveColor
     }
 
@@ -85,7 +85,7 @@ class Board {
     }
 
     createBoard() {
-        for (let position = 1; position <= this.rows * this.columns; position++) {
+        for (let position = 1; position <= this.config.rows * this.config.columns; position++) {
             this.drawCircle(
                 this.getXCoordinate(position),
                 this.getYCoordinate(position),
@@ -125,10 +125,10 @@ class Rules {
     createNewGame() {
         document.getElementById("winning-screen").style.display = 'none'
         this.board.clean()
-        this.board.createBoard()
         this.solvePath = gridPath.createSolvePath()
         this.currentPoint = this.gridPath.createNegative(this.solvePath)[0]
         this.moves = 0
+        this.board.createBoard()
     }
 
     keyDownEventFunction(event, self) {

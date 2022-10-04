@@ -8,14 +8,11 @@
     <meta name="author" content="Sebastian Kindt">
 
     <title>GridPath - Sebastian Kindt</title>
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="css/gridpath.css"/>
 </head>
 <body>
-    <h1>complete the grid</h1>
-    <div id="playground">
-
-    </div>
+    <div id="playground"></div>
     <div class="controls">
         <div class="control control__up" onclick="moveDirection('up')">
             &uarr;
@@ -30,11 +27,12 @@
             &larr;
         </div>
     </div>
-    <div id="winning-screen">
-        <h1>You have done it!</h1>
-        To play again press any key <br>
-        or press the button <br>
-        <button id="restart-button" onclick="startNewGame()">RESTART</button>
+    <div class="controls">
+        <div id="winning-screen">
+            <h1 style="margin: 0">You've done it!</h1>
+            <span>To play again <br> press any key or press the button <br></span>
+            <button id="restart-button" onclick="startNewGame()">RESTART</button>
+        </div>
     </div>
     <script src="js/gridPath.js"></script>
 </body>

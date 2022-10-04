@@ -19,7 +19,7 @@ body {
 .controls {
     position: fixed;
     bottom: 24px;
-    width: 300px;
+    width: 324px;
     height: 200px;
     display: grid;
     gap: 8px;
@@ -29,6 +29,12 @@ body {
         ". up ."
         "left down right";
     margin-left: -15px;
+}
+
+@media only screen and (max-width: 600px){
+    .controls {
+        margin-left: 0;
+    }
 }
 
 .control {
@@ -63,16 +69,19 @@ body {
 }
 
 #winning-screen {
+    left: 0;
+    bottom: 0;
     width: 100%;
-    height: 100%;
+    height: 324px;
     display: none;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 48px;
+    justify-content: space-between;
     position: fixed;
-    padding-top: 10vh;
     background: rgba(0,0,0,0.7);
+    padding: 24px;
+    box-sizing: border-box;
 }
 
 #restart-button {
