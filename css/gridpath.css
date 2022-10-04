@@ -73,7 +73,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 324px;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -82,6 +82,14 @@ body {
     background: rgba(0,0,0,0.7);
     padding: 24px;
     box-sizing: border-box;
+    z-index: 10;
+    margin-left: -15px;
+}
+
+@media only screen and (max-width: 600px){
+    #winning-screen {
+        margin-left: 0;
+    }
 }
 
 #restart-button {

@@ -13,6 +13,11 @@
 </head>
 <body>
     <div id="playground"></div>
+    <div id="winning-screen">
+        <h1 style="margin: 0">You've done it!</h1>
+        <span>To play again <br> press any key or press the button <br></span>
+        <button id="restart-button" onclick="startNewGame()">RESTART</button>
+    </div>
     <div class="controls">
         <div class="control control__up" onclick="moveDirection('up')">
             &uarr;
@@ -25,13 +30,6 @@
         </div>
         <div class="control control__left" onclick="moveDirection('left')">
             &larr;
-        </div>
-    </div>
-    <div class="controls">
-        <div id="winning-screen">
-            <h1 style="margin: 0">You've done it!</h1>
-            <span>To play again <br> press any key or press the button <br></span>
-            <button id="restart-button" onclick="startNewGame()">RESTART</button>
         </div>
     </div>
     <script src="js/gridPath.js"></script>
