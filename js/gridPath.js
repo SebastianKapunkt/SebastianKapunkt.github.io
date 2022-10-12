@@ -126,7 +126,7 @@ class Rules {
     createNewGame() {
         document.getElementById("winning-screen").style.display = 'none'
         this.board.clean()
-        this.solvePath = gridPath.createSolvePath()
+        this.solvePath = this.gridPath.createSolvePath()
         this.currentPoint = this.gridPath.createNegative(this.solvePath)[this.solvePath[0].position - 1]
         this.moves = 0
         this.board.createBoard(this.solvePath[0].position)
@@ -337,26 +337,30 @@ class Point {
     }
 }
 
-let columns = 5
-let rows = 4
-let circleRadius = 10
-let padding = 48
-let lineWidth = 8
+let rules = null
 
-if (window.innerWidth < 500) {
-    console.log("small screen")
-    circleRadius = 6
-    padding = 5
-    lineWidth = 4
-}
+document.addEventListener('DOMContentLoaded', () => {
+    let columns = 5
+    let rows = 4
+    let circleRadius = 10
+    let padding = 48
+    let lineWidth = 8
 
-config = new Config(rows, columns, circleRadius, padding, lineWidth)
-board = new Board(config, "playground", config.inactiveColor,)
-gridPath = new GridPath(board, config.columns, config.rows)
-rules = new Rules(
-    board,
-    gridPath
-)
+    if (window.innerWidth < 500) {
+        circleRadius = 6
+        padding = 5
+        lineWidth = 4
+    }
+
+    let config = new Config(rows, columns, circleRadius, padding, lineWidth)
+    let board = new Board(config, "playground", config.inactiveColor,)
+    let gridPath = new GridPath(board, config.columns, config.rows)
+    rules = new Rules(
+        board,
+        gridPath
+    )
+})
+
 
 function moveDirection(direction) {
     rules.moveNextPoint(direction)
