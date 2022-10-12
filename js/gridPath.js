@@ -1,11 +1,12 @@
 class Config {
-    constructor(rows, columns) {
+    constructor(rows, columns, circleRadius, padding, lineWidth) {
         this.rows = rows
         this.columns = columns
-        this.circleRadius = 10
+        this.circleRadius = circleRadius
+        this.padding = padding
+        this.lineWidth = lineWidth
         this.scale = 2
         this.controlHeight = 224
-        this.padding = 48
         this.minSize = Math.min(window.innerWidth, window.innerHeight)
         this.length = Math.floor(this.minSize / this.columns) * this.scale
         this.gridWith = this.length / this.scale * (this.columns - 1)
@@ -39,7 +40,7 @@ class Board {
         this.config = config
         this.canvas = canvas
         this.ctx = canvas.getContext("2d");
-        this.ctx.lineWidth = 8;
+        this.ctx.lineWidth = config.lineWidth;
         this.inactiveColor = inactiveColor
     }
 
@@ -338,8 +339,18 @@ class Point {
 
 let columns = 5
 let rows = 4
+let circleRadius = 10
+let padding = 48
+let lineWidth = 8
 
-config = new Config(rows, columns)
+if (window.innerWidth < 500) {
+    console.log("small screen")
+    circleRadius = 6
+    padding = 5
+    lineWidth = 4
+}
+
+config = new Config(rows, columns, circleRadius, padding, lineWidth)
 board = new Board(config, "playground", config.inactiveColor,)
 gridPath = new GridPath(board, config.columns, config.rows)
 rules = new Rules(
