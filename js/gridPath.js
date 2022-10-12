@@ -84,7 +84,7 @@ class Board {
         return Math.floor((position - 1) / this.config.columns) * this.config.length + this.config.offset
     }
 
-    createBoard() {
+    createBoard(startingPosition) {
         for (let position = 1; position <= this.config.rows * this.config.columns; position++) {
             this.drawCircle(
                 this.getXCoordinate(position),
@@ -93,8 +93,8 @@ class Board {
             )
         }
         this.drawCircle(
-            this.getXCoordinate(1),
-            this.getYCoordinate(1),
+            this.getXCoordinate(startingPosition),
+            this.getYCoordinate(startingPosition),
             this.config.strokeActiveColor
         )
     }
@@ -118,17 +118,17 @@ class Rules {
     restartGame() {
         this.board.clean()
         this.moves = 0
-        this.currentPoint = this.gridPath.createNegative(this.solvePath)[0]
-        this.board.createBoard()
+        this.currentPoint = this.gridPath.createNegative(this.solvePath)[this.solvePath[0].position - 1]
+        this.board.createBoard(this.solvePath[0].position)
     }
 
     createNewGame() {
         document.getElementById("winning-screen").style.display = 'none'
         this.board.clean()
         this.solvePath = gridPath.createSolvePath()
-        this.currentPoint = this.gridPath.createNegative(this.solvePath)[0]
+        this.currentPoint = this.gridPath.createNegative(this.solvePath)[this.solvePath[0].position - 1]
         this.moves = 0
-        this.board.createBoard()
+        this.board.createBoard(this.solvePath[0].position)
     }
 
     keyDownEventFunction(event, self) {
@@ -278,9 +278,9 @@ class GridPath {
 
     randomPath(points) {
         const solvedPath = []
-        let currentPoint = points[0]
+        let currentPoint = points[Math.floor(Math.random() * points.length)]
         solvedPath.push(currentPoint)
-        for (let i = 1; i < this.columns + this.columns; i++) {
+        for (let i = 1; i < Math.floor((this.columns + this.rows) * 1.3); i++) {
             const nextPoints = currentPoint.linkedPoints.filter(
                 point => point.canGo
             ).map(
@@ -346,7 +346,6 @@ rules = new Rules(
     board,
     gridPath
 )
-board.createBoard()
 
 function moveDirection(direction) {
     rules.moveNextPoint(direction)
