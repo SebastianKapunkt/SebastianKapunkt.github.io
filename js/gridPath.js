@@ -21,6 +21,7 @@ class Config {
 class Board {
     constructor(config, canvasId, inactiveColor) {
         const playgroundElement = document.getElementById(canvasId)
+        playgroundElement.innerHTML = ""
         let padding = config.padding
 
         if (window.innerHeight < window.innerWidth + config.controlHeight) {
@@ -339,9 +340,15 @@ class Point {
 
 let rules = null
 
-document.addEventListener('DOMContentLoaded', () => {
-    let columns = 5
-    let rows = 4
+function moveDirection(direction) {
+    rules.moveNextPoint(direction)
+}
+
+function startNewGame() {
+    rules.createNewGame()
+}
+
+const createNewGame = function (rows, columns) {
     let circleRadius = 10
     let padding = 48
     let lineWidth = 8
@@ -359,13 +366,26 @@ document.addEventListener('DOMContentLoaded', () => {
         board,
         gridPath
     )
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    createNewGame(4,5)
+
+    const settingsDialog = document.getElementById('settings-dialog')
+    const settingsButton = document.getElementById('settings-button')
+    const settingsSubmit = document.getElementById('settings-submit')
+    const settingsSelect = document.getElementById('settings-select')
+
+    settingsSelect.addEventListener('change', () => {
+        settingsSubmit.value = settingsSelect.value;
+    })
+
+    settingsButton.addEventListener('click', () => {
+        settingsDialog.showModal()
+    })
+
+    settingsSubmit.addEventListener('click', () => {
+        let gridSize = settingsSubmit.value.split(",")
+        createNewGame(parseInt(gridSize[0]), parseInt(gridSize[1]))
+    })
 })
-
-
-function moveDirection(direction) {
-    rules.moveNextPoint(direction)
-}
-
-function startNewGame() {
-    rules.createNewGame()
-}

@@ -12,6 +12,24 @@
     <link rel="stylesheet" type="text/css" href="css/gridpath.css"/>
 </head>
 <body>
+    <dialog id="settings-dialog">
+        <h2 style="margin: 0">Settings</h2>
+        <form method="dialog">
+            <p style="display: flex; flex-flow: column">
+                <label for="settings-select" style="margin-bottom: 0.25em">Grid Size (Rows/Columns)</label>
+                <select id="settings-select">
+                    <option value="4,5">4/5</option>
+                    <option value="3,4">3/4</option>
+                    <option value="7,8">7/8</option>
+                    <option value="3,3">3/3</option>
+                </select>
+            </p>
+            <div style="display: flex; flex-flow: row;">
+                <button class="button button--settings" value="cancel">cancel</button>
+                <button class="button button--settings" id="settings-submit">save</button>
+            </div>
+        </form>
+    </dialog>
     <div id="playground"></div>
     <div id="winning-screen">
         <h1 style="margin: 0">You've done it!</h1>
@@ -19,6 +37,7 @@
         <button id="restart-button" onclick="startNewGame()">RESTART</button>
     </div>
     <div class="controls">
+        <button id="settings-button">settings</button>
         <div class="control control__up" onclick="moveDirection('up')">
             &uarr;
         </div>

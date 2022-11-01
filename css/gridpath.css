@@ -26,7 +26,7 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-        ". up ."
+        "settings up ."
         "left down right";
     margin-left: -15px;
 }
@@ -68,6 +68,20 @@ body {
     grid-area: left;
 }
 
+.button {
+    border: none;
+    color: #f2c94c;
+    background: transparent;
+    flex-basis: 50%;
+    cursor: pointer;
+    padding: 0.25em 0.5em;
+}
+
+.button:hover {
+    color: black;
+    background-color: #f2c94c;
+}
+
 #winning-screen {
     left: 0;
     bottom: 0;
@@ -97,5 +111,35 @@ body {
     padding: 12px;
     background: black;
     cursor: pointer;
+    color: white;
+}
+
+#settings-button {
+    grid-area: settings;
+    color: #f2c94c;
+    background: transparent;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+}
+
+#settings-button:hover {
+    text-decoration: underline;
+    text-decoration-color: #f2c94c;;
+}
+
+#settings-dialog {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+#settings-select {
+    width: 100%;
+    padding: 0.5em 1em;
+    text-align: center;
+    background: transparent;
+    border: none;
     color: white;
 }
