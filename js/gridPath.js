@@ -397,15 +397,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let rows = 4
     let columns = 5
 
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has("columns") && urlParams.has("rows")) {
-        let paramsRows = parseInt(urlParams.get("rows"))
-        let paramsColumns = parseInt(urlParams.get("columns"))
-        if (sizes.find(size => size.rows === paramsRows && size.columns === paramsColumns)) {
-            rows = paramsRows
-            columns = paramsColumns
-        }
-    }
+    // const urlParams = new URLSearchParams(window.location.search);
+    // if (urlParams.has("columns") && urlParams.has("rows")) {
+    //     let paramsRows = parseInt(urlParams.get("rows"))
+    //     let paramsColumns = parseInt(urlParams.get("columns"))
+    //     if (sizes.find(size => size.rows === paramsRows && size.columns === paramsColumns)) {
+    //         rows = paramsRows
+    //         columns = paramsColumns
+    //     }
+    // }
     createNewGame(rows,columns)
 
     const settingsDialog = document.getElementById('settings-dialog')
