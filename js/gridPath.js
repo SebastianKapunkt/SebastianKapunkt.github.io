@@ -282,7 +282,7 @@ class GridPath {
         const solvedPath = []
         let currentPoint = points[Math.floor(Math.random() * points.length)]
         solvedPath.push(currentPoint)
-        for (let i = 1; i < Math.floor((this.columns + this.rows) * 1.3); i++) {
+        for (let i = 1; i < Math.floor((this.columns + this.rows) * 2); i++) {
             const nextPoints = currentPoint.linkedPoints.filter(
                 point => point.canGo
             ).map(
@@ -348,6 +348,22 @@ function startNewGame() {
     rules.createNewGame()
 }
 
+function generateOptions(select) {
+    let start = 3
+    let end = 10
+
+    for (let i = start; i <= end; i++) {
+        for (let j = start; j <= end; j++) {
+            if (j >= i) {
+                let option = document.createElement("option")
+                option.value = `${i},${j}`
+                option.innerHTML = `${i}/${j}`
+                select.appendChild(option)
+            }
+        }
+    }
+}
+
 const createNewGame = function (rows, columns) {
     let circleRadius = 10
     let padding = 48
@@ -376,6 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const settingsSubmit = document.getElementById('settings-submit')
     const settingsSelect = document.getElementById('settings-select')
 
+    generateOptions(settingsSelect)
     settingsSelect.addEventListener('change', () => {
         settingsSubmit.value = settingsSelect.value;
     })
@@ -385,7 +402,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     settingsSubmit.addEventListener('click', () => {
-        let gridSize = settingsSubmit.value.split(",")
-        createNewGame(parseInt(gridSize[0]), parseInt(gridSize[1]))
+        if (settingsSubmit.value === "default") {
+            createNewGame(4, 5)
+        } else {
+            let gridSize = settingsSubmit.value.split(",")
+            createNewGame(parseInt(gridSize[0]), parseInt(gridSize[1]))
+        }
     })
 })
