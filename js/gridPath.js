@@ -400,22 +400,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("what").innerHTML = `${location}`
     let url = document.getElementById("what").innerHTML
     let paramsString = url.split("?")[1]
-    if (paramsString) {
-        console.log("why the fuck github???????")
-        paramsString = paramsString.replace("&amp;", "&")
-        let urlParams = new URLSearchParams(paramsString)
-        console.log(urlParams.toString())
-        console.log(urlParams.has("columns"))
-        console.log(urlParams.has("rows"))
-        if (urlParams.has("columns") && urlParams.has("rows")) {
-            let paramsRows = parseInt(urlParams.get("rows"))
-            let paramsColumns = parseInt(urlParams.get("columns"))
-            if (sizes.find(size => size.rows === paramsRows && size.columns === paramsColumns)) {
-                rows = paramsRows
-                columns = paramsColumns
-            }
-        }
-    }
 
     createNewGame(rows, columns)
 
