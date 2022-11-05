@@ -427,12 +427,12 @@ document.addEventListener('DOMContentLoaded', () => {
             createNewGame(4, 5)
         } else {
             let gridSize = settingsSubmit.value.split(",")
-            const url = new URL(window.location)
-            url.searchParams.delete("rows")
-            url.searchParams.delete("columns")
-            url.searchParams.append("rows", gridSize[0])
-            url.searchParams.append("columns", gridSize[1])
-            window.history.replaceState({}, '', url)
+            // const url = new URL(window.location)
+            // url.searchParams.delete("rows")
+            // url.searchParams.delete("columns")
+            // url.searchParams.append("rows", gridSize[0])
+            // url.searchParams.append("columns", gridSize[1])
+            // window.history.replaceState({}, '', url)
             createNewGame(parseInt(gridSize[0]), parseInt(gridSize[1]))
         }
     })
