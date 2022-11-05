@@ -392,12 +392,6 @@ const createNewGame = function (rows, columns) {
     )
 }
 
-var decodeHTML = function (html) {
-	var txt = document.createElement('textarea');
-	txt.innerHTML = html;
-	return txt.value;
-};
-
 document.addEventListener('DOMContentLoaded', () => {
     let sizes = generateSizes()
     let rows = 4
@@ -407,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let url = document.getElementById("what").innerHTML
     let paramsString = url.split("?")[1]
     if (paramsString) {
-        paramsString = decodeHTML(paramsString)
+        paramsString = paramsString.replace("&amp;", "&")
         let urlParams = new URLSearchParams(paramsString)
         console.log(urlParams.toString())
         console.log(urlParams.has("columns"))
@@ -422,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    createNewGame(rows,columns)
+    createNewGame(rows, columns)
 
     const settingsDialog = document.getElementById('settings-dialog')
     const settingsButton = document.getElementById('settings-button')
