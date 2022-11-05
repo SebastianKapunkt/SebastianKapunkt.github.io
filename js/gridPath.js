@@ -348,19 +348,27 @@ function startNewGame() {
     rules.createNewGame()
 }
 
-function generateOptions(select) {
+function generateSizes() {
     let start = 3
     let end = 10
+    let sizes = []
 
     for (let i = start; i <= end; i++) {
         for (let j = start; j <= end; j++) {
             if (j >= i) {
-                let option = document.createElement("option")
-                option.value = `${i},${j}`
-                option.innerHTML = `${i}/${j}`
-                select.appendChild(option)
+                sizes.push({rows: i, columns: j})
             }
         }
+    }
+    return sizes
+}
+
+function generateOptions(select, gridSizes) {
+    for (let size of gridSizes) {
+        let option = document.createElement("option")
+        option.value = `${size.rows},${size.columns}`
+        option.innerHTML = `${size.rows}/${size.columns}`
+        select.appendChild(option)
     }
 }
 
@@ -385,14 +393,27 @@ const createNewGame = function (rows, columns) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    createNewGame(4,5)
+    let sizes = generateSizes()
+    let rows = 4
+    let columns = 5
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("columns") && urlParams.has("rows")) {
+        let paramsRows = parseInt(urlParams.get("rows"))
+        let paramsColumns = parseInt(urlParams.get("columns"))
+        if (sizes.find(size => size.rows === paramsRows && size.columns === paramsColumns)) {
+            rows = paramsRows
+            columns = paramsColumns
+        }
+    }
+    createNewGame(rows,columns)
 
     const settingsDialog = document.getElementById('settings-dialog')
     const settingsButton = document.getElementById('settings-button')
     const settingsSubmit = document.getElementById('settings-submit')
     const settingsSelect = document.getElementById('settings-select')
 
-    generateOptions(settingsSelect)
+    generateOptions(settingsSelect, sizes)
     settingsSelect.addEventListener('change', () => {
         settingsSubmit.value = settingsSelect.value;
     })
@@ -406,6 +427,12 @@ document.addEventListener('DOMContentLoaded', () => {
             createNewGame(4, 5)
         } else {
             let gridSize = settingsSubmit.value.split(",")
+            const url = new URL(window.location)
+            url.searchParams.delete("rows")
+            url.searchParams.delete("columns")
+            url.searchParams.append("rows", gridSize[0])
+            url.searchParams.append("columns", gridSize[1])
+            window.history.replaceState({}, '', url)
             createNewGame(parseInt(gridSize[0]), parseInt(gridSize[1]))
         }
     })
