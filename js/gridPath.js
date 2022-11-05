@@ -406,8 +406,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("what").innerHTML = `${location}`
     let url = document.getElementById("what").innerHTML
     let paramsString = url.split("?")[1]
-    paramsString = decodeHTML(paramsString)
     if (paramsString) {
+        paramsString = decodeHTML(paramsString)
         let urlParams = new URLSearchParams(paramsString)
         console.log(urlParams.toString())
         console.log(urlParams.has("columns"))
