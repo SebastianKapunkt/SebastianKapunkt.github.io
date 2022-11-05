@@ -399,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let cheattag = document.getElementById("what")
     cheattag.innerHTML = `${location}`
-    let test = new URL(cheattag.innerHTML)
+    let test = cheattag.innerHTML
     console.log(test)
 
     createNewGame(rows,columns)
