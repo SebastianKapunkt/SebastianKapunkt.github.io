@@ -401,6 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let url = document.getElementById("what").innerHTML
     let paramsString = url.split("?")[1]
     if (paramsString) {
+        console.log("why the fuck github???????")
         paramsString = paramsString.replace("&amp;", "&")
         let urlParams = new URLSearchParams(paramsString)
         console.log(urlParams.toString())
