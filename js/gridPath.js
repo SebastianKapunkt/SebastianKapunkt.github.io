@@ -397,15 +397,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let rows = 4
     let columns = 5
 
-    // const urlParams = new URLSearchParams(window.location.search);
-    // if (urlParams.has("columns") && urlParams.has("rows")) {
-    //     let paramsRows = parseInt(urlParams.get("rows"))
-    //     let paramsColumns = parseInt(urlParams.get("columns"))
-    //     if (sizes.find(size => size.rows === paramsRows && size.columns === paramsColumns)) {
-    //         rows = paramsRows
-    //         columns = paramsColumns
-    //     }
-    // }
+    const urlParams = new URLSearchParams(location.search);
+    if (urlParams.has("columns") && urlParams.has("rows")) {
+        let paramsRows = parseInt(urlParams.get("rows"))
+        let paramsColumns = parseInt(urlParams.get("columns"))
+        if (sizes.find(size => size.rows === paramsRows && size.columns === paramsColumns)) {
+            rows = paramsRows
+            columns = paramsColumns
+        }
+    }
     createNewGame(rows,columns)
 
     const settingsDialog = document.getElementById('settings-dialog')
@@ -427,12 +427,12 @@ document.addEventListener('DOMContentLoaded', () => {
             createNewGame(4, 5)
         } else {
             let gridSize = settingsSubmit.value.split(",")
-            // const url = new URL(window.location)
-            // url.searchParams.delete("rows")
-            // url.searchParams.delete("columns")
-            // url.searchParams.append("rows", gridSize[0])
-            // url.searchParams.append("columns", gridSize[1])
-            // window.history.replaceState({}, '', url)
+            const url = new URL(window.location)
+            url.searchParams.delete("rows")
+            url.searchParams.delete("columns")
+            url.searchParams.append("rows", gridSize[0])
+            url.searchParams.append("columns", gridSize[1])
+            history.pushState({}, '', url)
             createNewGame(parseInt(gridSize[0]), parseInt(gridSize[1]))
         }
     })
