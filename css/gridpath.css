@@ -150,3 +150,7 @@ body {
     right: 8px;
     font-size: 50%;
 }
+
+#what {
+   visibility: hidden;
+}

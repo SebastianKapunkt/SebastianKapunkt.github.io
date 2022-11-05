@@ -392,14 +392,35 @@ const createNewGame = function (rows, columns) {
     )
 }
 
+var decodeHTML = function (html) {
+	var txt = document.createElement('textarea');
+	txt.innerHTML = html;
+	return txt.value;
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     let sizes = generateSizes()
     let rows = 4
     let columns = 5
 
     document.getElementById("what").innerHTML = `${location}`
-    let test = document.getElementById("what").innerHTML
-    console.log(test)
+    let url = document.getElementById("what").innerHTML
+    let paramsString = url.split("?")[1]
+    paramsString = decodeHTML(paramsString)
+    if (paramsString) {
+        let urlParams = new URLSearchParams(paramsString)
+        console.log(urlParams.toString())
+        console.log(urlParams.has("columns"))
+        console.log(urlParams.has("rows"))
+        if (urlParams.has("columns") && urlParams.has("rows")) {
+            let paramsRows = parseInt(urlParams.get("rows"))
+            let paramsColumns = parseInt(urlParams.get("columns"))
+            if (sizes.find(size => size.rows === paramsRows && size.columns === paramsColumns)) {
+                rows = paramsRows
+                columns = paramsColumns
+            }
+        }
+    }
 
     createNewGame(rows,columns)
 
