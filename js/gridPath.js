@@ -397,7 +397,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let rows = 4
     let columns = 5
 
-    console.log(location.search)
+    let loc = location
+    console.log(loc.search)
     createNewGame(rows,columns)
 
     const settingsDialog = document.getElementById('settings-dialog')
