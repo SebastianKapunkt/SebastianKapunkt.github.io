@@ -397,7 +397,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let rows = 4
     let columns = 5
 
-    let test = new URL(`${location}`)
+    let cheattag = document.getElementById("what")
+    cheattag.innerHTML = `${location}`
+    let test = new URL(cheattag.innerHTML)
+    console.log(test)
+
     createNewGame(rows,columns)
 
     const settingsDialog = document.getElementById('settings-dialog')
