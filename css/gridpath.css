@@ -143,3 +143,10 @@ body {
     border: none;
     color: white;
 }
+
+#build {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 50%;
+}
