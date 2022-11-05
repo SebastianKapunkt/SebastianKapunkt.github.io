@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let rows = 4
     let columns = 5
 
-    const urlParams = new URLSearchParams();
+    const urlParams = new URLSearchParams(location.search);
     if (urlParams.has("columns") && urlParams.has("rows")) {
         let paramsRows = parseInt(urlParams.get("rows"))
         let paramsColumns = parseInt(urlParams.get("columns"))
