@@ -397,9 +397,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let rows = 4
     let columns = 5
 
-    let cheattag = document.getElementById("what")
-    cheattag.innerHTML = `${location}`
-    let test = cheattag.innerHTML
+    document.getElementById("what").innerHTML = `${location}`
+    let test = document.getElementById("what").innerHTML
     console.log(test)
 
     createNewGame(rows,columns)
