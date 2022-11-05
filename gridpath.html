@@ -13,10 +13,9 @@
 </head>
 <body>
     <dialog id="settings-dialog">
-        <h2 style="margin: 0">Settings</h2>
         <form method="dialog">
+            <label for="settings-select" >grid size (rows/columns)</label>
             <p style="display: flex; flex-flow: column">
-                <label for="settings-select" style="margin-bottom: 0.25em">Grid Size (Rows/Columns)</label>
                 <select id="settings-select">
                     <option value="4,5">4/5</option>
                     <option value="3,4">3/4</option>
@@ -26,7 +25,7 @@
             </p>
             <div style="display: flex; flex-flow: row;">
                 <button class="button button--settings" value="cancel">cancel</button>
-                <button class="button button--settings" id="settings-submit">save</button>
+                <button class="button button--settings" id="settings-submit">change</button>
             </div>
         </form>
     </dialog>
@@ -37,7 +36,7 @@
         <button id="restart-button" onclick="startNewGame()">RESTART</button>
     </div>
     <div class="controls">
-        <button id="settings-button">settings</button>
+        <button id="settings-button">grid size</button>
         <div class="control control__up" onclick="moveDirection('up')">
             &uarr;
         </div>
