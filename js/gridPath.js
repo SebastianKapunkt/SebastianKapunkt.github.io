@@ -397,15 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let rows = 4
     let columns = 5
 
-    const urlParams = new URLSearchParams(location.search);
-    if (urlParams.has("columns") && urlParams.has("rows")) {
-        let paramsRows = parseInt(urlParams.get("rows"))
-        let paramsColumns = parseInt(urlParams.get("columns"))
-        if (sizes.find(size => size.rows === paramsRows && size.columns === paramsColumns)) {
-            rows = paramsRows
-            columns = paramsColumns
-        }
-    }
+    console.log(location)
     createNewGame(rows,columns)
 
     const settingsDialog = document.getElementById('settings-dialog')
