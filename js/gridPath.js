@@ -282,7 +282,7 @@ class GridPath {
         const solvedPath = []
         let currentPoint = points[Math.floor(Math.random() * points.length)]
         solvedPath.push(currentPoint)
-        for (let i = 1; i < Math.floor((this.columns + this.rows) * 2); i++) {
+        for (let i = 1; i < Math.floor((this.columns + this.rows) * 1.8); i++) {
             const nextPoints = currentPoint.linkedPoints.filter(
                 point => point.canGo
             ).map(
@@ -393,7 +393,13 @@ const createNewGame = function (rows, columns) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    let sizes = generateSizes()
+    let sizes = [
+        {rows: 3, columns: 4},
+        {rows: 4, columns: 5},
+        {rows: 5, columns: 6},
+        {rows: 6, columns: 7},
+        {rows: 7, columns: 8},
+    ]
     let rows = 4
     let columns = 5
 
