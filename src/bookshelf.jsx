@@ -27,7 +27,9 @@ class Bookshelf extends React.Component {
           )}
         </div>
         <h1 className="section-heading">Was ich bisher gelesen habe</h1>
-        <div className="book-summary">{this.state.books.length} Bücher | {this.state.pages} Seiten</div>
+        <div className="book-summary">
+          {this.state.books.length} Bücher | {this.state.pages} Seiten
+        </div>
         <div className="book-summary">
           {Number((this.state.books.length/9).toFixed(1))} Bücher pro Jahr 
           | {Number((this.state.pages/9).toFixed(1))} Seiten pro Jahr

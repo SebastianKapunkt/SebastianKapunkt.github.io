@@ -1,14 +1,14 @@
 const books_read = [{
-        "title": "Die Zwerge",
-        "authors": [{
-            "name": "Markus Heitz"
-        }],
-        "published": 2005,
-        "cover": "https://images.isbndb.com/covers/07/64/9783492700764.jpg",
-        "pages": 621,
-        "year_read": "2014 & davor",
-        "order": 0
-    },
+    "title": "Die Zwerge",
+    "authors": [{
+        "name": "Markus Heitz"
+    }],
+    "published": 2005,
+    "cover": "https://images.isbndb.com/covers/07/64/9783492700764.jpg",
+    "pages": 621,
+    "year_read": "2014 & davor",
+    "order": 0
+},
     {
         "title": "Die Welle",
         "authors": [{
@@ -718,11 +718,9 @@ const books_read = [{
     }
 ]
 
-const books_reading = [{
+currentBooks = [{
     "title": "Mr. Parnassus' Heim f\u00fcr magisch Begabte",
-    "authors": [{
-        "name": "T.J. Klune"
-    }],
+    "authors": [{"name": "T.J. Klune"}],
     "published": "2020",
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1607905437l/56274450._SY475_.jpg",
     "pages": 480,

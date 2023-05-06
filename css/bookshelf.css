@@ -40,6 +40,7 @@
 
 .book-summary {
     font-size: 1em;
+    text-align: center;
 }
 
 .year-column-item {
@@ -78,7 +79,7 @@
     width: var(--circle-size);
     height: var(--circle-size);
     border-radius: var(--circle-size);
-    margin-right: calc(var(--circle-size) / 2);
+    margin-right: 0;
     margin-left: calc(var(--circle-size) / 2 * -1 - 3px);
     content: '';
     border: 2px solid white;

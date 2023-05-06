@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,10 +9,6 @@
 
     <title>Sebastian Kindt</title>
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
-
-      <!-- Load React. -->
-    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
 
     <link rel="stylesheet" type="text/css" href="css/base.css"/>
     <link rel="stylesheet" type="text/css" href="css/bookshelf.css"/>
@@ -125,9 +120,17 @@
         </div>
     </div>
     <div class="section">
-        <div id="reading" class="anchor"></div>
         <div class="section-devider"></div>
-        <div id="bookshelf"></div>
+        <div id="reading" class="anchor"></div>
+        <div class="bookshelf-wrapper">
+            <h1 class="section-heading">Was ich momentan lese</h1>
+                <div class="years">
+                    <book-preview-list></book-preview-list>
+                </div>
+            <h1 class="section-heading">Was ich bisher gelesen habe</h1>
+            <reading-statistics startYear="2015"></reading-statistics>
+            <reading-list startYear="2022" style="width: 100%"></reading-list>
+        </div>
     </div>
     <div id="contact" class="anchor"></div>
     <div class="section contact-section">
@@ -178,9 +181,11 @@
     <div id="rainbox">
     </div> <!-- find this build by me here: https://jsfiddle.net/p90jgw2d/2/ -->
 </body>
-<!-- Load our React component. -->
 <script src="js/utils.js"></script>
 <script src="js/rainbox.js"></script>
-<script src="js/current_books.js"></script>
-<script src="react-build/bookshelf.js"></script>
+<script src="js/books.js"></script>
+<script src="js/BookPreview.js"></script>
+<script src="js/BookPreviewList.js"></script>
+<script src="js/ReadingStatistics.js"></script>
+<script src="js/ReadingList.js"></script>
 </html>
