@@ -20,6 +20,12 @@ body {
     background: black;
 }
 
+@media screen and (max-width: 425px) {
+    body {
+        font-size: 70%;
+    }
+}
+
 div {
     z-index: 2;
 }
@@ -82,7 +88,7 @@ a:hover:not(.nav-item) {
 @media screen and (max-width: 425px) {
     #navigation {
         background-color: black;
-        font-size: 80%;
+        font-size: 70%;
     }
 }
 
@@ -244,18 +250,13 @@ a:hover:not(.nav-item) {
     padding: 12px 0;
     display: flex;
     box-sizing: border-box;
-    justify-content: center;
-    align-items: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
     gap: 12px;
 }
 
 @media screen and (max-width: 425px) {
-    .project-content {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-    }
-
     .project-headline {
         display: flex;
         flex-flow: column;
