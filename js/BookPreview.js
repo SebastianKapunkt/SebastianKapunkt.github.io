@@ -30,7 +30,7 @@ class BookPreview extends HTMLElement {
         </div>
         <div class="book_content">
           <div class="book_descriptor">
-            Erscheinungsjahr:
+            Erschienen:
           </div>
           <div class="book_value">
             ${this.published}
