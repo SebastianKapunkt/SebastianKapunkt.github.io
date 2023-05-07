@@ -68,7 +68,8 @@
 
 .year {
     color: var(--yellow);
-    font-size: 2em;
+    font-size: 1.7em;
+    line-height: 2em;
     margin-top: -1em;
     padding-right: 8px;
     margin-bottom: 0.25em;
@@ -142,6 +143,6 @@
     }
 
     .year {
-        padding-right: 4px;
+        padding-right: 2px;
     }
 }
