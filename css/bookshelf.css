@@ -58,10 +58,10 @@
 
 .year {
     color: var(--yellow);
-    font-size: 30px;
-    margin-top: -28px;
+    font-size: 2em;
+    margin-top: -1em;
     padding-right: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 0.25em;
 }
 
 .year:hover,
