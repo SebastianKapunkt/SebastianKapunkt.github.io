@@ -20,7 +20,7 @@
     flex-flow: row;
     justify-content: start;
     align-items: center;
-    height: calc(var(--book-cover)/4);
+    height: calc(var(--book-cover) / 4);
     padding: 0 8px;
     font-size: small;
 }
@@ -128,6 +128,7 @@
     .book_content {
         padding: 0;
     }
+
     .book_title {
         display: block;
         padding: 8px 0;
