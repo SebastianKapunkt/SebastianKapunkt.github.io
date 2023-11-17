@@ -2,7 +2,7 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 import re
-from shadow_useragent import ShadowUserAgent
+# from shadow_useragent import ShadowUserAgent
 import clipboard as cp
 import json
 import pprint
@@ -22,7 +22,7 @@ class BookScraper:
     def __init__(self, url, year_read=""):
         self.url = url
         self.year_read = year_read
-        self.book_list_path = "current_books.json"
+        self.book_list_path = "../js/books.js"
 
     def beautify(self, url):
         # shadow_useragent = ShadowUserAgent()
@@ -68,75 +68,73 @@ class BookScraper:
 
     def scrape_page_count(self, soup):
         try:
-            text = soup.find("span", itemprop="numberOfPages").get_text()
+            text = soup.select('p[data-testid="pagesFormat"]')[0]
+            return re.findall(r'\d+', str(text))[0]
         except AttributeError:
             return "1000000"
-        return re.findall(r'\d+', text)[0]
 
     def scrape_publish_year(self, soup):
         try:
-            rows = soup.find(
-                "div", {"id": "details"}
-            ).findAll(
-                "div", {"class": "row"}
-            )
-            published = [row.get_text() for row in rows if "Published" in row.get_text()]
-            return re.findall(r'(\d{4})', published[0])[0]
+            text = soup.select('p[data-testid="publicationInfo"]')[0]
+            return re.findall(r'(\d{4})', str(text))[0]
         except (AttributeError, IndexError):
             return "unknown year"
 
     def scrape_author_name(self, soup):
-        authors = []
-        for author in soup.findAll("a", {"class": "authorName"}):
-            authors.append({"name": author.get_text()})
         try:
+            authors = []
+            wrapper = soup.select('.BookPageMetadataSection__contributor')[0]
+            for author in wrapper.select('span[data-testid="name"]'):
+                authors.append({"name": author.get_text()})
             return authors
         except AttributeError:
             return "unknown author"
 
     def scrape_cover(self, soup):
         try:
-            return soup.find("img", {"id": "coverImage"})['src']
+            wrapper = soup.select('.BookCover__image')[0]
+            return wrapper.select('.ResponsiveImage')[0]['src']
         except AttributeError:
             return "wrong cover"
 
     def scrape_title(self, soup):
         try:
-            text = soup.find("h1", {"id": "bookTitle"}).get_text()
+            text = soup.select('h1[data-testid="bookTitle"]')[0].get_text()
             return re.compile(r'[\n\r\t]').sub(" ", text).strip()
         except AttributeError:
             return "unknown title"
 
     def scrape_isbn(self, soup):
         try:
-            return soup.find("div", itemprop="isbn").get_text()
-        except AttributeError:
+            metaData = json.loads(soup.find('script', type='application/ld+json').contents[0])
+            return metaData['isbn']
+        except (AttributeError, KeyError):
             return "no isbn found"
 
     def add_entry(self, entry):
-        if not self.year_read:
-            cp.copy(json.dumps(entry))            
-        else:
-            with open(self.book_list_path) as json_file:
-                json_file_content = json.load(json_file)
-            json_file_content.append(entry)
-            with open(self.book_list_path, mode='w') as json_file:
-                json_file.write(json.dumps(json_file_content, indent=2))
+        # if not self.year_read:
+            cp.copy(json.dumps(entry))
+        # else:
+        #     with open(self.book_list_path) as json_file:
+        #         json_file_content = json.load(json_file)
+        #     json_file_content.append(entry)
+        #     with open(self.book_list_path, mode='w') as json_file:
+        #         json_file.write(json.dumps(json_file_content, indent=2))
 
 
 def run():
     scraper = BookScraper(sys.argv[1])
-    if ".csv" in sys.argv[1]:
-        with open(sys.argv[1], newline='') as csvfile:
-            reader = csv.reader(csvfile, delimiter=',')
-            for row in reader:
-                if "www.goodreads.com" in row[2]:
-                    scraper.url = row[2]
-                    scraper.year_read = row[1]
-                    scraper.scrape()
-    else:
-        scraper = BookScraper(sys.argv[1])
-        scraper.scrape()
+    # if ".csv" in sys.argv[1]:
+    #     with open(sys.argv[1], newline='') as csvfile:
+    #         reader = csv.reader(csvfile, delimiter=',')
+    #         for row in reader:
+    #             if "www.goodreads.com" in row[2]:
+    #                 scraper.url = row[2]
+    #                 scraper.year_read = row[1]
+    #                 scraper.scrape()
+    # else:
+    scraper = BookScraper(sys.argv[1], sys.argv[2])
+    scraper.scrape()
 
 
 if __name__ == '__main__':

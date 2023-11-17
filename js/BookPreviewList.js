@@ -14,7 +14,7 @@ class BookPreviewList extends HTMLElement {
                       pages="${book.pages}">
         </book-preview>
         `
-    })}
+    }).join("")}
     `
   }
 }

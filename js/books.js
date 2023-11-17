@@ -715,10 +715,22 @@ const books_read = [{
         "year_read": "2022",
         "order": 2,
         "link": "https://www.goodreads.com/book/show/13556716-charnel-congress"
+    },
+    {
+        "title": "The Serpent Queen",
+        "authors": [{"name": "Joshua   Reynolds"}],
+        "published": "2014",
+        "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1480174444i/33130852.jpg",
+        "pages": 298,
+        "isbn": "9781782514695",
+        "year_read": "2023",
+        "order": 0,
+        "link": "https://www.goodreads.com/book/show/33130852-the-serpent-queen"
     }
 ]
 
-currentBooks = [{
+currentBooks = [
+  {
     "title": "Mr. Parnassus' Heim f\u00fcr magisch Begabte",
     "authors": [{"name": "T.J. Klune"}],
     "published": "2020",
@@ -728,4 +740,27 @@ currentBooks = [{
     "year_read": "",
     "order": 0,
     "link": "https://www.goodreads.com/book/show/56274450-mr-parnassus-heim-f-r-magisch-begabte"
-}]
+  },
+  {
+    "title": "Kinslayer",
+    "authors": [{"name": "David Guymer"}],
+    "published": "2014",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1481017759i/33277590.jpg",
+    "pages": 344,
+    "isbn": "1782516220",
+    "year_read": "",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/33277590-kinslayer"
+  },
+  {
+    "title": "Der Glukose-Trick",
+    "authors": [{"name": "Jessie Inchausp\u00e9"}],
+    "published": "2022",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659633467i/61857493.jpg",
+    "pages": 333,
+    "isbn": "9783453605992",
+    "year_read": "",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/61857493-der-glukose-trick"
+  }
+]
