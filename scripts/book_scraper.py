@@ -113,7 +113,7 @@ class BookScraper:
 
     def add_entry(self, entry):
         # if not self.year_read:
-            cp.copy(json.dumps(entry))
+        cp.copy(json.dumps(entry))
         # else:
         #     with open(self.book_list_path) as json_file:
         #         json_file_content = json.load(json_file)

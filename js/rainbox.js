@@ -1,24 +1,24 @@
 const configuration = {
-    "relaxed": {
-        "dropCount": window.innerWidth / 50,
-        "dropSpeedMin": 5000,
-        "dropSpeedMax": 2000,
-    },
-    "rain": {
-        "dropCount": window.innerWidth / 20,
-        "dropSpeedMin": 3000,
-        "dropSpeedMax": 1000,
-    },
-    "intense": {
-        "dropCount": window.innerWidth / 1,
-        "dropSpeedMin": 800,
-        "dropSpeedMax": 400
-    },
-    "off": {
-        "dropCount": window.innerWidth / 10,
-        "dropSpeedMin": 0,
-        "dropSüeedMax": 0
-    }
+  "relaxed": {
+    "dropCount": window.innerWidth / 50,
+    "dropSpeedMin": 5000,
+    "dropSpeedMax": 2000,
+  },
+  "rain": {
+    "dropCount": window.innerWidth / 20,
+    "dropSpeedMin": 3000,
+    "dropSpeedMax": 1000,
+  },
+  "intense": {
+    "dropCount": window.innerWidth / 1,
+    "dropSpeedMin": 800,
+    "dropSpeedMax": 400
+  },
+  "off": {
+    "dropCount": window.innerWidth / 10,
+    "dropSpeedMin": 0,
+    "dropSüeedMax": 0
+  }
 }
 
 let selectedConfiguration = configuration["off"]
@@ -32,53 +32,53 @@ function getRandomInt(min, max) {
 }
 
 function loadConfiguration(type) {
-    dropRow.innerHTML = ''
-    selectedConfiguration = configuration[type]
-    rainbox()
+  dropRow.innerHTML = ''
+  selectedConfiguration = configuration[type]
+  rainbox()
 }
 
 function rainbox() {
-    for (let i = 0; i < selectedConfiguration["dropCount"]; i++) {
-        const randomSpeed = `${getRandomInt(
-            selectedConfiguration["dropSpeedMax"],
-            selectedConfiguration["dropSpeedMin"]
-            )}ms`
-        const randomOffest = `${getRandomInt(-200, window.innerHeight)}px`
+  for (let i = 0; i < selectedConfiguration["dropCount"]; i++) {
+    const randomSpeed = `${getRandomInt(
+      selectedConfiguration["dropSpeedMax"],
+      selectedConfiguration["dropSpeedMin"]
+    )}ms`
+    const randomOffest = `${getRandomInt(-200, window.innerHeight)}px`
 
-        var drop = document.createElement("div")
-        drop.classList.add("drop")
-        drop.style.top = randomOffest
-        if(!randomSpeed.includes("NaN")) {
-            drop.style.animationDelay = 0
-            drop.style.animationDuration = randomSpeed
-        } else {
-            drop.style.animation = "none"
-        }
-        
-        var stem = document.createElement("div")
-        stem.classList.add("stem")
-        if(!randomSpeed.includes("NaN")) {
-            stem.style.animationDelay = 0
-            stem.style.animationDuration = randomSpeed
-        } else {
-            stem.style.animation = "none"
-        }
-        stem.style.backgroundColor = `hsl(${
-            (360 * i / selectedConfiguration["dropCount"] * 2)
-          },80%,50%)`
-        
-        drop.appendChild(stem)
-        dropRow.appendChild(drop)
-      }
+    var drop = document.createElement("div")
+    drop.classList.add("drop")
+    drop.style.top = randomOffest
+    if (!randomSpeed.includes("NaN")) {
+      drop.style.animationDelay = 0
+      drop.style.animationDuration = randomSpeed
+    } else {
+      drop.style.animation = "none"
+    }
+
+    var stem = document.createElement("div")
+    stem.classList.add("stem")
+    if (!randomSpeed.includes("NaN")) {
+      stem.style.animationDelay = 0
+      stem.style.animationDuration = randomSpeed
+    } else {
+      stem.style.animation = "none"
+    }
+    stem.style.backgroundColor = `hsl(${
+      (360 * i / selectedConfiguration["dropCount"] * 2)
+    },80%,50%)`
+
+    drop.appendChild(stem)
+    dropRow.appendChild(drop)
+  }
 }
 
-function configurations () {
-    Object.keys(configuration).forEach(key => {
-        var configItem = document.createElement("div")
-        configItem.innerText = key
-        configItem.addEventListener("click", () => loadConfiguration(key), false)
-        configRow.appendChild(configItem)
-    })
+function configurations() {
+  Object.keys(configuration).forEach(key => {
+    var configItem = document.createElement("div")
+    configItem.innerText = key
+    configItem.addEventListener("click", () => loadConfiguration(key), false)
+    configRow.appendChild(configItem)
+  })
 }
 
 rainbox()
