@@ -726,6 +726,17 @@ const books_read = [{
     "year_read": "2023",
     "order": 0,
     "link": "https://www.goodreads.com/book/show/33130852-the-serpent-queen"
+  },
+  {
+    "title": "Der Glukose-Trick",
+    "authors": [{"name": "Jessie Inchausp\u00e9"}],
+    "published": "2022",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659633467i/61857493.jpg",
+    "pages": 333,
+    "isbn": "9783453605992",
+    "year_read": "2023",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/61857493-der-glukose-trick"
   }
 ]
 
@@ -752,15 +763,4 @@ currentBooks = [
     "order": 0,
     "link": "https://www.goodreads.com/book/show/33277590-kinslayer"
   },
-  {
-    "title": "Der Glukose-Trick",
-    "authors": [{"name": "Jessie Inchausp\u00e9"}],
-    "published": "2022",
-    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659633467i/61857493.jpg",
-    "pages": 333,
-    "isbn": "9783453605992",
-    "year_read": "",
-    "order": 0,
-    "link": "https://www.goodreads.com/book/show/61857493-der-glukose-trick"
-  }
 ]
