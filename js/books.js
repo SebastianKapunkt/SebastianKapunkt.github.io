@@ -763,4 +763,15 @@ currentBooks = [
     "order": 0,
     "link": "https://www.goodreads.com/book/show/33277590-kinslayer"
   },
+  {
+    "title": "Same as Ever: A Guide to What Never Changes",
+    "authors": [{"name": "Morgan Housel"}],
+    "published": "2023",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1680687321i/125116554.jpg",
+    "pages": 240,
+    "isbn": "9780593332702",
+    "year_read": "",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/125116554-same-as-ever"
+  }
 ]

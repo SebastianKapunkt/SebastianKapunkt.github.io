@@ -133,7 +133,8 @@ def run():
     #                 scraper.year_read = row[1]
     #                 scraper.scrape()
     # else:
-    scraper = BookScraper(sys.argv[1], sys.argv[2])
+    if (len(sys.argv) > 2):
+        scraper = BookScraper(sys.argv[1], sys.argv[2])
     scraper.scrape()
 
 
