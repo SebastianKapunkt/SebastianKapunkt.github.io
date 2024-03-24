@@ -704,7 +704,7 @@ const books_read = [{
     "link": "https://www.goodreads.com/book/show/45276429-the-tilean-s-talisman"
   },
   {
-    "title": "Charnel Congress",
+    "title": "Charnel Congress (Gotrek and Felix)",
     "authors": [{
       "name": "Joshua   Reynolds"
     }],
@@ -717,7 +717,7 @@ const books_read = [{
     "link": "https://www.goodreads.com/book/show/13556716-charnel-congress"
   },
   {
-    "title": "The Serpent Queen",
+    "title": "The Serpent Queen (Gotrek and Felix Book 15)",
     "authors": [{"name": "Joshua   Reynolds"}],
     "published": "2014",
     "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1480174444i/33130852.jpg",
@@ -737,6 +737,28 @@ const books_read = [{
     "year_read": "2023",
     "order": 0,
     "link": "https://www.goodreads.com/book/show/61857493-der-glukose-trick"
+  },
+  {
+    "title": "Kinslayer (Gotrek and Felix Book 16)",
+    "authors": [{"name": "David Guymer"}],
+    "published": "2014",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1481017759i/33277590.jpg",
+    "pages": 344,
+    "isbn": "1782516220",
+    "year_read": "2024",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/33277590-kinslayer"
+  },
+  {
+    "title": "Same as Ever: A Guide to What Never Changes",
+    "authors": [{"name": "Morgan Housel"}],
+    "published": "2023",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1680687321i/125116554.jpg",
+    "pages": 240,
+    "isbn": "9780593332702",
+    "year_read": "2024",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/125116554-same-as-ever"
   }
 ]
 
@@ -753,25 +775,25 @@ currentBooks = [
     "link": "https://www.goodreads.com/book/show/56274450-mr-parnassus-heim-f-r-magisch-begabte"
   },
   {
-    "title": "Kinslayer",
-    "authors": [{"name": "David Guymer"}],
-    "published": "2014",
-    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1481017759i/33277590.jpg",
-    "pages": 344,
-    "isbn": "1782516220",
+    "title": "How to Raise a Healthy Gamer: End Power Struggles, Break Bad Screen Habits, and Transform Your Relationship with Your Kids",
+    "authors": [{"name": "Dr Alok Kanojia"}],
+    "published": "2024",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1698942903i/177185867.jpg",
+    "pages": 304,
+    "isbn": "9780593582046",
     "year_read": "",
     "order": 0,
-    "link": "https://www.goodreads.com/book/show/33277590-kinslayer"
+    "link": "https://www.goodreads.com/book/show/177185867-how-to-raise-a-healthy-gamer"
   },
   {
-    "title": "Same as Ever: A Guide to What Never Changes",
-    "authors": [{"name": "Morgan Housel"}],
-    "published": "2023",
-    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1680687321i/125116554.jpg",
-    "pages": 240,
-    "isbn": "9780593332702",
+    "title": "City of the Damned (Gotrek and Felix Book 14)",
+    "authors": [{"name": "David Guymer"}],
+    "published": "2013",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1486348249i/34128754.jpg",
+    "pages": 416,
+    "isbn": "9781782511519",
     "year_read": "",
     "order": 0,
-    "link": "https://www.goodreads.com/book/show/125116554-same-as-ever"
+    "link": "https://www.goodreads.com/book/show/34128754-city-of-the-damned"
   }
 ]
