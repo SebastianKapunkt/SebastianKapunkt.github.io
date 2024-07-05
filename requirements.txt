@@ -1,5 +1,5 @@
 beautifulsoup4==4.12.2
-certifi==2023.11.17
+certifi==2024.7.4
 charset-normalizer==3.3.2
 clipboard==0.0.4
 idna==3.7
