@@ -738,6 +738,17 @@ const books_read = [{
     "order": 0,
     "link": "https://www.goodreads.com/book/show/61857493-der-glukose-trick"
   },
+   {
+    "title": "Letztendlich sind wir dem Universum egal",
+    "authors": [{"name": "David Levithan"}, {"name": "Martina Tichy"}],
+    "published": "2012",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1385575705i/19005890.jpg",
+    "pages": 400,
+    "isbn": "9783841422194",
+    "year_read": "2023",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/19005890-letztendlich-sind-wir-dem-universum-egal"
+  },
   {
     "title": "Kinslayer (Gotrek and Felix Book 16)",
     "authors": [{"name": "David Guymer"}],
@@ -759,7 +770,7 @@ const books_read = [{
     "year_read": "2024",
     "order": 0,
     "link": "https://www.goodreads.com/book/show/125116554-same-as-ever"
-  }
+  },
 ]
 
 currentBooks = [
