@@ -10,14 +10,14 @@ const configuration = {
     "dropSpeedMax": 1000,
   },
   "intense": {
-    "dropCount": window.innerWidth / 1,
+    "dropCount": window.innerWidth,
     "dropSpeedMin": 800,
     "dropSpeedMax": 400
   },
   "off": {
     "dropCount": window.innerWidth / 10,
     "dropSpeedMin": 0,
-    "dropSüeedMax": 0
+    "dropSpeedMax": 0
   }
 }
 

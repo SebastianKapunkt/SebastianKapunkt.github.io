@@ -20,23 +20,19 @@ class BookPreview extends HTMLElement {
         <div class="book_title">
           ${this.title}
         </div>
-        <div class="book_content">
+        <div class="book_info">
           <div class="book_descriptor">
             ${this.authors.length === 1 ? "Autor" : "Autoren"}:
           </div>
           <div class="book_value">
             ${this.authors.map(author => author.name).join(", ")}
           </div>
-        </div>
-        <div class="book_content">
           <div class="book_descriptor">
             Erschienen:
           </div>
           <div class="book_value">
             ${this.published}
           </div>
-        </div>
-        <div class="book_content">
           <div class="book_descriptor">
             Seiten:
           </div>

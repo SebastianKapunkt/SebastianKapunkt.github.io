@@ -2,10 +2,11 @@
   --main-text-color: white;
   --black-transparent: #090909aa;
   --yellow: #f2c94c;
+  --yellow-transparent: #f2c94c11;
   --navigation-main: black;
   --navigation-secondary: var(--yellow);
   --content-max-width: 800px;
-  --book-cover: 120px;
+  --book-cover: 240px;
 }
 
 html {

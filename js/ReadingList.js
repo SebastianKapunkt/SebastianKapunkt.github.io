@@ -10,54 +10,72 @@ class ReadingList extends HTMLElement {
 
   render() {
     return `
-      <div class="bookshelf">
-        <div class="year-column">
-          ${Object.keys(this.groupedBooks).sort((a, b) => a < b ? 1 : -1).map((key) =>
-              this.getYearColumn(key)
-          ).join("")}
+      <div class="year-grid">
+       <div class="year-column-item" data-year="all">
+          <div class="year ${"all" === this.currentYear ? "year_active" : ""}">
+            Alle
+          </div>
         </div>
-        <div class="book_content_wrapper">
-          ${this.getBooks()}
-        </div>
+        ${Object.keys(this.groupedBooks).sort((a, b) => a < b ? 1 : -1).map((key) =>
+            this.getYearSelect(key)
+        ).join("")}
+      </div>
+      <div class="book-grid">
+        ${this.getBooks()}
       </div>
     `
   }
 
-  getYearColumn(year) {
+  getYearSelect(year) {
     return `
-      <div class="year-column-item">
-        <div class="year ${year === this.currentYear ? "year_active" : ""}" data-year="${year}">
-          ${year}
+      <bu class="year-column-item" data-year="${year}">
+        <div class="year ${year === this.currentYear ? "year_active" : ""}">
+          ${ year === "2014" ? "2014 & Davor" : year }
         </div>
         <div class="year_content">
-          ${sumPages(this.groupedBooks[year])} Seiten
-        </div> 
-        <div class="year_content">
+          ${sumPages(this.groupedBooks[year])} Seiten |
           ${this.groupedBooks[year].length} 
           ${this.groupedBooks[year].length === 1 ? "Buch" : "Bücher"}
         </div>
-      </div>
+      </bu>
     `
   }
 
   getBooks() {
-    let filteredBooks = books_read.filter(book => book.year_read === this.currentYear)
+    let filteredBooks
+    if (this.currentYear === "all") {
+      filteredBooks = books_read
+    } else {
+      filteredBooks = books_read.filter(book => `${book.year_read}` === this.currentYear)
+    }
+    filteredBooks.sort(
+      (a, b) => {
+        if (a.year_read < b.year_read) {
+          return 1
+        } else if (a.year_read > b.year_read) {
+          return -1
+        } else {
+          return a.title < b.title ? -1 : 1
+        }
+      }
+    )
     return `
-      ${filteredBooks.sort((a,b) => a.order < b.order ? 1 : -1).map(book => 
-        `
-          <book-preview title="${book.title}"
-                      cover="${book.cover}"
-                      authors="${encodeURI(JSON.stringify(book.authors))}"
-                      published="${book.published}"
-                      pages="${book.pages}">
-          </book-preview>
-        `
-      ).join("")}
+      ${filteredBooks.map(book => {
+      return `
+              <book-preview title="${book.title}"
+                            cover="${book.cover}"
+                            authors="${encodeURI(JSON.stringify(book.authors))}"
+                            published="${book.published}"
+                            pages="${book.pages}">
+              </book-preview>
+            `
+    }).join("")}
     `
   }
 
   handleYearSelect(event) {
-    this.currentYear = event.target.dataset.year
+    let target = event.target.closest("[data-year]")
+    this.currentYear = target.dataset.year
     this.innerHTML = this.render()
     this.addYearClick()
   }

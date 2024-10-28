@@ -1,41 +1,131 @@
 .book {
   display: flex;
   flex-flow: row;
-  margin: 0 0 16px 16px;
+  position: relative;
+  cursor: zoom-in;
+
+  &:hover, :focus, :active {
+    .book_cover {
+      opacity: 0.1;
+    }
+
+    .book_content_wrapper {
+      opacity: 1;
+    }
+  }
+}
+
+.book_content_wrapper {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  padding: 18px;
+  height: var(--book-cover);
+  width: var(--book-cover);
+  display: flex;
+  flex-flow: column;
+  gap: 16px;
+  box-sizing: border-box;
+  border: 4px solid var(--yellow);
+}
+
+.book-grid {
+  --columns: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), var(--book-cover));
+  grid-gap: 32px;
+  justify-content: space-around;
+  width: calc(var(--columns) * var(--book-cover) + (var(--columns) - 1) * 32px);
+}
+
+@media screen and (min-width: 1328px) {
+  .book-grid {
+    --columns: 5;
+  }
+
+  book-preview:nth-child(5n+1) {
+    transform: translateY(var(--book-cover));
+  }
+
+  book-preview:nth-child(5n+2) {
+    transform: translateY(calc(var(--book-cover) / 2));
+  }
+
+  book-preview:nth-child(5n+4) {
+    transform: translateY(calc(var(--book-cover) / 2));
+  }
+
+  book-preview:nth-child(5n+5) {
+    transform: translateY(var(--book-cover));
+  }
+}
+
+@media screen and (min-width: 1056px) and (max-width: 1328px) {
+  .book-grid {
+    --columns: 4;
+  }
+
+  book-preview:nth-child(4n+1) {
+    transform: translateY(calc(var(--book-cover) / 2));
+  }
+
+  book-preview:nth-child(4n+4) {
+    transform: translateY(calc(var(--book-cover) / 2));
+  }
+}
+
+@media screen and (min-width: 784px) and (max-width: 1056px) {
+  .book-grid {
+    --columns: 3;
+  }
+
+  book-preview:nth-child(3n+1) {
+    transform: translateY(calc(var(--book-cover) / 2));
+  }
+
+  book-preview:nth-child(3n+3) {
+    transform: translateY(calc(var(--book-cover) / 2));
+  }
+}
+
+@media screen and (min-width: 512px) and (max-width: 784px) {
+  .book-grid {
+    --columns: 2;
+  }
+
+  book-preview:nth-child(2n+1) {
+    transform: translateY(calc(var(--book-cover) / 2));
+  }
 }
 
 .book_cover {
-  width: calc(var(--book-cover) * 0.75);
+  width: var(--book-cover);
   height: var(--book-cover);
   box-sizing: border-box;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  border: 4px solid var(--yellow);
   flex-shrink: 0;
-}
-
-.book_content {
-  display: flex;
-  flex-flow: row;
-  justify-content: start;
-  align-items: center;
-  height: calc(var(--book-cover) / 4);
-  padding: 0 8px;
-  font-size: small;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
 }
 
 .book_title {
   display: flex;
+  font-size: 110%;
   justify-content: start;
   align-items: center;
-  padding: 0 8px;
   font-weight: bold;
-  font-size: large;
+}
+
+.book_info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
 }
 
 .book_descriptor {
-  min-width: 9em;
+  font-size: 0.8em;
 }
 
 .book-summary-title {
@@ -47,65 +137,43 @@
 .book-summary {
   font-size: 1em;
   text-align: center;
-  display: grid;
-  grid-template-columns: calc(50% - 0.5em) 1em calc(50% - 0.5em);
-  width: 100%;
-  margin-bottom: 0.75em;
+  display: flex;
+  flex-flow: row nowrap;
+  white-space: nowrap;
+}
+
+.year-grid {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 16px;
+  justify-content: center;
+  margin: 32px 32px;
 }
 
 .year-column-item {
-  border-left: 2px solid white;
-  margin-left: 16px;
-  padding: 20px 0;
-  min-height: 100px;
-}
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+  width: 160px;
+  z-index: 1;
 
-.year-column {
-  flex-shrink: 0;
-  border-right: 8px solid var(--yellow);
-  padding-top: 32px;
+  &:hover {
+    border-color: var(--yellow);
+  }
 }
 
 .year {
   color: var(--yellow);
   font-size: 1.5em;
-  line-height: 2em;
-  margin-top: -1em;
-  padding-right: 8px;
-  margin-bottom: 0.25em;
-}
-
-.year:hover,
-.year:hover::before,
-.year_active::before,
-.year_active {
-  cursor: pointer;
-  background-color: var(--yellow) !important;
-  color: black;
-}
-
-.year::before {
-  --circle-size: 20px;
-  display: inline-block;
-  width: var(--circle-size);
-  height: var(--circle-size);
-  border-radius: var(--circle-size);
-  margin-right: 0;
-  margin-left: calc(var(--circle-size) / 2 * -1 - 3px);
-  content: '';
-  border: 2px solid white;
-  background-color: #333;
+  white-space: nowrap;
 }
 
 .year_content {
-  padding-left: 20px;
-}
-
-.bookshelf {
-  display: flex;
-  flex-flow: row;
-  width: 100%;
-  margin-top: 32px;
+  white-space: nowrap;
 }
 
 .bookshelf-wrapper {
@@ -113,35 +181,4 @@
   justify-content: center;
   flex-flow: column;
   align-items: center;
-}
-
-.book_content_wrapper {
-  width: 100%;
-}
-
-@media screen and (max-width: 450px) {
-  .book {
-    flex-flow: column;
-    margin-left: 4px;
-    align-items: center;
-  }
-
-  .book_content {
-    padding: 0;
-  }
-
-  .book_title {
-    display: block;
-    padding: 8px 0;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .year-column {
-    width: 130px;
-  }
-
-  .year {
-    padding-right: 2px;
-  }
 }

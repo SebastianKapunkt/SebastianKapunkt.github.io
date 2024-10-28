@@ -6,7 +6,7 @@ const books_read = [{
   "published": 2005,
   "cover": "https://images.isbndb.com/covers/07/64/9783492700764.jpg",
   "pages": 621,
-  "year_read": "2014 & davor",
+  "year_read": 2014,
   "order": 0
 },
   {
@@ -17,7 +17,7 @@ const books_read = [{
     "published": 2008,
     "cover": "https://images.isbndb.com/covers/40/42/9783473544042.jpg",
     "pages": 186,
-    "year_read": "2014 & davor",
+    "year_read": 2014,
     "order": 1
   },
   {
@@ -28,7 +28,7 @@ const books_read = [{
     "published": 1989,
     "cover": "https://images.isbndb.com/covers/05/49/9783473540549.jpg",
     "pages": 224,
-    "year_read": "2014 & davor",
+    "year_read": 2014,
     "order": 2
   },
   {
@@ -39,7 +39,7 @@ const books_read = [{
     "published": 2010,
     "cover": "https://images-na.ssl-images-amazon.com/images/I/51BBPPkAgzL._SX327_BO1,204,203,200_.jpg",
     "pages": 320,
-    "year_read": "2014 & davor",
+    "year_read": 2014,
     "order": 3
   },
   {
@@ -50,7 +50,7 @@ const books_read = [{
     "published": 2001,
     "cover": "https://images-na.ssl-images-amazon.com/images/I/41sVyCfD-QL._SX310_BO1,204,203,200_.jpg",
     "pages": 240,
-    "year_read": "2014 & davor",
+    "year_read": 2014,
     "order": 4
   },
   {
@@ -61,7 +61,7 @@ const books_read = [{
     "published": 2009,
     "cover": "https://images.isbndb.com/covers/19/95/9789703701995.jpg",
     "pages": 322,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 0
   },
   {
@@ -72,7 +72,7 @@ const books_read = [{
     "published": 2005,
     "cover": "https://images.isbndb.com/covers/16/72/9783551551672.jpg",
     "pages": 335,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 1
   },
   {
@@ -83,7 +83,7 @@ const books_read = [{
     "published": 2006,
     "cover": "https://images.isbndb.com/covers/16/89/9783551551689.jpg",
     "pages": 352,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 2
   },
   {
@@ -94,7 +94,7 @@ const books_read = [{
     "published": 2007,
     "cover": "https://images.isbndb.com/covers/40/37/9783551354037.jpg",
     "pages": 448,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 3
   },
   {
@@ -105,7 +105,7 @@ const books_read = [{
     "published": 2008,
     "cover": "https://images.isbndb.com/covers/19/31/9783551551931.jpg",
     "pages": 704,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 4
   },
   {
@@ -116,7 +116,7 @@ const books_read = [{
     "published": 2009,
     "cover": "https://images-na.ssl-images-amazon.com/images/I/51A8Y0qvzAL._SX319_BO1,204,203,200_.jpg",
     "pages": 960,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 5
   },
   {
@@ -127,7 +127,7 @@ const books_read = [{
     "published": 2010,
     "cover": "https://images-na.ssl-images-amazon.com/images/I/51EMFAXC3iL._SX319_BO1,204,203,200_.jpg",
     "pages": 640,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 6
   },
   {
@@ -138,7 +138,7 @@ const books_read = [{
     "published": 2011,
     "cover": "https://images-na.ssl-images-amazon.com/images/I/51Yhx9lktvL._SX319_BO1,204,203,200_.jpg",
     "pages": 752,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 7
   },
   {
@@ -149,7 +149,7 @@ const books_read = [{
     "published": 2014,
     "cover": "https://m.media-amazon.com/images/I/41mpcdvNiOL.jpg",
     "pages": 371,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 8
   },
   {
@@ -160,7 +160,7 @@ const books_read = [{
     "published": 2015,
     "cover": "https://m.media-amazon.com/images/I/51kyx3FXx9L.jpg",
     "pages": 346,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 9
   },
   {
@@ -171,7 +171,7 @@ const books_read = [{
     "published": 2015,
     "cover": "https://m.media-amazon.com/images/I/51OlIKwiWQL.jpg",
     "pages": 368,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 10
   },
   {
@@ -182,7 +182,7 @@ const books_read = [{
     'published': '2014',
     'cover': 'https://m.media-amazon.com/images/I/51ND4Oe-psL._SY346_.jpg',
     'pages': 254,
-    'year_read': '2015',
+    'year_read': 2015,
     'order': 11
   },
   {
@@ -193,7 +193,7 @@ const books_read = [{
     "published": 2015,
     "cover": "https://m.media-amazon.com/images/I/518UTChlKtL._SY346_.jpg",
     "pages": 313,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 12
   },
   {
@@ -204,7 +204,7 @@ const books_read = [{
     "published": 2014,
     "cover": "https://m.media-amazon.com/images/I/51ZbjeEt1-L._SY346_.jpg",
     "pages": 444,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 13
   },
   {
@@ -215,7 +215,7 @@ const books_read = [{
     "published": "2013",
     "cover": "https://m.media-amazon.com/images/I/51TpTTy9qwL._SY346_.jpg",
     "pages": 299,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 14
   },
   {
@@ -226,7 +226,7 @@ const books_read = [{
     "published": "2009",
     "cover": "https://m.media-amazon.com/images/I/51MXesPtPuL._SY346_.jpg",
     "pages": 377,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 15
   },
   {
@@ -237,7 +237,7 @@ const books_read = [{
     "published": "2009",
     "cover": "https://m.media-amazon.com/images/I/51n9QDGb47L._SY346_.jpg",
     "pages": 462,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 16
   },
   {
@@ -248,7 +248,7 @@ const books_read = [{
     "published": "2009",
     "cover": "https://m.media-amazon.com/images/I/51EWpRDzQkL._SY346_.jpg",
     "pages": 386,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 17
   },
   {
@@ -259,7 +259,7 @@ const books_read = [{
     "published": "2009",
     "cover": "https://m.media-amazon.com/images/I/51XAetQbSTL._SY346_.jpg",
     "pages": 398,
-    "year_read": "2015",
+    "year_read": 2015,
     "order": 18
   },
   {
@@ -270,7 +270,7 @@ const books_read = [{
     "published": "2011",
     "cover": "https://m.media-amazon.com/images/I/513-aGyLZdL._SY346_.jpg",
     "pages": 429,
-    "year_read": "2016",
+    "year_read": 2016,
     "order": 0
   },
   {
@@ -281,7 +281,7 @@ const books_read = [{
     "published": "2010",
     "cover": "https://m.media-amazon.com/images/I/51VQWr8pIWL._SY346_.jpg",
     "pages": 545,
-    "year_read": "2016",
+    "year_read": 2016,
     "order": 1
   },
   {
@@ -292,7 +292,7 @@ const books_read = [{
     "published": "2011",
     "cover": "https://m.media-amazon.com/images/I/51xxNRxvK6L._SY346_.jpg",
     "pages": 641,
-    "year_read": "2016",
+    "year_read": 2016,
     "order": 2
   },
   {
@@ -303,7 +303,7 @@ const books_read = [{
     "published": "1983",
     "cover": "https://m.media-amazon.com/images/I/31EBmLtyBtL._SY346_.jpg",
     "pages": 386,
-    "year_read": "2016",
+    "year_read": 2016,
     "order": 3
   },
   {
@@ -314,7 +314,7 @@ const books_read = [{
     "published": "1994",
     "cover": "https://m.media-amazon.com/images/I/41OsGfK5gHL._SY346_.jpg",
     "pages": 369,
-    "year_read": "2016",
+    "year_read": 2016,
     "order": 4
   },
   {
@@ -325,7 +325,7 @@ const books_read = [{
     "published": "2010",
     "cover": "https://m.media-amazon.com/images/I/51mwsGNyL+L._SY346_.jpg",
     "pages": 417,
-    "year_read": "2016",
+    "year_read": 2016,
     "order": 5
   },
   {
@@ -336,7 +336,7 @@ const books_read = [{
     "published": "2010",
     "cover": "https://m.media-amazon.com/images/I/417tB1tuVjL._SY346_.jpg",
     "pages": 432,
-    "year_read": "2016",
+    "year_read": 2016,
     "order": 6
   },
   {
@@ -347,7 +347,7 @@ const books_read = [{
     "published": "2011",
     "cover": "https://m.media-amazon.com/images/I/514a3oRQOWL.jpg",
     "pages": 432,
-    "year_read": "2016",
+    "year_read": 2016,
     "order": 7
   },
   {
@@ -358,7 +358,7 @@ const books_read = [{
     "published": "2009",
     "cover": "https://m.media-amazon.com/images/I/51WFGZrIdxL._SY346_.jpg",
     "pages": 577,
-    "year_read": "2016",
+    "year_read": 2016,
     "order": 8
   },
   {
@@ -369,7 +369,7 @@ const books_read = [{
     "published": "1998",
     "cover": "https://images-na.ssl-images-amazon.com/images/I/510%2BLVHqweL._SX316_BO1,204,203,200_.jpg",
     "pages": 416,
-    "year_read": "2016",
+    "year_read": 2016,
     "order": 9
   },
   {
@@ -380,7 +380,7 @@ const books_read = [{
     "published": "2013",
     "cover": "https://m.media-amazon.com/images/I/41TJsuCvnmL._SY346_.jpg",
     "pages": 494,
-    "year_read": "2016",
+    "year_read": 2016,
     "order": 10
   },
   {
@@ -391,7 +391,7 @@ const books_read = [{
     "published": 2005,
     "cover": "https://images.isbndb.com/covers/07/64/9783492700764.jpg",
     "pages": 621,
-    "year_read": "2017",
+    "year_read": 2017,
     "order": 0
   },
   {
@@ -402,7 +402,7 @@ const books_read = [{
     "published": "2014",
     "cover": "https://m.media-amazon.com/images/I/41mQe8SVf5L._SY346_.jpg",
     "pages": 273,
-    "year_read": "2017",
+    "year_read": 2017,
     "order": 1
   },
   {
@@ -413,7 +413,7 @@ const books_read = [{
     "published": "2003",
     "cover": "https://images-na.ssl-images-amazon.com/images/I/51QW47YG3FL._SX292_BO1,204,203,200_.jpg",
     "pages": 294,
-    "year_read": "2017",
+    "year_read": 2017,
     "order": 2
   },
   {
@@ -424,7 +424,7 @@ const books_read = [{
     "published": "2003",
     "cover": "https://m.media-amazon.com/images/I/519X2I94egL.jpg",
     "pages": 288,
-    "year_read": "2018",
+    "year_read": 2018,
     "order": 0
   },
   {
@@ -435,7 +435,7 @@ const books_read = [{
     "published": "2003",
     "cover": "https://m.media-amazon.com/images/I/51BC5VPkeFL.jpg",
     "pages": 288,
-    "year_read": "2018",
+    "year_read": 2018,
     "order": 1
   },
   {
@@ -446,7 +446,7 @@ const books_read = [{
     "published": "2011",
     "cover": "https://m.media-amazon.com/images/I/41qI9quGIdL._SY346_.jpg",
     "pages": 167,
-    "year_read": "2018",
+    "year_read": 2018,
     "order": 2
   },
   {
@@ -457,7 +457,7 @@ const books_read = [{
     "published": "2011",
     "cover": "https://m.media-amazon.com/images/I/51gH7Jkq-qL._SY346_.jpg",
     "pages": 386,
-    "year_read": "2018",
+    "year_read": 2018,
     "order": 3
   },
   {
@@ -468,7 +468,7 @@ const books_read = [{
     "published": "2016",
     "cover": "https://m.media-amazon.com/images/I/51KSNB7GJVL._SY346_.jpg",
     "pages": 288,
-    "year_read": "2018",
+    "year_read": 2018,
     "order": 4
   },
   {
@@ -479,7 +479,7 @@ const books_read = [{
     "published": "2016",
     "cover": "https://m.media-amazon.com/images/I/512e2CoXggL._SY346_.jpg",
     "pages": 288,
-    "year_read": "2018",
+    "year_read": 2018,
     "order": 5
   },
   {
@@ -490,7 +490,7 @@ const books_read = [{
     "published": "2016",
     "cover": "https://m.media-amazon.com/images/I/51k24vWsinL._SY346_.jpg",
     "pages": 320,
-    "year_read": "2018",
+    "year_read": 2018,
     "order": 6
   },
   {
@@ -501,7 +501,7 @@ const books_read = [{
     "published": "2016",
     "cover": "https://m.media-amazon.com/images/I/51jOBCkunIL._SY346_.jpg",
     "pages": 288,
-    "year_read": "2018",
+    "year_read": 2018,
     "order": 7
   },
   {
@@ -512,7 +512,7 @@ const books_read = [{
     "published": "2016",
     "cover": "https://m.media-amazon.com/images/I/51Edp6s9aPL._SY346_.jpg",
     "pages": 284,
-    "year_read": "2018",
+    "year_read": 2018,
     "order": 8
   },
   {
@@ -523,7 +523,7 @@ const books_read = [{
     "published": "2017",
     "cover": "https://m.media-amazon.com/images/I/51xTILnnxqL._SY346_.jpg",
     "pages": 406,
-    "year_read": "2019",
+    "year_read": 2019,
     "order": 0
   },
   {
@@ -534,7 +534,7 @@ const books_read = [{
     "published": "2018",
     "cover": "https://m.media-amazon.com/images/I/51NSTbpPbkL._SY346_.jpg",
     "pages": 402,
-    "year_read": "2019",
+    "year_read": 2019,
     "order": 1
   },
 
@@ -546,7 +546,7 @@ const books_read = [{
     "published": 2016,
     "cover": "https://m.media-amazon.com/images/I/51EYiCSS0sL.jpg",
     "pages": 368,
-    "year_read": "2019",
+    "year_read": 2019,
     "order": 2
   },
   {
@@ -557,7 +557,7 @@ const books_read = [{
     "published": 2007,
     "cover": "https://m.media-amazon.com/images/I/516zJOzuJPL.jpg",
     "pages": 416,
-    "year_read": "2019",
+    "year_read": 2019,
     "order": 3
   },
   {
@@ -568,7 +568,7 @@ const books_read = [{
     "published": "2015",
     "cover": "https://m.media-amazon.com/images/I/41KK43V67dL._SY346_.jpg",
     "pages": 289,
-    "year_read": "2020",
+    "year_read": 2020,
     "order": 0
   },
   {
@@ -579,7 +579,7 @@ const books_read = [{
     "published": "2018",
     "cover": "https://m.media-amazon.com/images/I/61jiiTlnLJL._SY346_.jpg",
     "pages": 712,
-    "year_read": "2020",
+    "year_read": 2020,
     "order": 1
   },
   {
@@ -591,7 +591,7 @@ const books_read = [{
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1430695497l/25476093.jpg",
     "pages": 275,
     "isbn": "9780553279573",
-    "year_read": "2020",
+    "year_read": 2020,
     "order": 2,
     "link": "https://www.goodreads.com/book/show/25476093-the-toynbee-convector"
   },
@@ -604,7 +604,7 @@ const books_read = [{
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1330383684l/6653455.jpg",
     "pages": 491,
     "isbn": "9783492291958",
-    "year_read": "2020",
+    "year_read": 2020,
     "order": 3,
     "link": "https://www.goodreads.com/book/show/6653455-elfenslayer"
   },
@@ -617,7 +617,7 @@ const books_read = [{
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348732072l/6433652.jpg",
     "pages": 416,
     "isbn": "9781844167739",
-    "year_read": "2020",
+    "year_read": 2020,
     "order": 4,
     "link": "https://www.goodreads.com/book/show/6433652-shamanslayer"
   },
@@ -632,7 +632,7 @@ const books_read = [{
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1478512524l/32889241.jpg",
     "pages": 288,
     "isbn": "9783407864222",
-    "year_read": "2020",
+    "year_read": 2020,
     "order": 5,
     "link": "https://www.goodreads.com/book/show/32889241-das-gew-nschteste-wunschkind-aller-zeiten-treibt-mich-in-den-wahnsinn?from_search=true&from_srp=true&qid=neflYWVJKL&rank=1"
   },
@@ -646,7 +646,7 @@ const books_read = [{
     "pages": 292,
     "isbn/asin": "B01BKS2X0Kd",
     "link": "http://goodreads.com/book/show/29349974-neuromancer",
-    "year_read": "2021",
+    "year_read": 2021,
     "order": 0
   },
   {
@@ -658,7 +658,7 @@ const books_read = [{
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1273784736l/7841525.jpg",
     "pages": 416,
     "isbn": "9781844168811",
-    "year_read": "2021",
+    "year_read": 2021,
     "order": 1,
     "link": "https://www.goodreads.com/book/show/7841525-zombieslayer"
   },
@@ -670,10 +670,10 @@ const books_read = [{
       "name": "William L. Simon"
     }],
     "published": 2011,
-    "cover": "https://images.isbndb.com/covers/77/09/9780316037709.jpg",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1344265017i/10256723.jpg",
     "pages": 413,
     "isbn": "9780316037709",
-    "year_read": "2021",
+    "year_read": 2021,
     "order": 2,
     "link": "https://www.goodreads.com/book/show/10256723-ghost-in-the-wires"
   },
@@ -686,7 +686,7 @@ const books_read = [{
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1345678604l/15803019.jpg",
     "pages": 416,
     "isbn": "9781849702928",
-    "year_read": "2022",
+    "year_read": 2022,
     "order": 0,
     "link": "https://www.goodreads.com/book/show/15803019-road-of-skulls?ref=nav_sb_ss_1_14"
   },
@@ -699,7 +699,7 @@ const books_read = [{
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1556009847l/45276429._SY475_.jpg",
     "pages": 26,
     "isbn": "B06Y3WN976",
-    "year_read": "2022",
+    "year_read": 2022,
     "order": 1,
     "link": "https://www.goodreads.com/book/show/45276429-the-tilean-s-talisman"
   },
@@ -712,7 +712,7 @@ const books_read = [{
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1332437845l/13556716.jpg",
     "pages": 93,
     "isbn": "9780857875877",
-    "year_read": "2022",
+    "year_read": 2022,
     "order": 2,
     "link": "https://www.goodreads.com/book/show/13556716-charnel-congress"
   },
@@ -723,7 +723,7 @@ const books_read = [{
     "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1480174444i/33130852.jpg",
     "pages": 298,
     "isbn": "9781782514695",
-    "year_read": "2023",
+    "year_read": 2023,
     "order": 0,
     "link": "https://www.goodreads.com/book/show/33130852-the-serpent-queen"
   },
@@ -734,7 +734,7 @@ const books_read = [{
     "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1659633467i/61857493.jpg",
     "pages": 333,
     "isbn": "9783453605992",
-    "year_read": "2023",
+    "year_read": 2023,
     "order": 0,
     "link": "https://www.goodreads.com/book/show/61857493-der-glukose-trick"
   },
@@ -745,7 +745,7 @@ const books_read = [{
     "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1385575705i/19005890.jpg",
     "pages": 400,
     "isbn": "9783841422194",
-    "year_read": "2023",
+    "year_read": 2023,
     "order": 0,
     "link": "https://www.goodreads.com/book/show/19005890-letztendlich-sind-wir-dem-universum-egal"
   },
@@ -756,7 +756,7 @@ const books_read = [{
     "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1481017759i/33277590.jpg",
     "pages": 344,
     "isbn": "1782516220",
-    "year_read": "2024",
+    "year_read": 2024,
     "order": 0,
     "link": "https://www.goodreads.com/book/show/33277590-kinslayer"
   },
@@ -767,7 +767,7 @@ const books_read = [{
     "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1680687321i/125116554.jpg",
     "pages": 240,
     "isbn": "9780593332702",
-    "year_read": "2024",
+    "year_read": 2024,
     "order": 0,
     "link": "https://www.goodreads.com/book/show/125116554-same-as-ever"
   },
@@ -778,7 +778,7 @@ const books_read = [{
     "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1486348249i/34128754.jpg",
     "pages": 416,
     "isbn": "9781782511519",
-    "year_read": "2024",
+    "year_read": 2024,
     "order": 0,
     "link": "https://www.goodreads.com/book/show/34128754-city-of-the-damned"
   },
@@ -789,7 +789,7 @@ const books_read = [{
     "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1698942903i/177185867.jpg",
     "pages": 304,
     "isbn": "9780593582046",
-    "year_read": "2024",
+    "year_read": 2024,
     "order": 0,
     "link": "https://www.goodreads.com/book/show/177185867-how-to-raise-a-healthy-gamer"
   },

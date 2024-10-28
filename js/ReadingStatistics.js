@@ -11,18 +11,24 @@ class ReadingStatistics extends HTMLElement {
 
   render() {
     return `
-      <div style="text-align: center; margin-bottom: 1.5em">${this.startYear}&nbsp;&mdash;&nbsp;${this.currentYear}</div>
-      <div class="book-summary-title">Insgesamt</div>
-      <div class="book-summary">
-        <div style="text-align: right;">${books_read.length} Bücher</div>
-        <div>|</div>
-        <div style="text-align: left;">${this.pages} Seiten</div>
-      </div>
-      <div class="book-summary-title">pro Jahr</div>
-      <div class="book-summary">
-        <div style="text-align: right;">${this.getBookReadPerYear()} Bücher</div>
-        <div>|</div> 
-        <div style="text-align: left;">${this.getPagesReadPerYear()} Seiten</div>
+      <div style="display: flex; flex-flow: row wrap; justify-content: center; align-items: center; gap: 32px;">
+        <div class="year">${this.startYear}&nbsp;&mdash;&nbsp;${this.currentYear}</div>
+        <div>
+          <div class="book-summary-title">Insgesamt</div>
+          <div class="book-summary">
+            <div style="text-align: right;">${books_read.length} Bücher</div>
+            <div>|</div>
+            <div style="text-align: left;">${this.pages} Seiten</div>
+          </div>
+        </div>
+        <div>
+          <div class="book-summary-title">pro Jahr</div>
+          <div class="book-summary">
+            <div style="text-align: right;">${this.getBookReadPerYear()} Bücher</div>
+            <div>|</div> 
+            <div style="text-align: left;">${this.getPagesReadPerYear()} Seiten</div>
+          </div>
+        </div>
       </div>
     `
   }
