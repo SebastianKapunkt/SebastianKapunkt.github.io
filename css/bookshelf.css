@@ -172,6 +172,10 @@
   white-space: nowrap;
 }
 
+.year_active {
+  text-decoration: underline;
+}
+
 .year_content {
   white-space: nowrap;
 }
