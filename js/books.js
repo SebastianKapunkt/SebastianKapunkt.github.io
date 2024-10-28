@@ -738,7 +738,7 @@ const books_read = [{
     "order": 0,
     "link": "https://www.goodreads.com/book/show/61857493-der-glukose-trick"
   },
-   {
+  {
     "title": "Letztendlich sind wir dem Universum egal",
     "authors": [{"name": "David Levithan"}, {"name": "Martina Tichy"}],
     "published": "2012",
@@ -771,6 +771,28 @@ const books_read = [{
     "order": 0,
     "link": "https://www.goodreads.com/book/show/125116554-same-as-ever"
   },
+  {
+    "title": "City of the Damned (Gotrek and Felix Book 14)",
+    "authors": [{"name": "David Guymer"}],
+    "published": "2013",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1486348249i/34128754.jpg",
+    "pages": 416,
+    "isbn": "9781782511519",
+    "year_read": "2024",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/34128754-city-of-the-damned"
+  },
+  {
+    "title": "How to Raise a Healthy Gamer",
+    "authors": [{"name": "Dr Alok Kanojia"}],
+    "published": "2024",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1698942903i/177185867.jpg",
+    "pages": 304,
+    "isbn": "9780593582046",
+    "year_read": "2024",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/177185867-how-to-raise-a-healthy-gamer"
+  },
 ]
 
 currentBooks = [
@@ -785,26 +807,4 @@ currentBooks = [
     "order": 0,
     "link": "https://www.goodreads.com/book/show/56274450-mr-parnassus-heim-f-r-magisch-begabte"
   },
-  {
-    "title": "How to Raise a Healthy Gamer: End Power Struggles, Break Bad Screen Habits, and Transform Your Relationship with Your Kids",
-    "authors": [{"name": "Dr Alok Kanojia"}],
-    "published": "2024",
-    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1698942903i/177185867.jpg",
-    "pages": 304,
-    "isbn": "9780593582046",
-    "year_read": "",
-    "order": 0,
-    "link": "https://www.goodreads.com/book/show/177185867-how-to-raise-a-healthy-gamer"
-  },
-  {
-    "title": "City of the Damned (Gotrek and Felix Book 14)",
-    "authors": [{"name": "David Guymer"}],
-    "published": "2013",
-    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1486348249i/34128754.jpg",
-    "pages": 416,
-    "isbn": "9781782511519",
-    "year_read": "",
-    "order": 0,
-    "link": "https://www.goodreads.com/book/show/34128754-city-of-the-damned"
-  }
 ]
