@@ -1,3 +1,9 @@
+:root {
+  --book-translate: translateY(calc(var(--book-cover-height) / 2));
+  --book-cover: 180px;
+  --book-cover-height: calc(var(--book-cover) * 1.5);
+}
+
 .book {
   display: flex;
   flex-flow: row;
@@ -19,8 +25,8 @@
   opacity: 0;
   transition: all 0.2s ease-in-out;
   position: absolute;
-  padding: 18px;
-  height: var(--book-cover);
+  padding: 8px;
+  height: var(--book-cover-height);
   width: var(--book-cover);
   display: flex;
   flex-flow: column;
@@ -31,76 +37,77 @@
 
 .book-grid {
   --columns: 1;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(var(--columns), var(--book-cover));
-  grid-gap: 32px;
-  justify-content: space-around;
+  grid-gap: 16px;
+  justify-content: center;
   width: calc(var(--columns) * var(--book-cover) + (var(--columns) - 1) * 32px);
 }
 
-@media screen and (min-width: 1328px) {
+@media screen and (min-width: 980px) {
   .book-grid {
     --columns: 5;
   }
 
   book-preview:nth-child(5n+1) {
-    transform: translateY(var(--book-cover));
+    transform: translateY(var(--book-cover-height));
   }
 
   book-preview:nth-child(5n+2) {
-    transform: translateY(calc(var(--book-cover) / 2));
+    transform: var(--book-translate);
   }
 
   book-preview:nth-child(5n+4) {
-    transform: translateY(calc(var(--book-cover) / 2));
+    transform: var(--book-translate);
   }
 
   book-preview:nth-child(5n+5) {
-    transform: translateY(var(--book-cover));
+    transform: translateY(var(--book-cover-height));
   }
 }
 
-@media screen and (min-width: 1056px) and (max-width: 1328px) {
+@media screen and (min-width: 784px) and (max-width: 980px) {
   .book-grid {
     --columns: 4;
   }
 
   book-preview:nth-child(4n+1) {
-    transform: translateY(calc(var(--book-cover) / 2));
+    transform: var(--book-translate);
   }
 
   book-preview:nth-child(4n+4) {
-    transform: translateY(calc(var(--book-cover) / 2));
+    transform: var(--book-translate);
   }
 }
 
-@media screen and (min-width: 784px) and (max-width: 1056px) {
+@media screen and (min-width: 648px) and (max-width: 784px) {
   .book-grid {
     --columns: 3;
   }
 
   book-preview:nth-child(3n+1) {
-    transform: translateY(calc(var(--book-cover) / 2));
+    transform: var(--book-translate);
   }
 
   book-preview:nth-child(3n+3) {
-    transform: translateY(calc(var(--book-cover) / 2));
+    transform: var(--book-translate);
   }
 }
 
-@media screen and (min-width: 512px) and (max-width: 784px) {
+@media screen and (max-width: 648px) {
   .book-grid {
     --columns: 2;
   }
 
   book-preview:nth-child(2n+1) {
-    transform: translateY(calc(var(--book-cover) / 2));
+    transform: var(--book-translate);
   }
 }
 
 .book_cover {
   width: var(--book-cover);
-  height: var(--book-cover);
+  height: var(--book-cover-height);
   box-sizing: border-box;
   background-size: contain;
   background-repeat: no-repeat;

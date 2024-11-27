@@ -6,7 +6,6 @@
   --navigation-main: black;
   --navigation-secondary: var(--yellow);
   --content-max-width: 800px;
-  --book-cover: 240px;
 }
 
 html {
