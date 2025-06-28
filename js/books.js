@@ -1,24 +1,25 @@
 const books_read = [{
-  "title": "Die Zwerge",
-  "authors": [{
-    "name": "Markus Heitz"
-  }],
-  "published": 2005,
-  "cover": "https://images.isbndb.com/covers/07/64/9783492700764.jpg",
-  "pages": 621,
-  "year_read": 2014,
-  "order": 0
-},
+    "title": "Die Zwerge",
+    "authors": [{
+      "name": "Markus Heitz"
+    }],
+    "published": 2005,
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1186591562i/1667455.jpg",
+    "pages": 621,
+    "year_read": 2014,
+    "order": 0
+  },
   {
     "title": "Die Welle",
     "authors": [{
       "name": "Dennis Gansel"
     }],
     "published": 2008,
-    "cover": "https://images.isbndb.com/covers/40/42/9783473544042.jpg",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1178117954i/759083.jpg",
     "pages": 186,
     "year_read": 2014,
-    "order": 1
+    "order": 1,
+      "link": "https://www.goodreads.com/book/show/759083.Die_Welle"
   },
   {
     "title": "Die Wolke",
@@ -26,10 +27,11 @@ const books_read = [{
       "name": "Pausewang"
     }],
     "published": 1989,
-    "cover": "https://images.isbndb.com/covers/05/49/9783473540549.jpg",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1179652118i/942240.jpg",
     "pages": 224,
     "year_read": 2014,
-    "order": 2
+    "order": 2,
+    "link": "https://www.goodreads.com/book/show/942240.Die_Wolke"
   },
   {
     "title": "Der Zauberer der Smaragdenstadt",
@@ -59,10 +61,11 @@ const books_read = [{
       "name": "John R.R. Tolkin",
     }],
     "published": 2009,
-    "cover": "https://images.isbndb.com/covers/19/95/9789703701995.jpg",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546071216i/5907.jpg",
     "pages": 322,
     "year_read": 2015,
-    "order": 0
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/5907.The_Hobbit_or_There_and_Back_Again"
   },
   {
     "title": "Harry Potter und der Stein der Weisen",
@@ -70,7 +73,7 @@ const books_read = [{
       "name": "J. K. Rowling",
     }],
     "published": 2005,
-    "cover": "https://images.isbndb.com/covers/16/72/9783551551672.jpg",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1562074778i/142293.jpg",
     "pages": 335,
     "year_read": 2015,
     "order": 1
@@ -81,10 +84,11 @@ const books_read = [{
       "name": "J. K. Rowling",
     }],
     "published": 2006,
-    "cover": "https://images.isbndb.com/covers/16/89/9783551551689.jpg",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1353270937i/165225.jpg",
     "pages": 352,
     "year_read": 2015,
-    "order": 2
+    "order": 2,
+    "link": "https://www.goodreads.com/book/show/165225.Harry_Potter_und_die_Kammer_des_Schreckens"
   },
   {
     "title": "Harry Potter und der Gefangene von Askaban",
@@ -92,7 +96,7 @@ const books_read = [{
       "name": "J. K. Rowling",
     }],
     "published": 2007,
-    "cover": "https://images.isbndb.com/covers/40/37/9783551354037.jpg",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1428405953i/25313833.jpg",
     "pages": 448,
     "year_read": 2015,
     "order": 3
@@ -103,7 +107,7 @@ const books_read = [{
       "name": "J. K. Rowling",
     }],
     "published": 2008,
-    "cover": "https://images.isbndb.com/covers/19/31/9783551551931.jpg",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1347642535i/662855.jpg",
     "pages": 704,
     "year_read": 2015,
     "order": 4
@@ -389,7 +393,7 @@ const books_read = [{
       "name": "Markus Heitz"
     }],
     "published": 2005,
-    "cover": "https://images.isbndb.com/covers/07/64/9783492700764.jpg",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1186591562i/1667455.jpg",
     "pages": 621,
     "year_read": 2017,
     "order": 0
@@ -793,6 +797,17 @@ const books_read = [{
     "order": 0,
     "link": "https://www.goodreads.com/book/show/177185867-how-to-raise-a-healthy-gamer"
   },
+  {
+    "title": "Die Stadt der wilden G\u00f6tter",
+    "authors": [{"name": "Isabel Allende"}],
+    "published": "2002",
+    "cover": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1185376751i/1574115.jpg",
+    "pages": 384,
+    "isbn": "9783423621915",
+    "year_read": 2025,
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/1574115.Die_Stadt_der_wilden_G_tter"
+  }
 ]
 
 currentBooks = [
