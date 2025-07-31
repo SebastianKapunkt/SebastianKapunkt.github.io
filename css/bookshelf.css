@@ -11,19 +11,17 @@
   cursor: zoom-in;
 
   &:hover, :focus, :active {
-    .book_cover {
-      opacity: 0.1;
-    }
-
     .book_content_wrapper {
       opacity: 1;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(20px);
     }
   }
 }
 
 .book_content_wrapper {
   opacity: 0;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   position: absolute;
   padding: 8px;
   height: var(--book-cover-height);
