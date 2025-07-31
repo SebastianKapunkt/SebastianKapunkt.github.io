@@ -205,36 +205,84 @@ a:hover:not(.nav-item) {
 .project-section {
   display: flex;
   flex-flow: column;
-}
+  gap: 24px;
+  padding: 0 12px;
+  box-sizing: border-box;
 
-.project-item {
-  border-left: 10px solid var(--yellow);
-  margin: 12px 0;
-  padding-left: 24px;
-  height: auto;
-}
+  [type="radio"] {
+    display: none;
+  }
 
-@media screen and (max-width: 425px) {
-  .project-item {
-    padding: 0 8px;
+  /*#reletter:checked #reletter-content,*/
+  /*#sweeper:checked #sweeper-content,*/
+  /*#gridpath:checked #gridpath-content*/
+
+  &:has(#limethat:checked) #limethat-content,
+  &:has(#reletter:checked) #reletter-content,
+  &:has(#sweeper:checked) #sweeper-content,
+  &:has(#gridpath:checked) #gridpath-content {
+      display: flex;
   }
 }
 
-.project-heading {
-  padding: 24px 0;
+.project__header {
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
-  align-items: start;
+  gap: 24px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
-.project-heading a {
-  flex-shrink: 0;
+.project__short {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 12px;
+  background: color-mix(in srgb, var(--yellow) 5%, transparent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 12px 24px;
+  transition: all 0.2s ease-in;
+  border: 1px solid transparent;
+  text-align: center;
+
+  &:hover {
+    background: color-mix(in srgb, var(--yellow) 10%, transparent);
+    border-color: color-mix(in srgb, var(--yellow) 20%, transparent);;
+    cursor: pointer;
+  }
+
+  &:has(input[type="radio"]:checked) {
+    background: color-mix(in srgb, var(--yellow) 10%, transparent);
+    border-color: color-mix(in srgb, var(--yellow) 30%, transparent);
+  }
+}
+
+.project__item {
+  padding: 12px;
+}
+
+.project__content {
+  display: none;
+  gap: 16px;
+  flex-flow: column;
+  border: 1px solid color-mix(in srgb, var(--yellow) 30%, transparent);
+  background: color-mix(in srgb, var(--yellow) 5%, transparent);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 16px 16px;
+}
+
+.project__action {
+  display:  flex;
+  justify-content: flex-end;
 }
 
 .project-tags {
   display: flex;
   flex-flow: row;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .project-tag {
@@ -243,11 +291,9 @@ a:hover:not(.nav-item) {
   background-color: var(--black-transparent);
   border: thin solid var(--yellow);
   padding: 4px 6px;
-  margin-right: 6px;
 }
 
 .project-content {
-  padding: 12px 0;
   display: flex;
   box-sizing: border-box;
   flex-wrap: nowrap;
