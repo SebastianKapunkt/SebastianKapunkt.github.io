@@ -43,6 +43,7 @@
   grid-gap: 16px;
   justify-content: center;
   width: calc(var(--columns) * var(--book-cover) + (var(--columns) - 1) * 32px);
+  margin-bottom: 10rem;
 }
 
 @media screen and (min-width: 980px) {

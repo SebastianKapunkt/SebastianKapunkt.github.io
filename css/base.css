@@ -122,6 +122,7 @@ a:hover:not(.nav-item) {
   flex-flow: column;
   align-items: center;
   background-color: var(--black-transparent);
+  backdrop-filter: blur(4px);
   padding-bottom: 128px;
 }
 
@@ -213,10 +214,6 @@ a:hover:not(.nav-item) {
     display: none;
   }
 
-  /*#reletter:checked #reletter-content,*/
-  /*#sweeper:checked #sweeper-content,*/
-  /*#gridpath:checked #gridpath-content*/
-
   &:has(#limethat:checked) #limethat-content,
   &:has(#reletter:checked) #reletter-content,
   &:has(#sweeper:checked) #sweeper-content,
@@ -267,7 +264,6 @@ a:hover:not(.nav-item) {
   gap: 16px;
   flex-flow: column;
   border: 1px solid color-mix(in srgb, var(--yellow) 30%, transparent);
-  background: color-mix(in srgb, var(--yellow) 5%, transparent);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   padding: 16px 16px;
