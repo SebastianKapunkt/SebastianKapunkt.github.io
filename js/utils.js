@@ -13,41 +13,30 @@ const sumPages = (books) => {
   return books.reduce((total, book) => total + book.pages, 0)
 }
 
-const hightlightNav = (navItems) => {
-  let anchorPositions = []
-  for (let i = 0; i < navItems.length; i++) {
-    navItems[i].classList.remove('nav-active')
-    anchorPositions.push(
-      [
-        navItems[i],
-        document.getElementById(navItems[i].getAttribute("href").replace("#", "")).offsetTop
-      ]
-    )
-  }
-  for (let i = 0; i < anchorPositions.length; i++) {
-    if (
-      (
-        i === anchorPositions.length - 1
-        && document.documentElement.scrollTop + 1 >= anchorPositions[i][1]
-      )
-      || (
-        document.documentElement.scrollTop >= anchorPositions[i][1]
-        && document.documentElement.scrollTop + 1 < anchorPositions[i + 1][1]
-      )
-    ) {
-      anchorPositions[i][0].classList.add("nav-active")
-      history.pushState(null, null, anchorPositions[i][0].getAttribute("href"));
-    }
-  }
-}
+const sections = document.querySelectorAll('div.anchor');
+const navItems = document.querySelectorAll('.nav-item');
 
-let navItems = document.getElementById("navigation").querySelectorAll('.nav-item')
-var timer = null;
-window.addEventListener('scroll', function () {
-  if (timer !== null) {
-    clearTimeout(timer);
-  }
-  timer = setTimeout(function () {
-    hightlightNav(navItems)
-  }, 100);
-}, false);
+const highlightNavItem = () => {
+  let currentSectionId = '';
+
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    const offset = 150;
+    if (sectionTop <= offset) {
+      currentSectionId = section.getAttribute('id');
+    }
+  });
+
+  navItems.forEach(item => {
+    item.classList.remove('nav-active');
+    const itemHref = item.getAttribute('href');
+    if (itemHref === `#${currentSectionId}`) {
+      item.classList.add('nav-active');
+    }
+  });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  highlightNavItem();
+  window.addEventListener('scroll', highlightNavItem);
+});
