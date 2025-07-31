@@ -218,7 +218,8 @@ a:hover:not(.nav-item) {
   &:has(#reletter:checked) #reletter-content,
   &:has(#sweeper:checked) #sweeper-content,
   &:has(#gridpath:checked) #gridpath-content {
-      display: flex;
+    z-index: 2;
+    opacity: 1;
   }
 }
 
@@ -260,13 +261,18 @@ a:hover:not(.nav-item) {
 }
 
 .project__content {
-  display: none;
+  width: min(100%, calc(100vw - 24px));
+  box-sizing: border-box;
+  display: flex;
+  z-index: 1;
+  opacity: 0;
+  position: absolute;
+  top: 0;
   gap: 16px;
   flex-flow: column;
   border: 1px solid color-mix(in srgb, var(--yellow) 30%, transparent);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   padding: 16px 16px;
+  transition: all 0.2s ease-in-out;
 }
 
 .project__action {
