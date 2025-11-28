@@ -1,7 +1,11 @@
 :root {
-  --book-translate: translateY(calc(var(--book-cover-height) / 2));
+  --translate-factor: calc(var(--book-cover-height) / 4);;
+  --translate-factor-2: calc(var(--book-cover-height) / 1.8);
+  --book-translate: translateY(var(--translate-factor));
+  --book-translate-2: translateY(var(--translate-factor-2));
   --book-cover: 180px;
   --book-cover-height: calc(var(--book-cover) * 1.5);
+  --columns: 1;
 }
 
 .book {
@@ -34,44 +38,55 @@
 }
 
 .book-grid {
-  --columns: 1;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(var(--columns), var(--book-cover));
   grid-gap: 16px;
   justify-content: center;
   width: calc(var(--columns) * var(--book-cover) + (var(--columns) - 1) * 32px);
-  margin-bottom: 10rem;
+  margin-bottom: 16px;
 }
 
 @media screen and (min-width: 980px) {
-  .book-grid {
+  :root{
     --columns: 5;
   }
 
-  book-preview:nth-child(5n+1) {
-    transform: translateY(var(--book-cover-height));
+  .book-grid {
+    grid-template-areas: "book-4 book-2 book-1 book-3 book-5";
+  }
+
+  book-preview:nth-child(5n+4) {
+    transform: var(--book-translate-2);
   }
 
   book-preview:nth-child(5n+2) {
     transform: var(--book-translate);
   }
 
-  book-preview:nth-child(5n+4) {
+  book-preview:nth-child(5n+3) {
     transform: var(--book-translate);
   }
 
   book-preview:nth-child(5n+5) {
-    transform: translateY(var(--book-cover-height));
+    transform: var(--book-translate-2);
+  }
+
+  .year__section {
+    margin-bottom: var(--translate-factor-2) !important;
   }
 }
 
 @media screen and (min-width: 784px) and (max-width: 980px) {
-  .book-grid {
+  :root{
     --columns: 4;
   }
 
-  book-preview:nth-child(4n+1) {
+  .book-grid {
+    grid-template-areas: "book-4 book-2 book-1 book-3";
+  }
+
+  book-preview:nth-child(4n+3) {
     transform: var(--book-translate);
   }
 
@@ -81,11 +96,15 @@
 }
 
 @media screen and (min-width: 648px) and (max-width: 784px) {
-  .book-grid {
+  :root{
     --columns: 3;
   }
 
-  book-preview:nth-child(3n+1) {
+  .book-grid {
+    grid-template-areas: "book-2 book-1 book-3";
+  }
+
+  book-preview:nth-child(3n+2) {
     transform: var(--book-translate);
   }
 
@@ -95,8 +114,12 @@
 }
 
 @media screen and (max-width: 648px) {
-  .book-grid {
+  :root{
     --columns: 2;
+  }
+
+  .book-grid {
+    grid-template-areas: "book-2 book-1";
   }
 
   book-preview:nth-child(2n+1) {
@@ -108,7 +131,7 @@
   width: var(--book-cover);
   height: var(--book-cover-height);
   box-sizing: border-box;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   flex-shrink: 0;
@@ -148,28 +171,20 @@
   white-space: nowrap;
 }
 
-.year-grid {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 16px;
-  justify-content: center;
-  margin: 32px 32px;
+.year__heading {
+  padding: 24px;
+  padding-top: 64px;
+  text-align: center;
+  font-size: 1.2em;
+  position: sticky;
+  top: 0;
+  backdrop-filter:  blur(5px);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.year-column-item {
-  padding: 8px;
-  cursor: pointer;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid transparent;
-  width: 160px;
-  z-index: 1;
-
-  &:hover {
-    border-color: var(--yellow);
-  }
+.year__section {
+  margin-bottom: var(--translate-factor);
 }
 
 .year {
@@ -178,11 +193,8 @@
   white-space: nowrap;
 }
 
-.year_active {
-  text-decoration: underline;
-}
 
-.year_content {
+.year__content {
   white-space: nowrap;
 }
 

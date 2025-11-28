@@ -807,10 +807,18 @@ const books_read = [{
     "year_read": 2025,
     "order": 0,
     "link": "https://www.goodreads.com/book/show/1574115.Die_Stadt_der_wilden_G_tter"
-  }
-]
-
-currentBooks = [
+  },
+  {
+    "title": "Slayer",
+    "authors": [{"name": "David Guymer"}],
+    "published": "2015",
+    "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1404631993i/22609165.jpg",
+    "pages": 368,
+    "isbn": "9781849708418",
+    "year_read": "2025",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/22609165-slayer?from_search=true&from_srp=true&qid=rzBavshhXy&rank=1"
+  },
   {
     "title": "Mr. Parnassus' Heim f\u00fcr magisch Begabte",
     "authors": [{"name": "T.J. Klune"}],
@@ -818,8 +826,22 @@ currentBooks = [
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1607905437l/56274450._SY475_.jpg",
     "pages": 480,
     "isbn": "9783453321366",
-    "year_read": "",
+    "year_read": "2025",
     "order": 0,
     "link": "https://www.goodreads.com/book/show/56274450-mr-parnassus-heim-f-r-magisch-begabte"
-  },
+  }
+]
+
+currentBooks = [
+  {
+    "title": "Im Gef\u00fchlsdschungel: Emotionale Krisen verstehen und bew\u00e4ltigen. Mit Online-Material",
+    "authors": [{"name": "Harlich H. Stavemann"}],
+    "published": "2023",
+    "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1680089835i/124136086.jpg",
+    "pages": 426,
+    "isbn": "9783621290128",
+    "year_read": "",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/124136086-im-gef-hlsdschungel?from_search=true&from_srp=true&qid=EsW2bn3dyh&rank=3"
+  }
 ]

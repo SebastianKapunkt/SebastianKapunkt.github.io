@@ -1,89 +1,82 @@
 class ReadingList extends HTMLElement {
-
-  connectedCallback() {
-    this.currentYear = this.getAttribute("startYear")
-    this.innerHTML = this.render()
-    this.addYearClick()
+  constructor() {
+    super()
+    this.books_read = groupBooksByAttribute(books_read, "year_read")
+    this.books_read = Object.entries(this.books_read).sort((a, b) => b[0] - a[0])
+    this.columns = window.getComputedStyle(document.body).getPropertyValue('--columns')
+    addEventListener("resize", this.onResize.bind(this))
   }
 
-  groupedBooks = groupBooksByAttribute(books_read, "year_read")
+  onResize() {
+    this.columns = window.getComputedStyle(document.body).getPropertyValue('--columns')
+    this.innerHTML = this.render()
+  }
+
+  connectedCallback() {
+    this.innerHTML = this.render()
+  }
 
   render() {
     return `
-      <div class="year-grid">
-       <div class="year-column-item" data-year="all">
-          <div class="year ${"all" === this.currentYear ? "year_active" : ""}">
-            Alle
-          </div>
+      ${this.books_read.map(([year, books]) => {
+      return `
+        <div class="year__section">
+          ${this.renderYear(year, books)}
+          ${[...this.renderBooks(books)].join("")}
         </div>
-        ${Object.keys(this.groupedBooks).sort((a, b) => a < b ? 1 : -1).map((key) =>
-            this.getYearSelect(key)
-        ).join("")}
-      </div>
-      <div class="book-grid">
-        ${this.getBooks()}
-      </div>
+      `
+      }).join("")}
     `
   }
 
-  getYearSelect(year) {
+  renderYear(year, books) {
     return `
-      <bu class="year-column-item" data-year="${year}">
-        <div class="year ${year === this.currentYear ? "year_active" : ""}">
+      <div class="year__heading">
+        <div class="year">
           ${ year === "2014" ? "2014 & Davor" : year }
         </div>
-        <div class="year_content">
-          ${sumPages(this.groupedBooks[year])} Seiten |
-          ${this.groupedBooks[year].length} 
-          ${this.groupedBooks[year].length === 1 ? "Buch" : "Bücher"}
+        <div class="year__content">
+          ${sumPages(books)} Seiten |
+          ${books.length} 
+          ${books.length === 1 ? "Buch" : "Bücher"}
         </div>
-      </bu>
+      </div>
     `
   }
 
-  getBooks() {
-    let filteredBooks
-    if (this.currentYear === "all") {
-      filteredBooks = books_read
-    } else {
-      filteredBooks = books_read.filter(book => `${book.year_read}` === this.currentYear)
-    }
-    filteredBooks.sort(
-      (a, b) => {
-        if (a.year_read < b.year_read) {
-          return 1
-        } else if (a.year_read > b.year_read) {
-          return -1
-        } else {
-          return a.title < b.title ? -1 : 1
-        }
+  * renderBooks(books) {
+    for (let i = 0; i < books.length; i++) {
+      if (i % this.columns === 0) {
+        yield `
+          <div class="book-grid">
+        `
       }
-    )
-    return `
-      ${filteredBooks.map(book => {
+      yield `
+        ${this.renderBook(books[i], i % this.columns)}
+      `
+      if (i % this.columns === this.columns - 1) {
+        yield `
+          </div>
+        `
+      }
+    }
+    if (books.length % this.columns !== 0) {
+      yield `
+        </div>
+      `
+    }
+  }
+
+  renderBook(book, index) {
       return `
-              <book-preview title="${book.title}"
-                            cover="${book.cover}"
-                            authors="${encodeURI(JSON.stringify(book.authors))}"
-                            published="${book.published}"
-                            pages="${book.pages}">
-              </book-preview>
-            `
-    }).join("")}
-    `
-  }
-
-  handleYearSelect(event) {
-    let target = event.target.closest("[data-year]")
-    this.currentYear = target.dataset.year
-    this.innerHTML = this.render()
-    this.addYearClick()
-  }
-
-  addYearClick() {
-    this.querySelectorAll("[data-year]").forEach(node => {
-      node.addEventListener("click", this.handleYearSelect.bind(this))
-    })
+        <book-preview title="${book.title}"
+                      cover="${book.cover}"
+                      style="grid-area: book-${index + 1};"
+                      authors="${encodeURI(JSON.stringify(book.authors))}"
+                      published="${book.published}"
+                      pages="${book.pages}">
+        </book-preview>
+      `
   }
 }
 
