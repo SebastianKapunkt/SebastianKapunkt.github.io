@@ -18,8 +18,6 @@ body {
   font-family: "Trebuchet MS", monospace;
   color: var(--main-text-color);
   background: black;
-  max-width: 100vw;
-  overflow-x: hidden;
 }
 
 @media screen and (max-width: 425px) {
@@ -147,36 +145,13 @@ a:hover:not(.nav-item) {
 .section__divider {
   position: relative;
   content: " ";
-  width: 14px;
-  height: 14px;
+  width: 36px;
+  height: 36px;
   transform: rotate(45deg);
-  margin: 0 auto;
+  margin: 64px auto;
   background-color: var(--yellow);
   border-radius: 4px;
   overflow: visible;
-
-  &:before {
-    position: absolute;
-    content: " ";
-    width: 250px;
-    height: 2px;
-    background: linear-gradient(to left, var(--yellow), transparent);
-    left: -260px;
-    top: 50%;
-    transform: translate(40px, 103px) rotate(-45deg);
-  }
-
-  &:after {
-    position: absolute;
-    content: " ";
-    height: 2px;
-    background-color: blue;
-    width: 250px;
-    right: -260px;
-    top: 50%;
-    background: linear-gradient(to right, var(--yellow), transparent);
-    transform: translate(-38px, -103px) rotate(-45deg);
-  }
 }
 
 .anchor {
