@@ -22,7 +22,11 @@ class ReadingList extends HTMLElement {
       return `
         <div class="year__section">
           ${this.renderYear(year, books)}
-          ${[...this.renderBooks(books)].join("")}
+          <div class="book-grid">
+            ${books.map((book, index) => {
+              return `${this.renderBook(book, index)}`
+            }).join("")}
+          </div>
         </div>
       `
       }).join("")}
@@ -44,34 +48,11 @@ class ReadingList extends HTMLElement {
     `
   }
 
-  * renderBooks(books) {
-    for (let i = 0; i < books.length; i++) {
-      if (i % this.columns === 0) {
-        yield `
-          <div class="book-grid">
-        `
-      }
-      yield `
-        ${this.renderBook(books[i], i % this.columns)}
-      `
-      if (i % this.columns === this.columns - 1) {
-        yield `
-          </div>
-        `
-      }
-    }
-    if (books.length % this.columns !== 0) {
-      yield `
-        </div>
-      `
-    }
-  }
-
   renderBook(book, index) {
       return `
         <book-preview title="${book.title}"
                       cover="${book.cover}"
-                      style="grid-area: book-${index + 1};"
+                      style="grid-row: ${Math.floor(index / this.columns) + 1};"
                       authors="${encodeURI(JSON.stringify(book.authors))}"
                       published="${book.published}"
                       pages="${book.pages}">

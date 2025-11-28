@@ -829,6 +829,17 @@ const books_read = [{
     "year_read": "2025",
     "order": 0,
     "link": "https://www.goodreads.com/book/show/56274450-mr-parnassus-heim-f-r-magisch-begabte"
+  },
+  {
+    "title": "Manna, two views of humanity's future",
+    "authors": [{"name": "Marshall Brain"}],
+    "published": "2003",
+    "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1618476714i/7902912.jpg",
+    "pages": 79,
+    "isbn": "no isbn found",
+    "year_read": "2025",
+    "order": 0,
+    "link": "https://www.goodreads.com/book/show/7902912-manna?from_search=true&from_srp=true&qid=RidbjHNUsP&rank=3"
   }
 ]
 
