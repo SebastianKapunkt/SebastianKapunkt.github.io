@@ -1,0 +1,24 @@
+.home-symbol {
+  transition: all 150ms ease-in-out;
+  border-radius: var(--outer-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --inner-radius: calc(var(--home-symbol-size) / 5);
+  --outer-radius: calc(var(--home-symbol-size) / 6);
+  --cut-size: calc(var(--home-symbol-size) / 3);
+  --a: 30deg;
+  --position: 50%;
+  --mask-top: var(--inner-radius), #000 100%, #0000;
+  --mask-bottom: calc(100% - var(--inner-radius)), #000 100%, #0000;
+  --depth: calc((var(--cut-size) + var(--inner-radius)) * cos(var(--a)));
+  --center-offset: 50%;
+  mask: /* round cut out top left */ radial-gradient(var(--inner-radius) at calc(var(--position) - var(--depth)) var(--mask-top)),
+    /* round cut out top right */ radial-gradient(var(--inner-radius) at calc(var(--position) + var(--depth)) var(--mask-top)),
+    /* round cut out bottom left */ radial-gradient(var(--inner-radius) at calc(var(--position) - var(--depth)) var(--mask-bottom)),
+    /* round cut out bottom right */ radial-gradient(var(--inner-radius) at calc(var(--position) + var(--depth)) var(--mask-bottom)),
+    /* top cut out with circle */ radial-gradient(var(--cut-size) at var(--position) calc(-1 * sin(var(--a)) * var(--cut-size)), #0000 100%, #000 0%) 0 calc(var(--inner-radius) * (1 - sin(var(--a)))) / 100% var(--center-offset) no-repeat,
+    /* bottom cut out with circle */ radial-gradient(var(--cut-size) at var(--position) calc(100% + sin(var(--a)) * var(--cut-size)),
+          #0000 100%, #000 100%) 0 calc(100% - (var(--inner-radius) * (1 - sin(var(--a))))) / 100% var(--center-offset) no-repeat,
+    /* square cut out */ linear-gradient(90deg, #000 calc(var(--position) - var(--depth)), #0000 0 calc(var(--position) + var(--depth)), #000 0);
+}

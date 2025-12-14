@@ -2,7 +2,7 @@
   --main-text-color: white;
   --black-transparent: #090909aa;
   --yellow: #f2c94c;
-  --yellow-transparent: #f2c94c11;
+  --yellow-transparent: color-mix(in srgb, var(--yellow) 12%, transparent);
   --navigation-main: black;
   --navigation-secondary: var(--yellow);
   --content-max-width: 800px;
@@ -71,7 +71,7 @@ a:hover:not(.nav-item) {
 .navigation-wrapper {
   position: fixed;
   width: 100%;
-  top: 0;
+  top: 4px;
   display: flex;
   z-index: 3;
   justify-content: center;
@@ -83,6 +83,8 @@ a:hover:not(.nav-item) {
   display: flex;
   flex-flow: row;
   justify-content: flex-end;
+  gap: 8px;
+  height: 64px;
 }
 
 @media screen and (max-width: 425px) {
@@ -181,11 +183,15 @@ a:hover:not(.nav-item) {
   justify-content: center;
   align-items: center;
   flex-flow: column;
+  background: var(--yellow-transparent);
+  --home-symbol-size: 300px;
 }
 
 @media screen and (max-width: 425px) {
   .welcome-window {
     padding: 64px 32px;
+
+    --home-symbol-size: 180px;
   }
 }
 
