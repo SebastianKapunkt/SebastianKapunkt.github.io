@@ -840,10 +840,53 @@ const books_read = [{
     "year_read": "2025",
     "order": 0,
     "link": "https://www.goodreads.com/book/show/7902912-manna?from_search=true&from_srp=true&qid=RidbjHNUsP&rank=3"
+  },
+  {
+    "title": "Mortal Engines: Krieg der St\u00e4dte (Band 1)", 
+    "authors": [{"name": "Philip Reeve"}], 
+    "published": "2001", 
+    "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1524681564i/39944109.jpg", 
+    "pages": 336, 
+    "isbn": "9783596702121", 
+    "year_read": "2026", 
+    "order": 0, 
+    "link": "https://www.goodreads.com/book/show/39944109-krieg-der-st-dte"
+  },
+  {
+    "title": "Mortal Engines: Jagd durchs Eis (Band 2)", 
+    "authors": [{"name": "Philip Reeve"}], 
+    "published": "2003", 
+    "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1542827600i/42916996.jpg", 
+    "pages": 359, 
+    "isbn": "9783596702138", 
+    "year_read": "2026", 
+    "order": 0, 
+    "link": "https://www.goodreads.com/book/show/42916996-mortal-engines"
+  },
+  {
+    "title": "Mortal Engines \u2013 Der gr\u00fcne Sturm (Band 3)", 
+    "authors": [{"name": "Philip Reeve"}], 
+    "published": "2005", 
+    "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1548599656i/43719076.jpg", 
+    "pages": 384, 
+    "isbn": "9783596702145", 
+    "year_read": "2026", 
+    "order": 0, 
+    "link": "https://www.goodreads.com/book/show/43719076-mortal-engines-der-gr-ne-sturm?"
   }
 ]
 
 currentBooks = [
+  {
+    "title": "Mortal Engines: Die verlorene Stadt", 
+    "authors": [{"name": "Philip Reeve"}], 
+    "published": "2006", 
+    "cover": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1549920674i/43925709.jpg", 
+    "pages": 600, 
+    "isbn": "9783596702152", 
+    "year_read": "", 
+    "order": 0, 
+    "link": "https://www.goodreads.com/book/show/43925709-mortal-engines"},
   {
     "title": "Im Gef\u00fchlsdschungel: Emotionale Krisen verstehen und bew\u00e4ltigen. Mit Online-Material",
     "authors": [{"name": "Harlich H. Stavemann"}],
@@ -852,7 +895,7 @@ currentBooks = [
     "pages": 426,
     "isbn": "9783621290128",
     "year_read": "",
-    "order": 0,
+    "order": 1,
     "link": "https://www.goodreads.com/book/show/124136086-im-gef-hlsdschungel?from_search=true&from_srp=true&qid=EsW2bn3dyh&rank=3"
   }
 ]
